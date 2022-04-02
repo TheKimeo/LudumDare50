@@ -1,25 +1,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent( typeof( Health ) )]
 public class RandomVertexDamage : MonoBehaviour
 {
 	static List<Vector3> s_VertexBuffer = new List<Vector3>();
 	static List<MeshFilter> s_FilterBuffer = new List<MeshFilter>();
- 
+
 	[SerializeField] int m_MaxDamagePoints = 15;
 	[SerializeField] GameObject m_DamagePrefab;
+	[SerializeField] Health m_Health;
 
 	List<GameObject> m_SpawnedPrefabs = new List<GameObject>();
 
 	private void Start()
 	{
-		SetDamage( 1.0f );
+		if ( m_Health == null )
+		{
+			Debug.Assert( false, "[RandomVertextDamage] Object " + gameObject + " has no Health component?" );
+			return;
+		}
+
+		m_Health.m_OnDamageEvent.AddListener( OnDamaged );
+	}
+
+	private void OnDamaged( Health health )
+	{
+		SetDamage( health.HealthRatio );
 	}
 
 	// 0 for no damage, 1 for maximum damage
 	public void SetDamage( float ratio )
 	{
-		int numParticles = Mathf.RoundToInt( (float)m_MaxDamagePoints * ratio );
+		int numParticles = Mathf.RoundToInt( (float) m_MaxDamagePoints * ratio );
 
 		if ( numParticles > m_SpawnedPrefabs.Count )
 		{

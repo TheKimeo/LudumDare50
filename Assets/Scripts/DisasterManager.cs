@@ -2,44 +2,29 @@ using UnityEngine;
 
 public interface IDisaster
 {
-	void TriggerDisaster();
+	void TriggerDisaster(float duration);
 }
 
 public class DisasterManager : Singleton<DisasterManager>
 {
 	[SerializeField] MeteorManager m_MeteorManager;
-	[SerializeField] float m_Config_DelayBeforeDisaster;
 
 	IDisaster[] m_Disasters;
-	float m_DelayBeforeDisaster;
 
-	void Start()
+	protected override void Awake()
     {
+		base.Awake();
+
 		m_Disasters = new IDisaster[]
 		{
 			m_MeteorManager,
 		};
-
-		m_DelayBeforeDisaster = m_Config_DelayBeforeDisaster;
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-		m_DelayBeforeDisaster -= Time.deltaTime;
-
-		if (m_DelayBeforeDisaster <= 0.0f)
-		{
-			m_DelayBeforeDisaster += m_Config_DelayBeforeDisaster;
-
-			TriggerDisaster();
-		}
-	}
-
-	public void TriggerDisaster()
+	public void TriggerDisaster( float duration )
 	{
 		IDisaster disaster = SelectDisaster();
-		disaster.TriggerDisaster();
+		disaster.TriggerDisaster( duration );
 	}
 
 	IDisaster SelectDisaster()

@@ -6,6 +6,6 @@ public class DisasterEvent : EventBehaviour
 	public override void ApplyEvent( EventManager.Event e )
 	{
 		DisasterManager disasterManager = DisasterManager.Instance;
-		disasterManager.TriggerDisaster();
+		disasterManager.TriggerDisaster( e.m_Duration );
 	}
 }

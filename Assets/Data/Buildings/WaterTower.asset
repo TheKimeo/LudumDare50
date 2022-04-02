@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d37761f878a05428be147e107030c7, type: 3}
   m_Name: WaterTower
   m_EditorClassIdentifier: 
-  m_ghost: {fileID: 8589231944921126619, guid: 17284735fd06def47aca3f52d5356e85, type: 3}
-  m_real: {fileID: 2565283955315660371, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
+  m_ghost: {fileID: 8037583397303059778, guid: 6d4ac2af2f7b7624eacb76a5bd60ae49, type: 3}
+  m_real: {fileID: 8037583397303059778, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
+  m_UI_Icon: {fileID: 0}

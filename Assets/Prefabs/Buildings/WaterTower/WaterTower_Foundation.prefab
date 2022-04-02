@@ -1591,6 +1591,7 @@ GameObject:
   - component: {fileID: 5464871633448158149}
   - component: {fileID: 6347705079953741728}
   - component: {fileID: -3125697864758554829}
+  - component: {fileID: -4145247001466857833}
   m_Layer: 0
   m_Name: WaterTower_Foundation
   m_TagString: Untagged
@@ -1720,6 +1721,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddba2bd2e9d4d6a4b8aefef52ff8b478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &-4145247001466857833
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8589231944921126619}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8654554093461155677
 GameObject:
   m_ObjectHideFlags: 0

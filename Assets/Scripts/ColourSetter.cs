@@ -13,13 +13,18 @@ public class ColourSetter : MonoBehaviour
         m_materials = new List<Material>();
         m_baseColours = new List<Color>();
         //Get material data for all child objects and self. There will be repeats, shouldnt matter
+        { 
+            Renderer rend = GetComponent<Renderer>();
 
-        m_materials.Add(GetComponent<Renderer>().material);
-        m_baseColours.Add(GetComponent<Renderer>().material.GetColor("_Color"));
-
+            if (rend != null)
+            {
+                m_materials.Add(rend.material);
+                m_baseColours.Add(rend.material.GetColor("_Color"));
+            }
+        }
         foreach (Transform child in transform)
         {
-            Renderer rend = transform.gameObject.GetComponent<Renderer>();
+            Renderer rend = child.gameObject.GetComponent<Renderer>();
             if(rend != null)
             {
                 m_materials.Add(rend.material);

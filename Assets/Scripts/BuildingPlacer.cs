@@ -6,31 +6,30 @@ using UnityEngine;
 
 public class BuildingPlacer : MonoBehaviour
 {
-
-  
-    public GameObject m_ghostPrefab;
+    public BuildingPrefabFactory m_buildingPrefabFactory;
 
     private GameObject m_ghostBuilding;
     private BuildingTypes m_typeToPlace = BuildingTypes.INVALID;
     private bool m_enabled = false;
     private int m_layerMask;
 
-
+    //---------------------------
     public void Enable(BuildingTypes i_toPlace)
     {
         m_typeToPlace = i_toPlace;
         m_enabled = true;
 
-        m_ghostBuilding = Instantiate(m_ghostPrefab, new Vector3(0,0,0), Quaternion.identity);
+        m_ghostBuilding = m_buildingPrefabFactory.CreateGhost(m_typeToPlace, Vector3.zero);
     }
 
+    //---------------------------
     public void Disable()
     {
         m_typeToPlace = BuildingTypes.INVALID;
         m_enabled = false;
     }
 
-
+    //---------------------------
     void Start()
     {
         m_layerMask = LayerMask.GetMask("PlaceableGround");
@@ -38,7 +37,7 @@ public class BuildingPlacer : MonoBehaviour
         Enable(BuildingTypes.Test1);
     }
 
-    // Update is called once per frame
+    //---------------------------
     void Update()
     {
         if(!m_enabled)
@@ -53,13 +52,17 @@ public class BuildingPlacer : MonoBehaviour
             m_ghostBuilding.transform.position = placePos;
         }
 
+
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(m_ghostPrefab, placePos, Quaternion.identity);
+            m_buildingPrefabFactory.CreateReal(m_typeToPlace, placePos);
         }
+
+        //TODO? Rotate buildings
     }
 
 
+    //---------------------------
     //Raycast from mouse to ground
     bool GetPlacementPosition(ref Vector3 hitPos)
     {

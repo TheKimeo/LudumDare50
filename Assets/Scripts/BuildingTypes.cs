@@ -10,6 +10,7 @@ public enum BuildingTypes
 
 
 
+    COUNT,
     INVALID
 }
 

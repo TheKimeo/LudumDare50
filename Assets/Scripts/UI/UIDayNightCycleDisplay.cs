@@ -7,12 +7,9 @@ public class UIDayNightCycleDisplay : MonoBehaviour
 
 	private void Start()
 	{
-		float width = m_DayNightCycleImage.rect.width;
-		m_DayNightCycleImage.SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal );
 	}
 
 	private void LateUpdate()
 	{
-		
 	}
 }

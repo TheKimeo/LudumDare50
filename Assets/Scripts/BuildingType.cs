@@ -5,6 +5,6 @@ public class BuildingType : ScriptableObject
 {
 	[SerializeField] public GameObject m_ghost;
 	[SerializeField] public GameObject m_real;
-
+	[SerializeField] public Sprite m_UI_Icon;
 
 }

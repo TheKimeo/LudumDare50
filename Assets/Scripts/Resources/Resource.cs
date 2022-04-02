@@ -7,7 +7,7 @@ public class Resource : ScriptableObject
 	[SerializeField] public float m_MinValue;
 	[SerializeField] public float m_MaxValue;
 
-	float m_Value;
+	public float m_Value;
 
 	public void Initialise()
 	{

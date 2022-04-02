@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d37761f878a05428be147e107030c7, type: 3}
   m_Name: Radar
   m_EditorClassIdentifier: 
-  m_ghost: {fileID: 0}
-  m_real: {fileID: 0}
+  m_ghost: {fileID: 4125278299751470174, guid: 90e46ef1f2725a24494276c82ad2444c, type: 3}
+  m_real: {fileID: 4125278299751470174, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
   m_UI_Icon: {fileID: 0}
+  m_costData:
+  - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
+    m_buildCost: 500
+    m_runCost: 0
+  - m_resourceType: {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}
+    m_buildCost: 500
+    m_runCost: 0

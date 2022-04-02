@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ghost: {fileID: 8104518685104332091, guid: e4a0877a0290ae34d908bc325e1ea0d9, type: 3}
   m_real: {fileID: 8104518685104332091, guid: e2424c4a8d656474ea9b32f8d2020103, type: 3}
+  m_UI_Icon: {fileID: 0}
+  m_costData:
+  - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
+    m_buildCost: 500
+    m_runCost: 10
+  - m_resourceType: {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}
+    m_buildCost: 500
+    m_runCost: 10

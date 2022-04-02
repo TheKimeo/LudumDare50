@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1731177816373461005}
   - component: {fileID: 5450588956873704579}
   - component: {fileID: 460279560513554527}
+  - component: {fileID: -4579365246746013719}
   m_Layer: 7
   m_Name: LandingPad
   m_TagString: Untagged
@@ -125,3 +126,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxDamagePoints: 15
   m_DamagePrefab: {fileID: 3298264850497860575, guid: 26ee065aa3ae1cd46b7e1922190251ef, type: 3}
+--- !u!114 &-4579365246746013719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104518685104332091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1364ccef14b26d40931a538816f80b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_buildingType: {fileID: 11400000, guid: 4cb82becf55e57242a6b31e3f3a4ae1a, type: 2}

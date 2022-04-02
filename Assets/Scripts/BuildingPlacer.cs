@@ -67,7 +67,27 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
         {
             if (m_ghostBuilding.GetComponent<BuildingFoundation>().IsSafeToPlace())
             {
-                Instantiate(m_typeToPlace.m_real, placePos, Quaternion.identity);
+                bool canBuild = true;
+                foreach(BuildingType.Cost cost in m_typeToPlace.m_costData)
+                {
+                    if(!cost.m_resourceType.CanConsume(cost.m_buildCost))
+                    {
+                        //Todo fire off a message for each type that we dont have enough of
+                        canBuild = false;
+                        Debug.Log("Not enough resource to build!");
+                    }
+               
+                }
+
+                if (canBuild)
+                {
+                    foreach (BuildingType.Cost cost in m_typeToPlace.m_costData)
+                    {
+                        cost.m_resourceType.Modify(-cost.m_buildCost);
+                    }
+                    Instantiate(m_typeToPlace.m_real, placePos, Quaternion.identity);
+
+                }
             }
             else
             {

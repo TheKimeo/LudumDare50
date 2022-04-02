@@ -11,7 +11,6 @@ public class CameraControl : MonoBehaviour
 
     public float m_mapRadius = 70;
 
-
     public float m_minDistToTerrain = 5.0f;
     public float m_maxDistToTerrain = 50.0f;
 

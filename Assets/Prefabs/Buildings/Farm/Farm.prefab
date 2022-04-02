@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 524111513683615585}
   - component: {fileID: -5347580122260877346}
   - component: {fileID: 2486976440038583595}
+  - component: {fileID: 3054973209615317384}
   m_Layer: 7
   m_Name: Farm
   m_TagString: Untagged
@@ -584,6 +585,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxDamagePoints: 15
   m_DamagePrefab: {fileID: 3298264850497860575, guid: 26ee065aa3ae1cd46b7e1922190251ef, type: 3}
+--- !u!114 &3054973209615317384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390758213304100118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1364ccef14b26d40931a538816f80b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_buildingType: {fileID: 11400000, guid: db178a9113942924086757a7af2fe593, type: 2}
 --- !u!1 &4963785143027325346
 GameObject:
   m_ObjectHideFlags: 0

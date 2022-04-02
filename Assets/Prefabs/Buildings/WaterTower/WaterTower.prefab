@@ -1972,6 +1972,7 @@ GameObject:
   - component: {fileID: 7258380495519449818}
   - component: {fileID: 772077361452570086}
   - component: {fileID: 3751415651361670329}
+  - component: {fileID: 138981985168138374}
   m_Layer: 7
   m_Name: WaterTower
   m_TagString: Untagged
@@ -2054,6 +2055,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxDamagePoints: 30
   m_DamagePrefab: {fileID: 3298264850497860575, guid: 26ee065aa3ae1cd46b7e1922190251ef, type: 3}
+--- !u!114 &138981985168138374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8037583397303059778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1364ccef14b26d40931a538816f80b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_buildingType: {fileID: 11400000, guid: 0ca83129a2b71224d9918bcdba966a11, type: 2}
 --- !u!1 &8169042507524718337
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,6 +54,13 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
             m_ghostBuilding.transform.position = placePos;
         }
 
+		bool exitMode = Input.GetMouseButtonDown( 1 ) || Input.GetKeyDown(KeyCode.Escape);
+		if ( exitMode )
+		{
+			Disable();
+			return;
+		}
+
 		bool mouseDown = Input.GetMouseButtonDown( 0 );
 		bool mouseOverUI = EventSystem.current.IsPointerOverGameObject();
         if ( mouseDown && mouseOverUI == false )

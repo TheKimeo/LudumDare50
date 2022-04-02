@@ -62,7 +62,14 @@ public class BuildingPlacer : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(m_typeToPlace.m_real, placePos, Quaternion.identity);
+            if (m_ghostBuilding.GetComponent<BuildingFoundation>().IsSafeToPlace())
+            {
+                Instantiate(m_typeToPlace.m_real, placePos, Quaternion.identity);
+            }
+            else
+            {
+                //TODO fire off a msg saying nope
+            }
         }
 
         //TODO? Rotate buildings

@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UITimeDisplay : MonoBehaviour
+public class UIEventDisplay : MonoBehaviour
 {
-	[SerializeField] RectTransform m_Timeline;
+	[SerializeField] UITimeline m_Timeline;
+	[SerializeField] RectTransform m_EventParent;
 	[SerializeField] RectTransform m_EventPrefab;
-	[Space]
-	[SerializeField] float m_TimelineDuration;
 
 	TimeManager m_TimeManager;
 	EventManager m_EventManager;
@@ -70,7 +69,7 @@ public class UITimeDisplay : MonoBehaviour
 
 	private RectTransform AddTimeEvent( EventManager.Event e )
 	{
-		RectTransform newEvent = GameObject.Instantiate( m_EventPrefab, m_Timeline );
+		RectTransform newEvent = GameObject.Instantiate( m_EventPrefab, m_EventParent );
 		m_TimeEvents.Add( e, newEvent );
 		return newEvent;
 	}
@@ -86,16 +85,16 @@ public class UITimeDisplay : MonoBehaviour
 	float GetTimelineRelativePosition(float time)
 	{
 		float timeDifference = time - m_TimeManager.m_CurrentTime;
-		float timeDifferenceRatio = timeDifference / m_TimelineDuration;
+		float timeDifferenceRatio = timeDifference / m_Timeline.Duration;
 
-		float timelineWidth = m_Timeline.rect.width;
+		float timelineWidth = m_EventParent.rect.width;
 		return timeDifferenceRatio * timelineWidth;
 	}
 
 	float GetTimelineRelativeSize( float time )
 	{
-		float timeRatio = time / m_TimelineDuration;
-		float timelineWidth = m_Timeline.rect.width;
+		float timeRatio = time / m_Timeline.Duration;
+		float timelineWidth = m_EventParent.rect.width;
 		return timeRatio * timelineWidth;
 	}
 }

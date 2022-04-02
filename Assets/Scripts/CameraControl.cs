@@ -9,6 +9,8 @@ public class CameraControl : MonoBehaviour
     public float m_inertiaBase = 1000;
     public float m_inertiaLerpTime = 4f;
 
+    public float m_mapRadius = 70;
+
 
     public float m_minDistToTerrain = 5.0f;
     public float m_maxDistToTerrain = 50.0f;
@@ -61,6 +63,16 @@ public class CameraControl : MonoBehaviour
         float zMov = Input.GetAxis("Vertical") * m_moveSpeed * Time.deltaTime;
         Vector3 newPos = new Vector3(transform.position.x + xMov, transform.position.y, transform.position.z + zMov);
 
+        //Clamp pos
+        Vector2 pos2d = new Vector2(newPos.x, newPos.z);
+        float distance = Vector2.Distance(pos2d, Vector2.zero);
+        if (distance > m_mapRadius)
+        {
+            Vector2 dirVec = pos2d * (m_mapRadius / distance);
+            pos2d = dirVec;
+            newPos.x = pos2d.x;
+            newPos.z = pos2d.y;
+        }
 
         ZoomState zoomState = CheckZoom();
 

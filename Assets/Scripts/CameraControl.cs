@@ -25,7 +25,6 @@ public class CameraControl : MonoBehaviour
             newPos -= transform.forward * m_zoomSpeed;
         }
 
-
         transform.position = newPos;
     }
 }

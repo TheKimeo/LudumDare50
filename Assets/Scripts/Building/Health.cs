@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
 	[SerializeField] float m_InitialHealthRatio = 1.0f;
 	[SerializeField] float m_MaxHealth = 100.0f;
 
-	[SerializeField] public OnDamageEvent m_OnDamageEvent;
+	[SerializeField] public OnDamageEvent m_OnDamageEvent = new OnDamageEvent();
 
 	float m_Health;
 
@@ -21,7 +21,14 @@ public class Health : MonoBehaviour
 
 	public void Modify( float amount )
 	{
-		m_Health = Mathf.Clamp( m_Health + amount, 0, m_MaxHealth );
+		float newHealth = Mathf.Clamp( m_Health + amount, 0, m_MaxHealth );
+
+		if (newHealth == m_Health)
+		{
+			return;
+		}
+
+		m_Health = newHealth;
 
 		m_OnDamageEvent?.Invoke( this );
 	}

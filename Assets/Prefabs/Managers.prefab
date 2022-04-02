@@ -652,4 +652,4 @@ MonoBehaviour:
   m_MeteorPrefab: {fileID: 7524829497299245041, guid: 20458189e8086bd4b9b9af288b7c7821, type: 3}
   m_MeteorSpawnRadius: 70
   m_MeteorSpawnHeight: 30
-  m_DelayBetweenMeteors: 0.25
+  m_DelayBetweenMeteors: 0.01

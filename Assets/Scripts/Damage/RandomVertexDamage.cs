@@ -26,7 +26,8 @@ public class RandomVertexDamage : MonoBehaviour
 
 	private void OnDamaged( Health health )
 	{
-		SetDamage( health.HealthRatio );
+		float damageRatio = 1.0f - health.HealthRatio;
+		SetDamage( damageRatio );
 	}
 
 	// 0 for no damage, 1 for maximum damage

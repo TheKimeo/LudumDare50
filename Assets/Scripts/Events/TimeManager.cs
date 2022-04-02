@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class TimeManager : Singleton<TimeManager>
 {
-	[SerializeField] float m_DayLength;
-	[SerializeField] float m_NightLength;
+	[SerializeField] float m_DayDuration;
+	[SerializeField] float m_NightDuration;
 
 	[HideInInspector] public float m_CurrentTime;
 
-	public float WholeDayLength => m_DayLength + m_NightLength;
+	public float CycleDuration => m_DayDuration + m_NightDuration;
+	public int Cycle => Mathf.FloorToInt( m_CurrentTime / CycleDuration );
+	public float CycleDayStartTime => Cycle * CycleDuration;
+	public float CycleNightStartTime => Cycle * CycleDuration + m_DayDuration;
 
-	public float CycleRatio => m_CurrentTime % WholeDayLength;
-	public int Cycle => Mathf.FloorToInt( m_CurrentTime / WholeDayLength );
+	public float DayRatio => ( m_CurrentTime - CycleDayStartTime ) / m_DayDuration;
+	public float NightRatio => ( m_CurrentTime - CycleNightStartTime ) / m_NightDuration;
+	public bool IsDay => m_CurrentTime < CycleNightStartTime;
 
 	private void Start()
 	{

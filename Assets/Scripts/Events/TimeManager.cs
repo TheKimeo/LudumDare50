@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class TimeManager : Singleton<TimeManager>
 {
-	[SerializeField] float m_DayDuration;
-	[SerializeField] float m_NightDuration;
+	[SerializeField] float m_DayDuration = 30.0f;
+	[SerializeField] float m_NightDuration = 30.0f;
+	[SerializeField] float m_InitialTime = 0.0f;
 
 	[HideInInspector] public float m_CurrentTime;
 
@@ -16,9 +17,11 @@ public class TimeManager : Singleton<TimeManager>
 	public float NightRatio => ( m_CurrentTime - CycleNightStartTime ) / m_NightDuration;
 	public bool IsDay => m_CurrentTime < CycleNightStartTime;
 
-	private void Start()
+	protected override void Awake()
 	{
-		m_CurrentTime = 0.0f;
+		base.Awake();
+
+		m_CurrentTime = m_InitialTime;
 	}
 
 	private void Update()

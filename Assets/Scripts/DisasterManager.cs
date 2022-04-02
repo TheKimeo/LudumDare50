@@ -5,7 +5,7 @@ public interface IDisaster
 	void TriggerDisaster();
 }
 
-public class DisasterManager : MonoBehaviour
+public class DisasterManager : Singleton<DisasterManager>
 {
 	[SerializeField] MeteorManager m_MeteorManager;
 	[SerializeField] float m_Config_DelayBeforeDisaster;
@@ -36,7 +36,7 @@ public class DisasterManager : MonoBehaviour
 		}
 	}
 
-	void TriggerDisaster()
+	public void TriggerDisaster()
 	{
 		IDisaster disaster = SelectDisaster();
 		disaster.TriggerDisaster();

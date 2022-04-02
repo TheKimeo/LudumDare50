@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class MeteorManager : MonoBehaviour, IDisaster
 {
-	[SerializeField] Transform m_MeteorSpawnArea;
 	[SerializeField] GameObject m_MeteorPrefab;
+	[SerializeField] float m_MeteorSpawnRadius;
+	[SerializeField] float m_MeteorSpawnHeight;
 	[SerializeField] float m_DelayBetweenMeteors;
 
 	float m_StopMeteorTime;
@@ -43,11 +44,8 @@ public class MeteorManager : MonoBehaviour, IDisaster
 
 	Vector3 GetSpawnLocation()
 	{
-		Vector3 min = m_MeteorSpawnArea.position - m_MeteorSpawnArea.localScale / 2.0f;
-		Vector3 max = m_MeteorSpawnArea.position + m_MeteorSpawnArea.localScale / 2.0f;
-
-		Vector3 position = new Vector3( Random.Range( min.x, max.x ), Random.Range( min.y, max.y ), Random.Range( min.z, max.z ) );
-		return position;
+		Vector2 spawnPosition = Random.insideUnitCircle* m_MeteorSpawnRadius;
+		return new Vector3( spawnPosition.x, m_MeteorSpawnHeight, spawnPosition.y );
 	}
 
 	void IDisaster.TriggerDisaster( float duration )

@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-
-
-public class BuildingPlacer : MonoBehaviour
+public class BuildingPlacer : Singleton<BuildingPlacer>
 {
-    public BuildingType DUMMY_TYPE; 
-
     private GameObject m_ghostBuilding = null;
     private BuildingType m_typeToPlace;
     private bool m_enabled = false;
@@ -40,8 +37,6 @@ public class BuildingPlacer : MonoBehaviour
     void Start()
     {
         m_layerMask = LayerMask.GetMask("PlaceableGround");
-
-        Enable(DUMMY_TYPE);
     }
 
     //---------------------------
@@ -59,8 +54,9 @@ public class BuildingPlacer : MonoBehaviour
             m_ghostBuilding.transform.position = placePos;
         }
 
-
-        if (Input.GetMouseButtonDown(0))
+		bool mouseDown = Input.GetMouseButtonDown( 0 );
+		bool mouseOverUI = EventSystem.current.IsPointerOverGameObject();
+        if ( mouseDown && mouseOverUI == false )
         {
             if (m_ghostBuilding.GetComponent<BuildingFoundation>().IsSafeToPlace())
             {

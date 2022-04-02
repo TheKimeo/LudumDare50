@@ -7,7 +7,7 @@ public class BuildingFoundation : MonoBehaviour
     private int m_layerMask;
     private bool m_safeToPlace = true;
     private ColourSetter m_colComp;
-
+    private uint m_colCounter = 0;
 
     public bool IsSafeToPlace()
     {
@@ -27,16 +27,22 @@ public class BuildingFoundation : MonoBehaviour
         {
             m_safeToPlace = false;
             m_colComp.SetColour(Color.red);
+            ++m_colCounter;
+
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if ((m_layerMask & (1 << other.gameObject.layer)) != 0)
+        if ((m_layerMask & (1 << other.gameObject.layer)) != 0 && m_colCounter > 0)
         {
-            m_safeToPlace = true;
-            m_colComp.SetColour(Color.green);
+            --m_colCounter;
+            if (m_colCounter == 0)
+            {
+                m_safeToPlace = true;
+                m_colComp.SetColour(Color.green);
 
+            }
         }
     }
 

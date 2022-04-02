@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d37761f878a05428be147e107030c7, type: 3}
   m_Name: Test1
   m_EditorClassIdentifier: 
-  m_ghost: {fileID: 0}
-  m_real: {fileID: 0}
-  m_MaxValue: 0
+  m_ghost: {fileID: 8767387583314355355, guid: 2718e9b9c751f364ab099ab5a0c8eb10, type: 3}
+  m_real: {fileID: 1817575327105358685, guid: 68f0bddacdbbe5549a16afbbc902b0fc, type: 3}

@@ -8,7 +8,7 @@ public class BuildingPlacer : MonoBehaviour
 {
     public BuildingType DUMMY_TYPE; 
 
-    private GameObject m_ghostBuilding;
+    private GameObject m_ghostBuilding = null;
     private BuildingType m_typeToPlace;
     private bool m_enabled = false;
     private int m_layerMask;
@@ -19,6 +19,11 @@ public class BuildingPlacer : MonoBehaviour
         m_typeToPlace = i_toPlace;
         m_enabled = true;
 
+        if(m_ghostBuilding != null)
+        {
+            Destroy(m_ghostBuilding);
+        }
+
         m_ghostBuilding = Instantiate(m_typeToPlace.m_ghost, Vector3.zero, Quaternion.identity);
     }
 
@@ -28,6 +33,8 @@ public class BuildingPlacer : MonoBehaviour
         m_enabled = false;
         Destroy(m_ghostBuilding);
     }
+
+
 
     //---------------------------
     void Start()

@@ -185,7 +185,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  m_Color: {r: 0.11820543, g: 0.11814701, b: 0.14150941, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -290,7 +290,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -523,8 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f3b9955fd36d14d99c2a665a159026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DayDuration: 30
-  m_NightDuration: 30
+  m_DayDuration: 100
+  m_NightDuration: 20
   m_InitialTime: 10
   m_CurrentTime: 0
 --- !u!1 &3219916763144916147

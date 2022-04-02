@@ -6,27 +6,27 @@ using UnityEngine;
 
 public class BuildingPlacer : MonoBehaviour
 {
-    public BuildingPrefabFactory m_buildingPrefabFactory;
+    public BuildingType DUMMY_TYPE; 
 
     private GameObject m_ghostBuilding;
-    private BuildingTypes m_typeToPlace = BuildingTypes.INVALID;
+    private BuildingType m_typeToPlace;
     private bool m_enabled = false;
     private int m_layerMask;
 
     //---------------------------
-    public void Enable(BuildingTypes i_toPlace)
+    public void Enable(BuildingType i_toPlace)
     {
         m_typeToPlace = i_toPlace;
         m_enabled = true;
 
-        m_ghostBuilding = m_buildingPrefabFactory.CreateGhost(m_typeToPlace, Vector3.zero);
+        m_ghostBuilding = Instantiate(m_typeToPlace.m_ghost, Vector3.zero, Quaternion.identity);
     }
 
     //---------------------------
     public void Disable()
     {
-        m_typeToPlace = BuildingTypes.INVALID;
         m_enabled = false;
+        Destroy(m_ghostBuilding);
     }
 
     //---------------------------
@@ -34,7 +34,7 @@ public class BuildingPlacer : MonoBehaviour
     {
         m_layerMask = LayerMask.GetMask("PlaceableGround");
 
-        Enable(BuildingTypes.Test1);
+        Enable(DUMMY_TYPE);
     }
 
     //---------------------------
@@ -55,7 +55,7 @@ public class BuildingPlacer : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            m_buildingPrefabFactory.CreateReal(m_typeToPlace, placePos);
+            Instantiate(m_typeToPlace.m_real, placePos, Quaternion.identity);
         }
 
         //TODO? Rotate buildings

@@ -15,3 +15,4 @@ MonoBehaviour:
   m_ghost: {fileID: 8767387583314355355, guid: 2718e9b9c751f364ab099ab5a0c8eb10, type: 3}
   m_real: {fileID: 1817575327105358685, guid: 68f0bddacdbbe5549a16afbbc902b0fc, type: 3}
   m_UI_Icon: {fileID: 21300000, guid: 1260585d2a39e084385ad657d1367723, type: 3}
+  m_costData: []

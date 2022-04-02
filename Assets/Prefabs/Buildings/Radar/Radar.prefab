@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: -8510256282124375301}
   - component: {fileID: 5186527952180080470}
   - component: {fileID: 1681547373536423908}
+  - component: {fileID: 4585101983960661754}
   m_Layer: 7
   m_Name: Radar
   m_TagString: Untagged
@@ -190,6 +191,21 @@ MonoBehaviour:
   m_MaxDamagePoints: 15
   m_DamagePrefab: {fileID: 3298264850497860575, guid: 26ee065aa3ae1cd46b7e1922190251ef, type: 3}
   m_Health: {fileID: 5186527952180080470}
+--- !u!114 &4585101983960661754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125278299751470174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02872e87feb29c748bcbce7557931ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformToSpin: {fileID: 7865219231774431184}
+  m_Axis: {x: 0, y: 1, z: 0}
+  m_Speed: 50
 --- !u!1 &4499910337065081707
 GameObject:
   m_ObjectHideFlags: 0

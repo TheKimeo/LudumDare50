@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca37cf5f11c2280489d863ad1934c923, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  m_InitialValue: 3
-  m_MaxValue: 10
+  m_InitialValue: 250
   m_MinValue: 0
+  m_MaxValue: 999
+  m_insufficientNotif: {fileID: 11400000, guid: 3afdb831565c980429ae61a76f38f7ee, type: 2}
+  m_Value: 280

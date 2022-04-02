@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class BuildingPlacer : Singleton<BuildingPlacer>
 {
+    public NotificationManager m_notifMngr;
+    public Notification m_invalidPosNotif;
+
     private GameObject m_ghostBuilding = null;
     private BuildingType m_typeToPlace;
     private bool m_enabled = false;
@@ -74,7 +77,11 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
                     {
                         //Todo fire off a message for each type that we dont have enough of
                         canBuild = false;
-                        Debug.Log("Not enough resource to build!");
+                        
+                        //Trigger callback with our notification
+                        
+                        m_notifMngr.PushNotif(cost.m_resourceType.m_insufficientNotif);
+                        
                     }
                
                 }
@@ -91,7 +98,9 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
             }
             else
             {
-                //TODO fire off a msg saying nope
+               
+                m_notifMngr.PushNotif(m_invalidPosNotif);
+                
             }
         }
 

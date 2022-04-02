@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fc198c85075e7b4090102492f2f9254, type: 3}
-  m_Name: Environment_BigCrater
+  m_Name: Environment_CraterSmall
   m_EditorClassIdentifier: 
-  m_Prefab: {fileID: 1238326953040410402, guid: 6f5465da67478e34791fc5299d6aa31b, type: 3}
+  m_Prefab: {fileID: 2361803386228833033, guid: 9698f95e51aae464684dfdd81ac8acca, type: 3}
   m_Weighting: 1
   m_MinScale: 1
   m_MaxScale: 2

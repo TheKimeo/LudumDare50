@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EnvironmentDistributer : MonoBehaviour
 {
-	[SerializeField] float m_Radius;
+	[SerializeField] float m_OuterRadius = 70.0f;
+	[SerializeField] float m_InnerRadius = 5.0f;
 	[SerializeField] float m_Density;
 	[SerializeField] EnvironmentPrefab[] m_Decorations;
 
@@ -10,12 +11,20 @@ public class EnvironmentDistributer : MonoBehaviour
 	{
 		float totalWeighting = CalculateTotalWeighting();
 
-		float area = Mathf.PI * m_Radius * m_Radius;
-		float toSpawnCount = area * m_Density / 20.0f; //Magic number to help with input scales
+		float outterArea = Mathf.PI * m_OuterRadius * m_OuterRadius;
+		float toSpawnCount = outterArea * m_Density / 20.0f; //Magic number to help with input scales
+
+		float innerRadiusSqr = m_InnerRadius * m_InnerRadius;
 
 		for ( int i = 0; i < toSpawnCount; ++i )
 		{
-			Vector2 xzPosition = Random.insideUnitCircle * m_Radius;
+			Vector2 xzPosition = Random.insideUnitCircle * m_OuterRadius;
+			if ( xzPosition.SqrMagnitude() < innerRadiusSqr )
+			{
+				//Skip points in the inner circle. We are calculating the count from density so this should still give an even covering
+				continue;
+			}
+
 			Vector3 position = new Vector3( xzPosition.x, 0.0f, xzPosition.y );
 
 			float randomRotation = Random.Range( 0.0f, 360.0f );

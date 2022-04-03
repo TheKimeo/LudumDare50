@@ -5,6 +5,7 @@ public class SpinTransform : MonoBehaviour
 	[SerializeField] Transform m_TransformToSpin;
 	[SerializeField] Vector3 m_Axis = Vector3.up;
 	[SerializeField] float m_Speed = 50.0f;
+	[SerializeField] BuildingState m_BuildingState;
 
 	private void Start()
 	{
@@ -17,6 +18,11 @@ public class SpinTransform : MonoBehaviour
 
 	private void Update()
 	{
+		if ( m_BuildingState != null && m_BuildingState.OperationalRatio <= 0.0f )
+		{
+			return;
+		}
+
 		m_TransformToSpin.rotation *= Quaternion.AngleAxis( m_Speed * Time.deltaTime, m_Axis );
 	}
 }

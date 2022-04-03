@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d37761f878a05428be147e107030c7, type: 3}
   m_Name: House
   m_EditorClassIdentifier: 
-  m_popCapIncrease: 50
+  m_popCapIncrease: 20
   m_ghost: {fileID: 4390758213304100118, guid: 2f31f7df2a9f407418ce894599dd8a18, type: 3}
   m_real: {fileID: 4390758213304100118, guid: 267170e9dd62442408047093e7098dae, type: 3}
   m_UI_Icon: {fileID: 21300000, guid: 9978d71504ee41843866d23806b7c312, type: 3}

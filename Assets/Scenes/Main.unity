@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: House
       objectReference: {fileID: 0}
+    - target: {fileID: 7825374453485875215, guid: 267170e9dd62442408047093e7098dae, type: 3}
+      propertyPath: m_InitialHealthRatio
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 267170e9dd62442408047093e7098dae, type: 3}
 --- !u!1001 &362751947
@@ -238,6 +242,10 @@ PrefabInstance:
     - target: {fileID: 8037583397303059778, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
       propertyPath: m_Name
       value: WaterTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037583397303059778, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
@@ -493,6 +501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farm
       objectReference: {fileID: 0}
+    - target: {fileID: 4390758213304100118, guid: 1cdd3a4ce2f742d48ae6b2272515ba28, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8699038115730807835, guid: 1cdd3a4ce2f742d48ae6b2272515ba28, type: 3}
       propertyPath: m_Radius
       value: 2.5
@@ -557,6 +569,10 @@ PrefabInstance:
     - target: {fileID: 4390758213304100118, guid: 37f4ec95692569945bd03b8b7dc274b7, type: 3}
       propertyPath: m_Name
       value: Drill
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390758213304100118, guid: 37f4ec95692569945bd03b8b7dc274b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37f4ec95692569945bd03b8b7dc274b7, type: 3}
@@ -741,6 +757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radar
       objectReference: {fileID: 0}
+    - target: {fileID: 4125278299751470174, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4138355435895338927, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
       propertyPath: m_InitialHealthRatio
       value: 1
@@ -769,6 +789,10 @@ PrefabInstance:
     - target: {fileID: 8104518685104332091, guid: e2424c4a8d656474ea9b32f8d2020103, type: 3}
       propertyPath: m_Name
       value: LandingPad
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104518685104332091, guid: e2424c4a8d656474ea9b32f8d2020103, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8877395728496363393, guid: e2424c4a8d656474ea9b32f8d2020103, type: 3}
       propertyPath: m_RootOrder
@@ -827,24 +851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c688a79896e0b4cb38e5c131763e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2128282553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1587389253668109449, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
-  m_PrefabInstance: {fileID: 821263990}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2128282559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128282553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c6193c01d2bae64a951033a3cc093d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_sphereRad: 0.5
 --- !u!1001 &3219916762203279065
 PrefabInstance:
   m_ObjectHideFlags: 0

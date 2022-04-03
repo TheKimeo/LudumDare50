@@ -4882,6 +4882,7 @@ GameObject:
   - component: {fileID: 4009553836228149164}
   - component: {fileID: 3860023619815703883}
   - component: {fileID: 8687415349365557106}
+  - component: {fileID: 558543694100285605}
   m_Layer: 7
   m_Name: Drill
   m_TagString: Untagged
@@ -4919,7 +4920,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_destroyEffect: {fileID: 5911326517145702321, guid: d493d9243f4bcfd44a140b068e4db571, type: 3}
-  m_repairTime: {fileID: 11400000, guid: 8f7a70a14221a1e489803da79299114a, type: 2}
 --- !u!114 &8687415349365557106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4932,6 +4932,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc516e95a379d05489802f8506cbc3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &558543694100285605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390758213304100118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ad90888d94de4409bbc42e5b01969a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rubbleRepairTime: {fileID: 11400000, guid: 8f7a70a14221a1e489803da79299114a, type: 2}
+  m_buildingRepairRate: {fileID: 11400000, guid: 16033ca1b6a987c4cbd0ff36356c5900, type: 2}
+  m_buildingRepairAmount: {fileID: 11400000, guid: 85e2748da5111e04d9ac94dd078993ff, type: 2}
 --- !u!1 &5287484295283924375
 GameObject:
   m_ObjectHideFlags: 0

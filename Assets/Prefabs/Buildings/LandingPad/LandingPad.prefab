@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 8877395728496363393}
   - component: {fileID: 7131743784600912479}
   - component: {fileID: -4370184515988779349}
+  - component: {fileID: 6484961870009246657}
   m_Layer: 7
   m_Name: LandingPad
   m_TagString: Untagged
@@ -399,7 +400,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_destroyEffect: {fileID: 5911326517145702321, guid: d493d9243f4bcfd44a140b068e4db571, type: 3}
-  m_repairTime: {fileID: 11400000, guid: 8f7a70a14221a1e489803da79299114a, type: 2}
 --- !u!114 &-4370184515988779349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +412,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc516e95a379d05489802f8506cbc3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6484961870009246657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104518685104332091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ad90888d94de4409bbc42e5b01969a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rubbleRepairTime: {fileID: 11400000, guid: 8f7a70a14221a1e489803da79299114a, type: 2}
+  m_buildingRepairRate: {fileID: 11400000, guid: 16033ca1b6a987c4cbd0ff36356c5900, type: 2}
+  m_buildingRepairAmount: {fileID: 11400000, guid: 85e2748da5111e04d9ac94dd078993ff, type: 2}
 --- !u!1001 &943346009865931110
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 3635599438457605860}
   - component: {fileID: 6460563869104808431}
   - component: {fileID: 1891833872022620730}
+  - component: {fileID: 2832927328169719274}
   m_Layer: 7
   m_Name: Radar
   m_TagString: Untagged
@@ -339,7 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_destroyEffect: {fileID: 5911326517145702321, guid: d493d9243f4bcfd44a140b068e4db571, type: 3}
-  m_repairTime: {fileID: 11400000, guid: 8f7a70a14221a1e489803da79299114a, type: 2}
 --- !u!114 &1891833872022620730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +352,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc516e95a379d05489802f8506cbc3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2832927328169719274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125278299751470174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ad90888d94de4409bbc42e5b01969a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rubbleRepairTime: {fileID: 11400000, guid: 8f7a70a14221a1e489803da79299114a, type: 2}
+  m_buildingRepairRate: {fileID: 11400000, guid: 16033ca1b6a987c4cbd0ff36356c5900, type: 2}
+  m_buildingRepairAmount: {fileID: 11400000, guid: 85e2748da5111e04d9ac94dd078993ff, type: 2}
 --- !u!1 &4499910337065081707
 GameObject:
   m_ObjectHideFlags: 0

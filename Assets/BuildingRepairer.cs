@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BuildingDeleter : Singleton<BuildingDeleter>
+public class BuildingRepairer : Singleton<BuildingRepairer>
 {
 
     public float m_sphereRad = 2;
@@ -13,7 +13,7 @@ public class BuildingDeleter : Singleton<BuildingDeleter>
 
     void OnInputModeChange(InputModeManager inputModeManager)
     {
-        if (inputModeManager.GetMode() != InputModeManager.Mode.DELETE)
+        if (inputModeManager.GetMode() != InputModeManager.Mode.REPAIR)
         {
             m_enabled = false;
 
@@ -28,6 +28,8 @@ public class BuildingDeleter : Singleton<BuildingDeleter>
             m_enabled = true;
         }
     }
+
+
 
     //---------------------------
     void Start()
@@ -48,9 +50,15 @@ public class BuildingDeleter : Singleton<BuildingDeleter>
         GameObject selected = GetSelectedBuilding();
         if (selected != null)
         {
-            selected.GetComponent<ColourSetter>().SetColour(Color.red);
+            RepairManager repairComp = selected.GetComponent<RepairManager>();
+            Debug.Assert(repairComp != null);
+            bool repairInProgress = repairComp.IsRepairInProgress();
+            if (!repairInProgress)
+            {
+                selected.GetComponent<ColourSetter>().SetColour(Color.cyan);
+            }
 
-            if(selected != m_selectedBuilding && m_selectedBuilding != null)
+            if (selected != m_selectedBuilding && m_selectedBuilding != null)
             {
                 m_selectedBuilding.GetComponent<ColourSetter>().ResetColour();
             }
@@ -60,10 +68,15 @@ public class BuildingDeleter : Singleton<BuildingDeleter>
             bool mouseOverUI = EventSystem.current.IsPointerOverGameObject();
             if (mouseDown && mouseOverUI == false)
             {
-                Destroy(m_selectedBuilding);
+                if (!repairInProgress)
+                {
+                    repairComp.StartRepair();
+                }
+                m_selectedBuilding.GetComponent<ColourSetter>().ResetColour();
+                m_selectedBuilding = null;
             }
         }
-        else if(m_selectedBuilding != null)
+        else if (m_selectedBuilding != null)
         {
             m_selectedBuilding.GetComponent<ColourSetter>().ResetColour();
             m_selectedBuilding = null;
@@ -75,9 +88,6 @@ public class BuildingDeleter : Singleton<BuildingDeleter>
             InputModeManager.Instance.SetMode(InputModeManager.Mode.NONE);
             return;
         }
-
-      
-
     }
 
 
@@ -89,9 +99,9 @@ public class BuildingDeleter : Singleton<BuildingDeleter>
         RaycastHit hit;
         if (Physics.SphereCast(point, m_sphereRad, Camera.main.transform.forward, out hit, Mathf.Infinity, m_layerMask, QueryTriggerInteraction.Ignore))
         {
-          
-           return hit.collider.gameObject.transform.root.gameObject;
-          
+
+            return hit.collider.gameObject.transform.root.gameObject;
+
         }
 
         return null;

@@ -12,8 +12,6 @@ public class RubbleManager : MonoBehaviour
     [SerializeField] public OnRepair m_onRepair = new OnRepair();
     [SerializeField] GameObject m_destroyEffect;
 
-    public FloatReference m_repairTime;
-
     float m_repairTimer;
     bool m_repairing = false;
     GameObject m_rubble;
@@ -52,7 +50,7 @@ public class RubbleManager : MonoBehaviour
         m_rubble.SetActive(true);
     }
 
-    void RepairBuilding()
+    public void RepairBuilding()
     {
         m_onRepair?.Invoke(this);
 
@@ -60,24 +58,6 @@ public class RubbleManager : MonoBehaviour
         m_rubble.SetActive(false);
     }
 
-    public void BeginRepair()
-    {
-        m_repairTimer = 0;
-        m_repairing = true;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {       
-        if(m_repairing)
-        {
-            m_repairTimer += Time.deltaTime;
 
-            if(m_repairTimer >= m_repairTime.Value)
-            {
-                m_repairing = false;
-            }
-        }
-        
-    }
 }

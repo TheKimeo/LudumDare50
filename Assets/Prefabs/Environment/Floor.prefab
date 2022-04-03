@@ -92,11 +92,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Layers:
-  - m_Density: 0.1
+  - m_Density: 0.15
     m_BlockedRadius: 1
     m_AllowIntersectWithinLayer: 0
     m_InnerRadius: 1
-    m_OuterRadius: 35
+    m_OuterRadius: 40
     m_Decorations:
     - {fileID: 11400000, guid: e932edf1cbc386c4db1cad4d7372f57a, type: 2}
     - {fileID: 11400000, guid: 56d91afb0648f2049a2e40d33aca5825, type: 2}

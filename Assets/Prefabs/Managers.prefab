@@ -100,6 +100,7 @@ MonoBehaviour:
   m_RocketEvent: {fileID: 11400000, guid: c01411ef68b419548b1e980871b5d2e2, type: 2}
   m_popFoodAlert: {fileID: 11400000, guid: ff8e6e3ef367d1a4393ff337261f4067, type: 2}
   m_notifManager: {fileID: 0}
+  m_famineRate: 1
 --- !u!1 &3219916762022093861
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +508,7 @@ MonoBehaviour:
   m_ToGenerate: {fileID: 11400000, guid: 0201114128ef6024ebf45fb955db6edd, type: 2}
   m_InitialDelayBetweenEvents: 60
   m_EventGenerationOffset: 30
-  m_FrequencyDifficultyScale: 1
+  m_FrequencyDifficultyScale: 0.8
 --- !u!1 &3219916762683224556
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +786,7 @@ MonoBehaviour:
   m_MeteorSpawnRadius: 70
   m_MeteorSpawnHeight: 30
   m_DelayBetweenMeteors: 0.1
-  m_MeteorFrequencyDifficultyScale: 1
+  m_MeteorFrequencyDifficultyScale: 2
 --- !u!1 &5749632608691614479
 GameObject:
   m_ObjectHideFlags: 0

@@ -155,7 +155,7 @@ MonoBehaviour:
   m_inertiaLerpTime: 0.1
   m_mapRadius: 70
   m_minOrthographicSize: 1
-  m_maxOrthographicSize: 30
+  m_maxOrthographicSize: 20
 --- !u!114 &1587389253668109446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +198,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sphereRad: 0.5
+  m_noResNotif: {fileID: 0}
+  m_notifManager: {fileID: 0}

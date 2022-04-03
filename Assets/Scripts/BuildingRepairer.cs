@@ -74,7 +74,6 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
                     if (repairComp.CanRepair())
                     {
                         repairComp.StartRepair();
-                        selected.transform.Find("Building").gameObject.GetComponent<HealthVisualiser>().enabled = true;
                     }
                     else
                     {

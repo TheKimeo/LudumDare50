@@ -16,4 +16,5 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 999
   m_insufficientNotif: {fileID: 11400000, guid: ff8e6e3ef367d1a4393ff337261f4067, type: 2}
+  m_Icon: {fileID: 21300000, guid: 98a1bf1f8a8a4aa41bbb9bd0e80c9553, type: 3}
   m_Value: 999

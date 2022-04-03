@@ -84,14 +84,17 @@ public class EventManager : Singleton<EventManager>
 		m_QueuedEvents.Add( newEvent );
 	}
 
-	public void QueueEvent( EventBehaviour behaviour, float delayToStart )
+	public Event QueueEvent( EventBehaviour behaviour, float delayToStart )
 	{
 		float difficulty = DifficultyManager.Instance.Difficulty;
-		QueueEvent( new EventManager.Event
+		Event e = new Event
 		{
 			m_Behaviour = behaviour,
-			m_Duration = behaviour.CalculateDuration( difficulty ),
+			m_Duration = behaviour.CalculateDuration(difficulty ),
 			m_StartTime = TimeManager.Instance.m_CurrentTime + delayToStart,
-		} );
+		};
+
+		QueueEvent( e );
+		return e;
 	}
 }

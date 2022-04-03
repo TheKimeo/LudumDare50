@@ -71,11 +71,11 @@ public class BuildingFoundation : MonoBehaviour
     void Update()
     {
         bool canAfford = CanAfford();
-        if (canAfford && m_colCounter == 0)
+        if (canAfford && m_colCounter == 0 && (!m_snapMode || m_isSnapped) )
         {
             m_colComp.SetColour(Color.green);
         }
-        else if(!canAfford)
+        else if(!canAfford && (!m_snapMode || m_isSnapped))
         {
             m_colComp.SetColour(Color.red);
         }

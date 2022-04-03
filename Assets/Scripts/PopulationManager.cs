@@ -9,6 +9,8 @@ public class PopulationManager : MonoBehaviour
 	[SerializeField] EventBehaviour m_RocketEvent;
 	[SerializeField] Notification m_popFoodAlert;
 	[SerializeField] NotificationManager m_notifManager;
+	[SerializeField] float m_famineRate = 1.0f;
+
 
 	float m_CheckNextRequestTime;
 	float m_TimeUntilRequest;
@@ -78,6 +80,7 @@ public class PopulationManager : MonoBehaviour
 		if ( m_population.m_foodResource.CanConsume( -toConsume ) == false )
 		{
 			m_notifManager.PushNotif( m_popFoodAlert );
+			m_population.Modify(-m_famineRate);
 		}
 
 		m_population.m_foodResource.Modify( toConsume );

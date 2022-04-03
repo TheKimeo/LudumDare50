@@ -11,7 +11,7 @@ public class DaylightManager : MonoBehaviour
 	private void Start()
 	{
 		m_SunRotationAxis.Normalize();
-		Debug.Assert( m_SunRotationAxis != Vector3.zero );
+		Debug.Assert( m_SunRotationAxis != Vector3.zero, gameObject );
 	}
 
 	private void LateUpdate()

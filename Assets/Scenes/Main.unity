@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 944000380}
     m_Modifications:
+    - target: {fileID: 1035634056373928710, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
+      propertyPath: m_Radius
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4844787890122366049, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -417,6 +421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farm
       objectReference: {fileID: 0}
+    - target: {fileID: 8699038115730807835, guid: 1cdd3a4ce2f742d48ae6b2272515ba28, type: 3}
+      propertyPath: m_Radius
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cdd3a4ce2f742d48ae6b2272515ba28, type: 3}
 --- !u!4 &481985827 stripped
@@ -431,6 +439,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 944000380}
     m_Modifications:
+    - target: {fileID: 788690827980840169, guid: 37f4ec95692569945bd03b8b7dc274b7, type: 3}
+      propertyPath: m_Radius
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4009553836228149164, guid: 37f4ec95692569945bd03b8b7dc274b7, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -638,6 +650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 944000380}
     m_Modifications:
+    - target: {fileID: 1842689238468550459, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
+      propertyPath: m_Radius
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3635599438457605860, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -700,6 +716,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 944000380}
     m_Modifications:
+    - target: {fileID: 8000083313273442969, guid: e2424c4a8d656474ea9b32f8d2020103, type: 3}
+      propertyPath: m_Radius
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8104518685104332091, guid: e2424c4a8d656474ea9b32f8d2020103, type: 3}
       propertyPath: m_Name
       value: LandingPad

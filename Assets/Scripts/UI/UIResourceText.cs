@@ -7,7 +7,7 @@ public class UIResourceText : MonoBehaviour
 
     void Start()
     {
-		Debug.Assert( m_Resource != null );
+		Debug.Assert( m_Resource != null, gameObject );
 
 		UpdateText();
 	}

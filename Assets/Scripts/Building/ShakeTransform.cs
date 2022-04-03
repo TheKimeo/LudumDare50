@@ -13,7 +13,7 @@ public class ShakeTransform : MonoBehaviour
 	{
 		if ( m_TransformToSpin == null )
 		{
-			Debug.Assert( false, "[SpinTransform] No provided transform to spin for object: " + gameObject );
+			Debug.Assert( false, "[SpinTransform] No provided transform to spin for object: " + gameObject, gameObject );
 			return;
 		}
 

@@ -39,7 +39,7 @@ public class EnvironmentDistributer : MonoBehaviour
 
 	EnvironmentPrefab GetRandomPrefab( float totalWeighting )
 	{
-		Debug.Assert( m_Decorations.Length > 0 );
+		Debug.Assert( m_Decorations.Length > 0, gameObject );
 
 		float remainingWeight = Random.Range( 0.0f, totalWeighting );
 		foreach (EnvironmentPrefab environmentPrefab in m_Decorations )

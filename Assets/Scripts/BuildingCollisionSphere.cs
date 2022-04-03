@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent( typeof( SphereCollider ) )]
+[ExecuteAlways]
 public class BuildingCollisionSphere : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        GetComponent<SphereCollider>().radius = 2.5f;
-    }
+	[SerializeField] FloatReference m_SphereRadius;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void Start()
+	{
+		if ( m_SphereRadius == null )
+		{
+			Debug.LogError( "[BuildingCollisionSphere] Must provide a float reference for sphere radius for object: " + gameObject, gameObject );
+			return;
+		}
+
+		GetComponent<SphereCollider>().radius = m_SphereRadius.Value;
+	}
+
+#if UNITY_EDITOR
+	void Update()
+	{
+		if ( m_SphereRadius != null )
+		{
+			GetComponent<SphereCollider>().radius = m_SphereRadius.Value;
+		}
+	}
+#endif
 }

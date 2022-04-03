@@ -9,8 +9,8 @@ public class Singleton<T> : MonoBehaviour
 	{
 		if ( Instance != null )
 		{
+			Debug.Assert( false, "Singleton: " + gameObject + " is a duplicate of singleton " + Instance + ". Destroying duplicate..." );
 			GameObject.Destroy( gameObject );
-			Debug.Assert( false );
 		}
 
 		Instance = (T) this;

@@ -15,9 +15,16 @@ public class RandomVertexDamage : MonoBehaviour
 
 	private void Start()
 	{
+		string failedMeshes = VerifyMeshFilters();
+		if ( string.IsNullOrEmpty( failedMeshes ) == false )
+		{
+			Debug.Assert( false, "[RandomVertextDamage] Object " + gameObject + " has non-readable meshs:\n" + failedMeshes, gameObject );
+			return;
+		}
+
 		if ( m_Health == null )
 		{
-			Debug.Assert( false, "[RandomVertextDamage] Object " + gameObject + " has no Health component?" );
+			Debug.Assert( false, "[RandomVertextDamage] Object " + gameObject + " has no Health component?", gameObject );
 			return;
 		}
 
@@ -70,5 +77,29 @@ public class RandomVertexDamage : MonoBehaviour
 
 		Matrix4x4 localToWorld = filter.transform.localToWorldMatrix;
 		return localToWorld.MultiplyPoint3x4( randomPosition );
+	}
+
+	public string VerifyMeshFilters()
+	{
+		s_FilterBuffer.Clear();
+		GetComponentsInChildren<MeshFilter>( s_FilterBuffer );
+
+		string failures = "";
+
+		foreach (MeshFilter filter in s_FilterBuffer)
+		{
+			Mesh mesh = filter.sharedMesh;
+			if ( mesh == null )
+			{
+				continue;
+			}
+
+			if ( mesh.isReadable == false )
+			{
+				failures += mesh.name + "\n";
+			}
+		}
+
+		return failures;
 	}
 }

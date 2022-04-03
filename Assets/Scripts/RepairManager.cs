@@ -149,11 +149,13 @@ public class RepairManager : MonoBehaviour
 
                 if(m_rubbleRepairTime.Value <= m_repairTimer)
                 {
-					Debug.Assert( m_RubbleRepairUIInstance != null );
-					UIPinnedToWorldTransform uiPinManager = UIPinnedToWorldTransform.Instance;
-					uiPinManager.DestroyAndRemovePin( m_RubbleRepairUIInstance );
-					m_RubbleRepairUIInstance = null;
-					m_RubbleRepairRadial = null;
+					if ( m_RubbleRepairUIInstance )
+					{
+						UIPinnedToWorldTransform uiPinManager = UIPinnedToWorldTransform.Instance;
+						uiPinManager.DestroyAndRemovePin( m_RubbleRepairUIInstance );
+						m_RubbleRepairUIInstance = null;
+						m_RubbleRepairRadial = null;
+					}
 
 					//Rubble repair complete! 
 					m_health.FullHeal();

@@ -6,6 +6,7 @@ public class MeteorManager : MonoBehaviour, IDisaster
 	[SerializeField] float m_MeteorSpawnRadius;
 	[SerializeField] float m_MeteorSpawnHeight;
 	[SerializeField] float m_DelayBetweenMeteors;
+	[SerializeField] float m_MeteorFrequencyDifficultyScale = 1.0f;
 
 	float m_StopMeteorTime;
 	float m_NextMeteorTime;
@@ -23,13 +24,16 @@ public class MeteorManager : MonoBehaviour, IDisaster
 		float time = Time.time;
 		if ( m_StopMeteorTime < time )
 		{
-			//TODO: Maybe disable this when not needed?
 			return;
 		}
 
+		DifficultyManager difficultyManager = DifficultyManager.Instance;
+		float difficulty = difficultyManager.Difficulty;
+		float scaledDifficulty = difficulty * m_MeteorFrequencyDifficultyScale;
+
 		while ( m_NextMeteorTime <= time )
 		{
-			m_NextMeteorTime += m_DelayBetweenMeteors;
+			m_NextMeteorTime += m_DelayBetweenMeteors / scaledDifficulty;
 			SpawnMeteor();
 		}
 	}

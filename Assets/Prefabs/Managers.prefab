@@ -48,6 +48,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3914071e6ec7fd448be939b463e7f02e, type: 2}
   - {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
   - {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}
+  m_TickDelay: 1
 --- !u!1 &2680236743062884179
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,12 +94,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
-  m_TimeUnderCapForRequest: 10
+  m_TimeUnderCapForRequest: 3
   m_RequestDelayToStart: 30
   m_DelayAfterRequest: 10
   m_RocketEvent: {fileID: 11400000, guid: c01411ef68b419548b1e980871b5d2e2, type: 2}
   m_popFoodAlert: {fileID: 11400000, guid: ff8e6e3ef367d1a4393ff337261f4067, type: 2}
-  m_alertRateLimit: 10
   m_notifManager: {fileID: 0}
 --- !u!1 &3219916762022093861
 GameObject:
@@ -507,6 +507,7 @@ MonoBehaviour:
   m_ToGenerate: {fileID: 11400000, guid: 0201114128ef6024ebf45fb955db6edd, type: 2}
   m_InitialDelayBetweenEvents: 60
   m_EventGenerationOffset: 30
+  m_FrequencyDifficultyScale: 1
 --- !u!1 &3219916762683224556
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6319317e6c0aec14eb5e7fd43a8a5551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_DurationDifficultyScale: 2
   m_MeteorManager: {fileID: 4535300069796784833}
 --- !u!1 &4535300069796784838
 GameObject:
@@ -782,7 +784,8 @@ MonoBehaviour:
   m_MeteorPrefab: {fileID: 7524829497299245041, guid: 20458189e8086bd4b9b9af288b7c7821, type: 3}
   m_MeteorSpawnRadius: 70
   m_MeteorSpawnHeight: 30
-  m_DelayBetweenMeteors: 0.01
+  m_DelayBetweenMeteors: 0.1
+  m_MeteorFrequencyDifficultyScale: 1
 --- !u!1 &5749632608691614479
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,10 +881,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
-  m_populationAdd: 50
+  m_populationAdd: 10
   m_RocketPrefab: {fileID: 1879486054208905438, guid: 929693ae32bb6f64db01fb591f0737b4, type: 3}
   m_RocketStartHeight: 50
-  m_LandingDuration: 10
+  m_LandingDuration: 8
   m_LandingCurve:
     serializedVersion: 2
     m_Curve:
@@ -906,8 +909,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_GroundedDuration: 5
-  m_TakeOffDuration: 10
+  m_GroundedDuration: 3
+  m_TakeOffDuration: 8
   m_TakeOffCurve:
     serializedVersion: 2
     m_Curve:

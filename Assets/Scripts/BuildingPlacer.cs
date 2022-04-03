@@ -110,40 +110,34 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
     
         bool mouseDown = Input.GetMouseButtonDown( 0 );
 		bool mouseOverUI = EventSystem.current.IsPointerOverGameObject();
-        if ( mouseDown && mouseOverUI == false)
+        if (mouseDown && mouseOverUI == false)
         {
-            if (m_ghostBuilding.GetComponent<BuildingFoundation>().IsSafeToPlace())
+            bool canBuild = true;
+            foreach (BuildingType.Cost cost in m_typeToPlace.m_costData)
             {
-                bool canBuild = true;
-                foreach(BuildingType.Cost cost in m_typeToPlace.m_costData)
+                if (!cost.m_resourceType.CanConsume(cost.m_buildCost))
                 {
-                    if(!cost.m_resourceType.CanConsume(cost.m_buildCost))
-                    {
-                        //Todo fire off a message for each type that we dont have enough of
-                        canBuild = false;
-                        
-                        //Trigger callback with our notification
-                        
-                        m_notifMngr.PushNotif(cost.m_resourceType.m_insufficientNotif);
-                        
-                    }   
+                    canBuild = false;
+                    m_notifMngr.PushNotif(cost.m_resourceType.m_insufficientNotif);
                 }
+            }
 
-                if (canBuild)
+            if (canBuild)
+            {
+                if (m_ghostBuilding.GetComponent<BuildingFoundation>().IsSafeToPlace())
                 {
                     foreach (BuildingType.Cost cost in m_typeToPlace.m_costData)
                     {
                         cost.m_resourceType.Modify(-cost.m_buildCost);
                     }
                     Instantiate(m_typeToPlace.m_real, placePos, Quaternion.identity);
+                }    
+                else
+                {
+
+                    m_notifMngr.PushNotif(m_invalidPosNotif);
 
                 }
-            }
-            else
-            {
-               
-                m_notifMngr.PushNotif(m_invalidPosNotif);
-                
             }
         }
 

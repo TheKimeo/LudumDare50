@@ -25,4 +25,8 @@ MonoBehaviour:
     m_buildCost: 40
     m_productionPerTick: 0
     m_capIncrease: 50
+  - m_resourceType: {fileID: 11400000, guid: 3914071e6ec7fd448be939b463e7f02e, type: 2}
+    m_buildCost: 0
+    m_productionPerTick: 0
+    m_capIncrease: 50
   m_snapLayer: 

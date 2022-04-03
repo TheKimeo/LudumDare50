@@ -7,6 +7,7 @@ public class RepairManager : MonoBehaviour
     public FloatReference m_rubbleRepairTime;
     public FloatReference m_buildingRepairRate;
     public FloatReference m_buildingRepairAmount;
+	public RectTransform m_RubbleRepairUIPrefab;
 
     GameObject m_rubble;
     GameObject m_building;
@@ -14,6 +15,8 @@ public class RepairManager : MonoBehaviour
     bool m_repairInProg = false;
     float m_repairTimer = 0.0f;
 
+	RectTransform m_RubbleRepairUIInstance;
+	UIRadial m_RubbleRepairRadial;
 
     //listen for dmg
 
@@ -42,8 +45,13 @@ public class RepairManager : MonoBehaviour
             {
                 m_repairInProg = true;
 
-                //Begin repairing rubble
-            }
+				Debug.Assert( m_RubbleRepairUIInstance == null );
+				UIPinnedToWorldTransform uiPinManager = UIPinnedToWorldTransform.Instance;
+				m_RubbleRepairUIInstance = uiPinManager.InstantiateAndPin( m_RubbleRepairUIPrefab, transform );
+				m_RubbleRepairRadial = m_RubbleRepairUIInstance.GetComponentInChildren<UIRadial>();
+
+				//Begin repairing rubble
+			}
 
         }
     }
@@ -94,10 +102,22 @@ public class RepairManager : MonoBehaviour
             {
                 m_repairTimer += Time.deltaTime;
 
+				if ( m_RubbleRepairRadial != null )
+				{
+					float ratio = Mathf.Clamp01( m_repairTimer / m_rubbleRepairTime.Value );
+					m_RubbleRepairRadial.SetFill( ratio );
+				}
+
                 if(m_rubbleRepairTime.Value <= m_repairTimer)
                 {
-                    //Rubble repair complete! 
-                    m_health.FullHeal();
+					Debug.Assert( m_RubbleRepairUIInstance != null );
+					UIPinnedToWorldTransform uiPinManager = UIPinnedToWorldTransform.Instance;
+					uiPinManager.DestroyAndRemovePin( m_RubbleRepairUIInstance );
+					m_RubbleRepairUIInstance = null;
+					m_RubbleRepairRadial = null;
+
+					//Rubble repair complete! 
+					m_health.FullHeal();
                     GetComponent<RubbleManager>().RepairBuilding();
                     m_repairTimer = 0;
                     RepairDone();

@@ -9,7 +9,11 @@ public class BuildingType : ScriptableObject
 		public Resource m_resourceType;
 		public float m_buildCost;
 		public float m_runCost;
+		public float m_capIncrease;
     }
+
+
+	[SerializeField] public float m_popCapIncrease = 0;
 
 	[SerializeField] public GameObject m_ghost;
 	[SerializeField] public GameObject m_real;

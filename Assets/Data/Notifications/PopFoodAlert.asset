@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e60ebb814410874b82f7c3554619e7f, type: 3}
-  m_Name: PopulationDefinition
+  m_Script: {fileID: 11500000, guid: 824cc05af2afedb40a1bea92494bb7b0, type: 3}
+  m_Name: PopFoodAlert
   m_EditorClassIdentifier: 
-  m_foodResource: {fileID: 11400000, guid: 3914071e6ec7fd448be939b463e7f02e, type: 2}
-  m_foodConsumptionRate: 100
-  m_initialValue: 0
-  m_initialCap: 250
-  m_Value: 150
-  m_cap: 150
+  m_text: Population consuming too much food!
+  m_UI_Icon: {fileID: 0}

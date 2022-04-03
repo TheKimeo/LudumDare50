@@ -136,6 +136,9 @@ MonoBehaviour:
   m_buildingRepairRate: {fileID: 11400000, guid: 16033ca1b6a987c4cbd0ff36356c5900, type: 2}
   m_buildingRepairAmount: {fileID: 11400000, guid: 85e2748da5111e04d9ac94dd078993ff, type: 2}
   m_RubbleRepairUIPrefab: {fileID: 2788942889879406083, guid: 5e71c91b34f024148924bb5087ada999, type: 3}
+  m_buildingType: {fileID: 11400000, guid: 18262fea6c1cac34c8409d94f8cddcbd, type: 2}
+  m_noResNotif: {fileID: 11400000, guid: 472659bb7d4ac6a4f8777f01cc4132d6, type: 2}
+  m_notifManager: {fileID: 0}
 --- !u!1 &5287484295283924375
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_buildingType: {fileID: 11400000, guid: 18262fea6c1cac34c8409d94f8cddcbd, type: 2}
   m_buildingState: {fileID: 240588766999819143}
+  m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
 --- !u!114 &240588766999819143
 MonoBehaviour:
   m_ObjectHideFlags: 0

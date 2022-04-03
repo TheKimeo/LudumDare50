@@ -8,6 +8,8 @@ public class RepairManager : MonoBehaviour
     public FloatReference m_buildingRepairRate;
     public FloatReference m_buildingRepairAmount;
 	public RectTransform m_RubbleRepairUIPrefab;
+    public BuildingType m_buildingType;
+
 
     GameObject m_rubble;
     GameObject m_building;
@@ -25,6 +27,23 @@ public class RepairManager : MonoBehaviour
         return m_repairInProg;
     }
 
+
+    public bool CanRepair()
+    {
+        if(m_building.activeInHierarchy)
+        {
+            return true;
+        }
+        bool canRepair = true;
+
+        //Begin repairing rubble
+        foreach (BuildingType.Cost cost in m_buildingType.m_costData)
+        {
+            canRepair &= cost.m_resourceType.CanConsume(cost.m_buildCost);
+        }
+        return canRepair;
+    }
+    
     public void StartRepair()
     {
         //Ignore redundant req
@@ -43,15 +62,24 @@ public class RepairManager : MonoBehaviour
             }
             else
             {
+
+                Debug.Assert(CanRepair());
+                
+                foreach (BuildingType.Cost cost in m_buildingType.m_costData)
+                {
+                    cost.m_resourceType.Modify(-cost.m_buildCost);
+                }
+
                 m_repairInProg = true;
 
-				Debug.Assert( m_RubbleRepairUIInstance == null );
-				UIPinnedToWorldTransform uiPinManager = UIPinnedToWorldTransform.Instance;
-				m_RubbleRepairUIInstance = uiPinManager.InstantiateAndPin( m_RubbleRepairUIPrefab, transform );
-				m_RubbleRepairRadial = m_RubbleRepairUIInstance.GetComponentInChildren<UIRadial>();
-
-				//Begin repairing rubble
-			}
+                Debug.Assert(m_RubbleRepairUIInstance == null);
+                UIPinnedToWorldTransform uiPinManager = UIPinnedToWorldTransform.Instance;
+                m_RubbleRepairUIInstance = uiPinManager.InstantiateAndPin(m_RubbleRepairUIPrefab, transform);
+                m_RubbleRepairRadial = m_RubbleRepairUIInstance.GetComponentInChildren<UIRadial>();
+                
+               
+              
+            }
 
         }
     }

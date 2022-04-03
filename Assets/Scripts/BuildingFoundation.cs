@@ -41,7 +41,7 @@ public class BuildingFoundation : MonoBehaviour
         }
     }
 
-    void Start()
+    void Awake()
     {
         m_layerMask = LayerMask.GetMask("Building", "Crater");
         m_colComp = GetComponent<ColourSetter>();

@@ -55,6 +55,7 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 			if ( landing.m_Target == null || landing.m_Target.isActiveAndEnabled == false )
 			{
 				//Veto the landing as the target vanished/is too damaged
+				//TODO: Explode?
 				Debug.Log( "Interrupting rocket landing as target is no longer a valid landing point" );
 				GameObject.Destroy( landing.m_Rocket.gameObject );
 				m_ActiveLandings.RemoveAt( i );

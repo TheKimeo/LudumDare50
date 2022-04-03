@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5459800468849037379
 MonoBehaviour:
@@ -247,8 +247,6 @@ MonoBehaviour:
   m_buildingRepairAmount: {fileID: 11400000, guid: 85e2748da5111e04d9ac94dd078993ff, type: 2}
   m_RubbleRepairUIPrefab: {fileID: 2788942889879406083, guid: 5e71c91b34f024148924bb5087ada999, type: 3}
   m_buildingType: {fileID: 11400000, guid: c097a7d091733444ba88344ac49b48a1, type: 2}
-  m_noResNotif: {fileID: 11400000, guid: 472659bb7d4ac6a4f8777f01cc4132d6, type: 2}
-  m_notifManager: {fileID: 0}
 --- !u!1 &5453454326231780088
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +336,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3498202738626719001
 MonoBehaviour:

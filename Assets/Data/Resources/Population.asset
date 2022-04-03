@@ -17,5 +17,5 @@ MonoBehaviour:
   m_initialValue: 10
   m_initialCap: 50
   m_Icon: {fileID: 21300000, guid: afb24a4d65df6f74fb481156d37be428, type: 3}
-  m_Value: 10
+  m_Value: 0
   m_cap: 0

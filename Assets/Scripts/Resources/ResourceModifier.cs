@@ -13,10 +13,10 @@ public class ResourceModifier : MonoBehaviour
 
 		foreach (BuildingType.Cost cost in m_buildingType.m_costData)
 		{
-			cost.m_resourceType.m_Max += cost.m_capIncrease;
+			cost.m_resourceType.ModifyCap(cost.m_capIncrease);
 		}
 
-		m_population.m_cap += m_buildingType.m_popCapIncrease;
+		m_population.ModifyCap(m_buildingType.m_popCapIncrease);
 
 	}
 
@@ -30,10 +30,10 @@ public class ResourceModifier : MonoBehaviour
 
 		foreach (BuildingType.Cost cost in m_buildingType.m_costData)
 		{
-			cost.m_resourceType.m_Max -= cost.m_capIncrease;
+			cost.m_resourceType.ModifyCap(-cost.m_capIncrease);
 		}
 
-		m_population.m_cap -= m_buildingType.m_popCapIncrease;
+		m_population.ModifyCap(-m_buildingType.m_popCapIncrease);
 
 	}
 

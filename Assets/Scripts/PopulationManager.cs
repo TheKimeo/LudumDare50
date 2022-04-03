@@ -76,7 +76,8 @@ public class PopulationManager : MonoBehaviour
 
 	void OnResourceTick()
 	{
-		float toConsume = -m_population.m_Value / m_population.m_cap * m_population.m_foodConsumptionRate;
+
+		float toConsume = -m_population.m_Value * m_population.m_foodConsumptionRate;
 		if ( m_population.m_foodResource.CanConsume( -toConsume ) == false )
 		{
 			m_notifManager.PushNotif( m_popFoodAlert );

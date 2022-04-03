@@ -8,7 +8,7 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
     public NotificationManager m_notifMngr;
     public Notification m_invalidPosNotif;
     public BuildingType m_defaultType;
-
+    public float m_snapRad = 2.0f;
 
     private GameObject m_ghostBuilding = null;
     private BuildingType m_typeToPlace = null;
@@ -79,9 +79,31 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
 			return;
 		}
 
-		bool mouseDown = Input.GetMouseButtonDown( 0 );
+        bool locationValid = false;
+        if (m_typeToPlace.m_snapLayer != "")
+        {
+            int mask = LayerMask.GetMask(m_typeToPlace.m_snapLayer);
+
+            //Do a sphere sweep for snap points
+            Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.SphereCast(point, m_snapRad, Camera.main.transform.forward, out hit, Mathf.Infinity, mask))
+            {
+                float yPos = placePos.y;
+                placePos = hit.collider.transform.position;
+                placePos.y = yPos;
+                m_ghostBuilding.transform.position = placePos;
+                locationValid = true;
+            }
+        }
+        else
+        {
+            locationValid = true;
+        }
+
+        bool mouseDown = Input.GetMouseButtonDown( 0 );
 		bool mouseOverUI = EventSystem.current.IsPointerOverGameObject();
-        if ( mouseDown && mouseOverUI == false )
+        if ( mouseDown && mouseOverUI == false && locationValid)
         {
             if (m_ghostBuilding.GetComponent<BuildingFoundation>().IsSafeToPlace())
             {
@@ -97,8 +119,7 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
                         
                         m_notifMngr.PushNotif(cost.m_resourceType.m_insufficientNotif);
                         
-                    }
-               
+                    }   
                 }
 
                 if (canBuild)

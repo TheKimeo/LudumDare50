@@ -171,6 +171,7 @@ MonoBehaviour:
   m_notifMngr: {fileID: 0}
   m_invalidPosNotif: {fileID: 11400000, guid: 8dd7ec1b3662cf3498b1b262d5e195ef, type: 2}
   m_defaultType: {fileID: 0}
+  m_snapRad: 1
 --- !u!114 &6413227247414377883
 MonoBehaviour:
   m_ObjectHideFlags: 0

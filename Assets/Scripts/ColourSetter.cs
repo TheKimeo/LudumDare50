@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ColourSetter : MonoBehaviour
@@ -7,30 +8,52 @@ public class ColourSetter : MonoBehaviour
     List<Material> m_materials;
     List<Color> m_baseColours;
 
+
+
+    void PopulateChildMats(Transform i_parent)
+    {    
+        foreach (Transform child in i_parent)
+        {
+            //Recursion baybeee
+            PopulateChildMats(child);
+
+            Renderer rend = child.gameObject.GetComponent<Renderer>();
+            if (rend != null)
+            {
+                List<Material> mats = rend.materials.ToList();
+                foreach(Material mat in mats )
+                {
+                    m_materials.Add(mat);
+                    m_baseColours.Add(mat.GetColor("_Color"));
+                }
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
         m_materials = new List<Material>();
         m_baseColours = new List<Color>();
+
         //Get material data for all child objects and self. There will be repeats, shouldnt matter
-        { 
+        {
             Renderer rend = GetComponent<Renderer>();
 
             if (rend != null)
             {
-                m_materials.Add(rend.material);
-                m_baseColours.Add(rend.material.GetColor("_Color"));
+                List<Material> mats = rend.materials.ToList();
+                foreach (Material mat in mats)
+                {
+                    m_materials.Add(mat);
+                    m_baseColours.Add(mat.GetColor("_Color"));
+                }
+
+          
             }
         }
-        foreach (Transform child in transform)
-        {
-            Renderer rend = child.gameObject.GetComponent<Renderer>();
-            if(rend != null)
-            {
-                m_materials.Add(rend.material);
-                m_baseColours.Add(rend.material.GetColor("_Color"));
-            }
-        }
+        PopulateChildMats(transform);
+
     }
 
     public void SetColour(Color i_colour)

@@ -544,6 +544,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1587389253668109446, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_notifMngr
+      value: 
+      objectReference: {fileID: 2059480133}
+    - target: {fileID: 1587389253668109446, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_invalidPosNotif
+      value: 
+      objectReference: {fileID: 11400000, guid: 8dd7ec1b3662cf3498b1b262d5e195ef, type: 2}
     - target: {fileID: 1587389253668109449, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
       propertyPath: m_Name
       value: GameCam
@@ -780,6 +788,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4009553836228149164, guid: 37f4ec95692569945bd03b8b7dc274b7, type: 3}
   m_PrefabInstance: {fileID: 510927016}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2059480133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4245737663817904344, guid: af7eef25f5360814287640d7a93607f5, type: 3}
+  m_PrefabInstance: {fileID: 419438950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c688a79896e0b4cb38e5c131763e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3219916762203279065
 PrefabInstance:
   m_ObjectHideFlags: 0

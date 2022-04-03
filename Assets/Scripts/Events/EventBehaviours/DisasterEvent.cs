@@ -8,4 +8,10 @@ public class DisasterEvent : EventBehaviour
 		DisasterManager disasterManager = DisasterManager.Instance;
 		disasterManager.TriggerDisaster( e.m_Duration );
 	}
+
+	public override float CalculateDuration( float difficulty )
+	{
+		DisasterManager disasterManager = DisasterManager.Instance;
+		return disasterManager.CalculateDisasterDuration( difficulty );
+	}
 }

@@ -9,7 +9,8 @@ public class TimeManager : Singleton<TimeManager>
 	[HideInInspector] public float m_CurrentTime;
 
 	public float CycleDuration => m_DayDuration + m_NightDuration;
-	public int Cycle => Mathf.FloorToInt( m_CurrentTime / CycleDuration );
+	public int Cycle => Mathf.FloorToInt( CycleTime );
+	public float CycleTime => m_CurrentTime / CycleDuration; //Whole number: Number of cycles, After decimal: ratio through current cycle X.0 to X.9999
 	public float CycleDayStartTime => Cycle * CycleDuration;
 	public float CycleNightStartTime => Cycle * CycleDuration + m_DayDuration;
 

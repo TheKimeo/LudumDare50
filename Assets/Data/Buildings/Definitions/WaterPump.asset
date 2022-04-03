@@ -22,3 +22,4 @@ MonoBehaviour:
   - m_resourceType: {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}
     m_buildCost: 0
     m_runCost: 50
+  m_snapLayer: WaterSnap

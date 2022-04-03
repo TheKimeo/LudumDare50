@@ -14,9 +14,9 @@ TagManager:
   - PlaceableGround
   - Building
   - Crater
-  - SnapTest
-  - 
-  - 
+  - StoneSnap
+  - IronSnap
+  - WaterSnap
   - 
   - 
   - 

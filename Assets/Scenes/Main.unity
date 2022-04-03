@@ -259,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4844787890122366049, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4844787890122366049, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
       propertyPath: m_LocalPosition.x
@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7688442541869350545, guid: af7eef25f5360814287640d7a93607f5, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7688442541869350545, guid: af7eef25f5360814287640d7a93607f5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -529,7 +529,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4009553836228149164, guid: 1cdd3a4ce2f742d48ae6b2272515ba28, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4009553836228149164, guid: 1cdd3a4ce2f742d48ae6b2272515ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -728,7 +728,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2962542906791493434, guid: d17c8f737e984564b896c82877125d6b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2962542906791493434, guid: d17c8f737e984564b896c82877125d6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -793,7 +793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3635599438457605860, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3635599438457605860, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -882,7 +882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8877395728496363393, guid: e2424c4a8d656474ea9b32f8d2020103, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8877395728496363393, guid: e2424c4a8d656474ea9b32f8d2020103, type: 3}
       propertyPath: m_LocalPosition.x

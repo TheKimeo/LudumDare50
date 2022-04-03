@@ -25,7 +25,21 @@ public class RandomVertexDamage : MonoBehaviour
 		if ( m_Health != null )
 		{
 			m_Health.m_OnDamageEvent.AddListener(OnDamaged);
-		}		
+		}
+	}
+
+	private void OnEnable()
+	{
+		if (m_Health != null)
+		{
+			float damageRatio = 1.0f - m_Health.HealthRatio;
+			SetDamage( damageRatio );
+		}
+	}
+
+	private void OnDisable()
+	{
+		SetDamage( 0.0f );
 	}
 
 	private void OnDamaged( Health health )

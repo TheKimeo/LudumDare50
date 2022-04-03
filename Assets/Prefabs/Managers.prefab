@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6319317e6c0aec14eb5e7fd43a8a5551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DurationDifficultyScale: 2
+  m_DurationDifficultyScale: 4
   m_MeteorManager: {fileID: 4535300069796784833}
 --- !u!1 &4535300069796784838
 GameObject:
@@ -786,7 +786,7 @@ MonoBehaviour:
   m_MeteorSpawnRadius: 70
   m_MeteorSpawnHeight: 30
   m_DelayBetweenMeteors: 0.1
-  m_MeteorFrequencyDifficultyScale: 2
+  m_MeteorFrequencyDifficultyScale: 3
 --- !u!1 &5749632608691614479
 GameObject:
   m_ObjectHideFlags: 0

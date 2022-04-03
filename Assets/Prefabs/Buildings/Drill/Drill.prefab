@@ -5010,6 +5010,7 @@ GameObject:
   - component: {fileID: 2184078697710360139}
   - component: {fileID: 7270524669183042255}
   - component: {fileID: 240588766999819143}
+  - component: {fileID: 5400070969713030948}
   m_Layer: 7
   m_Name: Building
   m_TagString: Untagged
@@ -5125,6 +5126,19 @@ MonoBehaviour:
   m_Health: {fileID: 1450518806427171659}
   m_DisableOperationHealthRatio: 0.3
   m_ScaleOperationHealthRatio: 1
+--- !u!114 &5400070969713030948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406476281123095070}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27149d31d5709b458fbfb87a2a40b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HealthPinPrefab: {fileID: 2788942889879406083, guid: 8727578e7df7ba54fbe1a2f203f2e392, type: 3}
 --- !u!1 &6789711993411652543
 GameObject:
   m_ObjectHideFlags: 0

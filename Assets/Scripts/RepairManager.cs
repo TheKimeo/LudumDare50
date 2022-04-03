@@ -61,6 +61,7 @@ public class RepairManager : MonoBehaviour
     {
         //TODO ui
         m_repairInProg = false;
+        m_building.GetComponent<HealthVisualiser>().enabled = false;
 
 
     }
@@ -92,8 +93,8 @@ public class RepairManager : MonoBehaviour
                 if(m_rubbleRepairTime.Value <= m_repairTimer)
                 {
                     //Rubble repair complete! 
-                    GetComponent<RubbleManager>().RepairBuilding();
                     m_health.FullHeal();
+                    GetComponent<RubbleManager>().RepairBuilding();
                     m_repairTimer = 0;
                     RepairDone();
                 }

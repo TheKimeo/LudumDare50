@@ -12,8 +12,6 @@ public class RubbleManager : MonoBehaviour
     [SerializeField] public OnRepair m_onRepair = new OnRepair();
     [SerializeField] GameObject m_destroyEffect;
 
-    float m_repairTimer;
-    bool m_repairing = false;
     GameObject m_rubble;
     GameObject m_building;
     Health m_Health;

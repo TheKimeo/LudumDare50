@@ -71,6 +71,7 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
                 if (!repairInProgress)
                 {
                     repairComp.StartRepair();
+                    selected.transform.Find("Building").gameObject.GetComponent<HealthVisualiser>().enabled = true;
                 }
                 m_selectedBuilding.GetComponent<ColourSetter>().ResetColour();
                 m_selectedBuilding = null;

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: BuildingList_PlayerBuildable
   m_EditorClassIdentifier: 
   m_Buildings:
-  - {fileID: 11400000, guid: 4cb82becf55e57242a6b31e3f3a4ae1a, type: 2}
+  - {fileID: 11400000, guid: 18262fea6c1cac34c8409d94f8cddcbd, type: 2}
+  - {fileID: 11400000, guid: f158aafa0cd411d4eb8807f7af67f0af, type: 2}
   - {fileID: 11400000, guid: db178a9113942924086757a7af2fe593, type: 2}
   - {fileID: 11400000, guid: 0ca83129a2b71224d9918bcdba966a11, type: 2}
-  - {fileID: 11400000, guid: aab45eb35b57e2549abf1e3aa3276e1c, type: 2}
-  - {fileID: 11400000, guid: f158aafa0cd411d4eb8807f7af67f0af, type: 2}
+  - {fileID: 11400000, guid: 4cb82becf55e57242a6b31e3f3a4ae1a, type: 2}
   - {fileID: 11400000, guid: c097a7d091733444ba88344ac49b48a1, type: 2}
   - {fileID: 11400000, guid: 07b3817b3b5c6fd44a6b95968063d182, type: 2}
-  - {fileID: 11400000, guid: 18262fea6c1cac34c8409d94f8cddcbd, type: 2}
+  - {fileID: 11400000, guid: aab45eb35b57e2549abf1e3aa3276e1c, type: 2}

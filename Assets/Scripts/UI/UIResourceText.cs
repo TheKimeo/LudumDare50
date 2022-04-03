@@ -21,7 +21,7 @@ public class UIResourceText : MonoBehaviour
 
 	void UpdateDisplay()
 	{
-		m_Text.text = (int)m_Resource.m_Value + "/" + m_Resource.m_MaxValue;
+		m_Text.text = (int)m_Resource.m_Value + "/" + m_Resource.m_Max;
 		m_Icon.sprite = m_Resource.m_Icon;
 	}
 }

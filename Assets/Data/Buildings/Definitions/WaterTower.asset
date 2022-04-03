@@ -12,13 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d37761f878a05428be147e107030c7, type: 3}
   m_Name: WaterTower
   m_EditorClassIdentifier: 
+  m_popCapIncrease: 0
   m_ghost: {fileID: 8037583397303059778, guid: 6d4ac2af2f7b7624eacb76a5bd60ae49, type: 3}
   m_real: {fileID: 8037583397303059778, guid: f9f76f99758be3e49a90f9b6a2511423, type: 3}
   m_UI_Icon: {fileID: 21300000, guid: 06b3d05d2c795e44e8c7bb43f96eaa83, type: 3}
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
-    m_buildCost: 500
-    m_runCost: 0
+    m_buildCost: 40
+    m_productionPerTick: 0
+    m_capIncrease: 50
   - m_resourceType: {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}
+    m_buildCost: 40
+    m_productionPerTick: 0
+    m_capIncrease: 50
+  - m_resourceType: {fileID: 11400000, guid: 3914071e6ec7fd448be939b463e7f02e, type: 2}
     m_buildCost: 0
-    m_runCost: 10
+    m_productionPerTick: 0
+    m_capIncrease: 50
+  m_snapLayer: 

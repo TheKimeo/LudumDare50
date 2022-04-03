@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class UIEventDisplay : MonoBehaviour
 {
-	[SerializeField] UITimeline m_Timeline;
 	[SerializeField] RectTransform m_EventParent;
 	[SerializeField] UIEvent m_EventPrefab;
+	[SerializeField] CanvasGroup m_CanvasGroup;
 
 	TimeManager m_TimeManager;
 	EventManager m_EventManager;
+	VisibleTimelineManager m_TimelineManager;
 
 	Dictionary<EventManager.Event, RectTransform> m_TimeEvents = new Dictionary<EventManager.Event, RectTransform>();
 	static List<EventManager.Event> s_RemoveBuffer = new List<EventManager.Event>();
@@ -17,10 +18,26 @@ public class UIEventDisplay : MonoBehaviour
 	{
 		m_TimeManager = TimeManager.Instance;
 		m_EventManager = EventManager.Instance;
+		m_TimelineManager = VisibleTimelineManager.Instance;
+
+		m_CanvasGroup.alpha = 0.0f;
 	}
 
 	private void LateUpdate()
 	{
+		if ( m_TimelineManager.VisibleSeconds < 0.1f )
+		{
+			if (m_CanvasGroup.alpha > 0.0f )
+			{
+				m_CanvasGroup.alpha = Mathf.MoveTowards( m_CanvasGroup.alpha, 0.0f, 2.0f * Time.deltaTime );
+			}
+			return;
+		}
+		else if ( m_CanvasGroup.alpha < 1.0f )
+		{
+			m_CanvasGroup.alpha = Mathf.MoveTowards( m_CanvasGroup.alpha, 1.0f, 2.0f * Time.deltaTime );
+		}
+
 		List<EventManager.Event> queuedEvents = m_EventManager.m_QueuedEvents;
 		List<EventManager.Event> completedEvents = m_EventManager.m_CompletedEvents;
 
@@ -89,7 +106,7 @@ public class UIEventDisplay : MonoBehaviour
 	float GetTimelineRelativePosition(float time)
 	{
 		float timeDifference = time - m_TimeManager.m_CurrentTime;
-		float timeDifferenceRatio = timeDifference / m_Timeline.Duration;
+		float timeDifferenceRatio = timeDifference / m_TimelineManager.VisibleSeconds;
 
 		float timelineWidth = m_EventParent.rect.width;
 		return timeDifferenceRatio * timelineWidth;
@@ -97,7 +114,7 @@ public class UIEventDisplay : MonoBehaviour
 
 	float GetTimelineRelativeSize( float time )
 	{
-		float timeRatio = time / m_Timeline.Duration;
+		float timeRatio = time / m_TimelineManager.VisibleSeconds;
 		float timelineWidth = m_EventParent.rect.width;
 		return timeRatio * timelineWidth;
 	}

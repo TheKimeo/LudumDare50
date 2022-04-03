@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "BuildingType", menuName = "Buildings/BuildingType", order = 0)]
 public class BuildingType : ScriptableObject
@@ -8,7 +9,7 @@ public class BuildingType : ScriptableObject
     {
 		public Resource m_resourceType;
 		public float m_buildCost;
-		public float m_runCost;
+		[FormerlySerializedAs("m_runCost")] public float m_productionPerTick;
 		public float m_capIncrease;
     }
 

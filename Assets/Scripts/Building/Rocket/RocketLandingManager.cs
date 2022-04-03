@@ -25,18 +25,11 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 	[Space]
 	[SerializeField] float m_TakeOffDuration = 1.0f;
 	[SerializeField] AnimationCurve m_TakeOffCurve;
-	[Space]
-	[SerializeField] EventBehaviour m_TestEvent;
 
 	static List<int> s_IndexBuffer = new List<int>();
 	List<Landing> m_ActiveLandings = new List<Landing>();
 
 	public float RocketLandingDuration => m_LandingDuration + m_GroundedDuration + m_TakeOffDuration;
-
-	void Start()
-	{
-		EventManager.Instance.QueueEvent( m_TestEvent, 15.0f );
-	}
 
 	void Update()
 	{

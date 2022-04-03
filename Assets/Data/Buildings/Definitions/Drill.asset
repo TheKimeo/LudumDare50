@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d37761f878a05428be147e107030c7, type: 3}
   m_Name: Drill
   m_EditorClassIdentifier: 
+  m_popCapIncrease: 0
   m_ghost: {fileID: 4390758213304100118, guid: 4a66918714cc17248a165bad8720dbff, type: 3}
   m_real: {fileID: 4390758213304100118, guid: 37f4ec95692569945bd03b8b7dc274b7, type: 3}
   m_UI_Icon: {fileID: 21300000, guid: 1a015c9a7809c3a46bdc19ee1bdcff97, type: 3}
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
-    m_buildCost: 500
-    m_runCost: 0
+    m_buildCost: 5
+    m_productionPerTick: 1
+    m_capIncrease: 0
   - m_resourceType: {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}
-    m_buildCost: 0
-    m_runCost: 10
+    m_buildCost: 30
+    m_productionPerTick: -2
+    m_capIncrease: 0
   m_snapLayer: StoneSnap

@@ -123,10 +123,10 @@ GameObject:
   - component: {fileID: 8615259882700807612}
   - component: {fileID: 1014153938293814922}
   - component: {fileID: 324126108986827646}
-  - component: {fileID: 8506145044515019222}
   - component: {fileID: 6192054928727991479}
   - component: {fileID: 5928808101472644025}
   - component: {fileID: 4684534849989167206}
+  - component: {fileID: 1159068219881570530}
   m_Layer: 5
   m_Name: TimePanel
   m_TagString: Untagged
@@ -194,19 +194,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8506145044515019222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5346072471513183434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b74df156f181753438c1bf1f0754f09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TimelineDuration: 30
 --- !u!114 &6192054928727991479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,9 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04f620be871fa44fba07f230400ef8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Timeline: {fileID: 8506145044515019222}
   m_EventParent: {fileID: 648642725575187944}
   m_EventPrefab: {fileID: 4881204353139449780, guid: 340601c7a60412f4a890326215457610, type: 3}
+  m_CanvasGroup: {fileID: 1159068219881570530}
 --- !u!223 &5928808101472644025
 Canvas:
   m_ObjectHideFlags: 0
@@ -260,6 +247,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &1159068219881570530
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346072471513183434}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6358704819975615968
 GameObject:
   m_ObjectHideFlags: 0

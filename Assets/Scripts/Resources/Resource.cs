@@ -34,5 +34,15 @@ public class Resource : ScriptableObject
 	{
 		float newValue = m_Value + amount;
 		m_Value = Mathf.Clamp( newValue, m_MinValue, m_Max );
+			
+
+	}
+
+	public void ModifyCap(float amount)
+    {
+		m_Max += amount;
+		m_Value = Mathf.Clamp(m_Value, m_MinValue, m_Max);
+
+		Debug.Log(m_Value+ " " + m_Max + " " + amount);
 	}
 }

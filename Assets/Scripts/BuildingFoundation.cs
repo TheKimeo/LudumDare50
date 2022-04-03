@@ -4,26 +4,67 @@ using UnityEngine;
 
 public class BuildingFoundation : MonoBehaviour
 {
+    public BuildingType m_type;
+
     private int m_layerMask;
     private bool m_safeToPlace = true;
     private ColourSetter m_colComp;
     private uint m_colCounter = 0;
+    bool m_isSnapped = false;
+    bool m_snapMode = false;
+
+      
+    public void SetSnapped(bool i_val)
+    {
+        Debug.Assert(m_snapMode);
+        m_isSnapped = i_val;
+
+        if(m_isSnapped)
+        {
+            m_colComp.SetColour(Color.green);
+        }
+        else
+        {
+            m_colComp.SetColour(Color.red);
+        }
+    }
 
     public bool IsSafeToPlace()
     {
-        return m_safeToPlace;
+        if (m_snapMode)
+        {
+            return m_isSnapped;
+        }
+        else
+        {
+            return m_safeToPlace;
+        }
     }
 
     void Start()
     {
         m_layerMask = LayerMask.GetMask("Building", "Crater");
         m_colComp = GetComponent<ColourSetter>();
-        m_colComp.SetColour(Color.green);
+
+        m_snapMode = m_type.m_snapLayer != "";
+        if(m_snapMode)
+        {
+            m_colComp.SetColour(Color.red);
+
+        }
+        else
+        {
+            m_colComp.SetColour(Color.green);
+
+        }
+
+
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if ((m_layerMask & (1 << other.gameObject.layer)) != 0)
+        if (!m_snapMode &&(m_layerMask & (1 << other.gameObject.layer)) != 0)
         {
             m_safeToPlace = false;
             m_colComp.SetColour(Color.red);
@@ -34,7 +75,7 @@ public class BuildingFoundation : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if ((m_layerMask & (1 << other.gameObject.layer)) != 0 && m_colCounter > 0)
+        if (!m_snapMode && (m_layerMask & (1 << other.gameObject.layer)) != 0 && m_colCounter > 0)
         {
             --m_colCounter;
             if (m_colCounter == 0)

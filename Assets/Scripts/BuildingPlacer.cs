@@ -14,7 +14,7 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
     private BuildingType m_typeToPlace = null;
     private bool m_enabled = false;
     private int m_layerMask;
-
+    
     //---------------------------
     public void SetType(BuildingType i_toPlace)
     {
@@ -82,18 +82,30 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
         bool locationValid = false;
         if (m_typeToPlace.m_snapLayer != "")
         {
-            int mask = LayerMask.GetMask(m_typeToPlace.m_snapLayer);
+            int mask = LayerMask.GetMask(m_typeToPlace.m_snapLayer, "Building");
 
             //Do a sphere sweep for snap points
             Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit hit;
             if (Physics.SphereCast(point, m_snapRad, Camera.main.transform.forward, out hit, Mathf.Infinity, mask))
             {
-                float yPos = placePos.y;
-                placePos = hit.collider.transform.position;
-                placePos.y = yPos;
-                m_ghostBuilding.transform.position = placePos;
-                locationValid = true;
+
+                if ((LayerMask.GetMask("Building") & (1 << hit.collider.gameObject.layer)) == 0)
+                {
+                    float yPos = placePos.y;
+                    placePos = hit.collider.transform.position;
+                    placePos.y = yPos;
+                    m_ghostBuilding.transform.position = placePos;
+                    m_ghostBuilding.GetComponent<BuildingFoundation>().SetSnapped(true);
+                }
+                else
+                {
+                    m_ghostBuilding.GetComponent<BuildingFoundation>().SetSnapped(false);
+                }
+            }
+            else
+            {
+                m_ghostBuilding.GetComponent<BuildingFoundation>().SetSnapped(false);
             }
         }
         else
@@ -103,7 +115,7 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
 
         bool mouseDown = Input.GetMouseButtonDown( 0 );
 		bool mouseOverUI = EventSystem.current.IsPointerOverGameObject();
-        if ( mouseDown && mouseOverUI == false && locationValid)
+        if ( mouseDown && mouseOverUI == false)
         {
             if (m_ghostBuilding.GetComponent<BuildingFoundation>().IsSafeToPlace())
             {

@@ -759,7 +759,7 @@ MonoBehaviour:
   m_MeteorPrefab: {fileID: 7524829497299245041, guid: 20458189e8086bd4b9b9af288b7c7821, type: 3}
   m_MeteorSpawnRadius: 70
   m_MeteorSpawnHeight: 30
-  m_DelayBetweenMeteors: 0.01
+  m_DelayBetweenMeteors: 0.025
 --- !u!1 &7196380093783321622
 GameObject:
   m_ObjectHideFlags: 0

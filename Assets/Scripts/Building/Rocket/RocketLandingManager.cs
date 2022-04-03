@@ -11,6 +11,10 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 		public bool m_HasLanded;
 	}
 
+	[SerializeField] Population m_population;
+	[SerializeField] int m_populationAdd = 50;
+
+
 	[SerializeField] GameObject m_RocketPrefab;
 	[SerializeField] float m_RocketStartHeight;
 	[Space]
@@ -173,6 +177,6 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 
 	void OnRocketLanded( Landing landing )
 	{
-		Debug.Log( "A rocket has landed! We should do something about this!" );
+		m_population.Modify(m_populationAdd);
 	}
 }

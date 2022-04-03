@@ -93,7 +93,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
-  m_popFoodAlert: {fileID: 11400000, guid: 772777c4d28af8f44bd59147a6a8b256, type: 2}
+  m_TimeUnderCapForRequest: 10
+  m_RequestDelayToStart: 30
+  m_DelayAfterRequest: 10
+  m_RocketEvent: {fileID: 11400000, guid: c01411ef68b419548b1e980871b5d2e2, type: 2}
+  m_popFoodAlert: {fileID: 11400000, guid: ff8e6e3ef367d1a4393ff337261f4067, type: 2}
   m_alertRateLimit: 10
   m_notifManager: {fileID: 0}
 --- !u!1 &3219916762022093861
@@ -554,6 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3219916763072583684}
   - component: {fileID: 3219916763072583685}
+  - component: {fileID: 281970549439368540}
   m_Layer: 0
   m_Name: TimeManager
   m_TagString: Untagged
@@ -592,6 +597,20 @@ MonoBehaviour:
   m_NightDuration: 20
   m_InitialTime: 10
   m_CurrentTime: 0
+--- !u!114 &281970549439368540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219916763072583682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c6c3eaa969e964fa8748138a3fa08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_VisiblityOutsideMultiplier: 12
+  m_VisiblityInsideMultiplier: 2
 --- !u!1 &3219916763144916147
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,4 +932,3 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_TestEvent: {fileID: 11400000, guid: c01411ef68b419548b1e980871b5d2e2, type: 2}

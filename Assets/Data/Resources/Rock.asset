@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca37cf5f11c2280489d863ad1934c923, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: 
-  m_InitialValue: 999
+  m_InitialValue: 30
   m_MinValue: 0
-  m_MaxValue: 999
+  m_MaxValue: 50
   m_insufficientNotif: {fileID: 11400000, guid: c4a85ef073755fc489dff6e8505618a4, type: 2}
   m_Icon: {fileID: 21300000, guid: 2f3003ad43c4f69439008ecf929c7557, type: 3}
-  m_Value: 994
+  m_Value: 30

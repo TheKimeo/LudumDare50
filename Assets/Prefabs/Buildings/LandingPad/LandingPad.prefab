@@ -392,7 +392,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8104518685104332091}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 81.982765, y: 60.62113, z: 48.10737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -444,8 +444,6 @@ MonoBehaviour:
   m_buildingRepairAmount: {fileID: 11400000, guid: 85e2748da5111e04d9ac94dd078993ff, type: 2}
   m_RubbleRepairUIPrefab: {fileID: 2788942889879406083, guid: 5e71c91b34f024148924bb5087ada999, type: 3}
   m_buildingType: {fileID: 11400000, guid: 4cb82becf55e57242a6b31e3f3a4ae1a, type: 2}
-  m_noResNotif: {fileID: 11400000, guid: 472659bb7d4ac6a4f8777f01cc4132d6, type: 2}
-  m_notifManager: {fileID: 0}
 --- !u!1001 &943346009865931110
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,42 +2,47 @@ using UnityEngine;
 
 public class PopulationManager : MonoBehaviour
 {
-  [SerializeField] Population m_population;
+	[SerializeField] Population m_population;
 	[SerializeField] float m_TimeUnderCapForRequest = 10.0f;
 	[SerializeField] float m_RequestDelayToStart = 30.0f;
 	[SerializeField] float m_DelayAfterRequest = 10.0f;
 	[SerializeField] EventBehaviour m_RocketEvent;
-    [SerializeField]  Notification m_popFoodAlert;
-    [SerializeField]  float m_alertRateLimit = 10.0f;
-    [SerializeField]  NotificationManager m_notifManager;
-    
+	[SerializeField] Notification m_popFoodAlert;
+	[SerializeField] NotificationManager m_notifManager;
+
 	float m_CheckNextRequestTime;
 	float m_TimeUntilRequest;
-  
-    float m_tSinceAlert = 0.0f;
-    float m_tSinceFoodConsumption = 0.0f;
 
-    void Start()
-    {
+	void Start()
+	{
 		TimeManager timeManager = TimeManager.Instance;
 
-        m_population.Initialise();
-        m_tSinceAlert = m_alertRateLimit;
-    }
+		m_population.Initialise();
 
 		m_CheckNextRequestTime = timeManager.m_CurrentTime;
 		m_TimeUntilRequest = m_TimeUnderCapForRequest;
 	}
 
-    void Update()
-    {
-      UpdateRocketRequest();
-      UpdateFoodConsumpsion();
+	private void OnEnable()
+	{
+		ResourceManager resourceManager = ResourceManager.Instance;
+		resourceManager.m_OnTickEvent += OnResourceTick;
 	}
-  
-  void UpdateRocketRequest()
-  {
-    TimeManager timeManager = TimeManager.Instance;
+
+	private void OnDisable()
+	{
+		ResourceManager resourceManager = ResourceManager.Instance;
+		resourceManager.m_OnTickEvent -= OnResourceTick;
+	}
+
+	void Update()
+	{
+		UpdateRocketRequest();
+	}
+
+	void UpdateRocketRequest()
+	{
+		TimeManager timeManager = TimeManager.Instance;
 		float currentTime = timeManager.m_CurrentTime;
 
 		if ( m_CheckNextRequestTime > currentTime )
@@ -47,7 +52,7 @@ public class PopulationManager : MonoBehaviour
 			return;
 		}
 
-		if (m_population.m_Value >= m_population.m_cap )
+		if ( m_population.m_Value >= m_population.m_cap )
 		{
 			m_TimeUntilRequest = m_TimeUnderCapForRequest;
 		}
@@ -65,25 +70,16 @@ public class PopulationManager : MonoBehaviour
 		EventManager.Event rocketEvent = EventManager.Instance.QueueEvent( m_RocketEvent, m_RequestDelayToStart );
 		m_CheckNextRequestTime = currentTime + rocketEvent.m_StartTime + rocketEvent.m_Duration + m_DelayAfterRequest;
 		m_TimeUntilRequest = m_TimeUnderCapForRequest;
-  }
+	}
 
-void UpdateFoodConsumpsion()
-{
-        m_tSinceAlert += Time.deltaTime;
-        m_tSinceFoodConsumption += Time.deltaTime;
+	void OnResourceTick()
+	{
+		float toConsume = -m_population.m_Value / m_population.m_cap * m_population.m_foodConsumptionRate;
+		if ( m_population.m_foodResource.CanConsume( -toConsume ) == false )
+		{
+			m_notifManager.PushNotif( m_popFoodAlert );
+		}
 
-        if (m_tSinceFoodConsumption >= 1.0f)
-        {
-            float toConsume = -m_population.m_Value / m_population.m_cap * m_population.m_foodConsumptionRate;
-            if (!m_population.m_foodResource.CanConsume(-toConsume) && m_tSinceAlert >= m_alertRateLimit)
-            {
-                m_notifManager.PushNotif(m_popFoodAlert);
-                m_tSinceAlert = 0.0f;
-            }
-
-            m_population.m_foodResource.Modify(toConsume);
-
-            m_tSinceFoodConsumption = 0f;
-        }
-    }
+		m_population.m_foodResource.Modify( toConsume );
+	}
 }

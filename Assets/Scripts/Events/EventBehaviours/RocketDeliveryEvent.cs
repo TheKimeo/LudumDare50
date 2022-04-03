@@ -6,13 +6,7 @@ public class RocketDeliveryEvent : EventBehaviour
 	public override void ApplyEvent( EventManager.Event e )
 	{
 		RocketLandingManager rocketLandingManager = RocketLandingManager.Instance;
-		
-		bool success = rocketLandingManager.TryStartLanding();
-		if ( success == false )
-		{
-			//TODO: Tell the player about this somehow?
-			Debug.LogError( "Failed to start demo rocket landing" );
-		}
+		rocketLandingManager.TryStartLanding();
 	}
 
 	public override float CalculateDuration( float difficulty )

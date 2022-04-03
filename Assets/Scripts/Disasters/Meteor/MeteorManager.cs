@@ -14,6 +14,8 @@ public class MeteorManager : MonoBehaviour, IDisaster
 	{
 		m_StopMeteorTime = -1.0f;
 		m_NextMeteorTime = -1.0f;
+
+		Debug.Assert( m_DelayBetweenMeteors >= 0.01f, "[MeteorManager] Must have a delay >= 0.01 between meteors or the game will lag out and die" );
 	}
 
 	void Update()
@@ -25,13 +27,11 @@ public class MeteorManager : MonoBehaviour, IDisaster
 			return;
 		}
 
-		if ( m_NextMeteorTime > time )
+		while ( m_NextMeteorTime <= time )
 		{
-			return;
+			m_NextMeteorTime += m_DelayBetweenMeteors;
+			SpawnMeteor();
 		}
-
-		m_NextMeteorTime = time + m_DelayBetweenMeteors;
-		SpawnMeteor();
 	}
 
 	void SpawnMeteor()

@@ -7,4 +7,9 @@ public class NoEvent : EventBehaviour
 	{
 		Debug.Log( "[NoEvent] Applied event" );
 	}
+
+	public override float CalculateDuration( float difficulty )
+	{
+		return 1.0f;
+	}
 }

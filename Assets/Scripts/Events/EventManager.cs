@@ -20,24 +20,10 @@ public class EventManager : Singleton<EventManager>
 	}
 
 	[SerializeField] float m_DelayBeforeRemoveEvent = 10;
-	[Space]
-	[SerializeField] EventBehaviour m_TestBehaviour;
-	[SerializeField] float m_TestDelay;
-	[SerializeField] float m_TestDuration;
 
 	//Ordered by m_StartTime. Earliest to start first.
 	public List<Event> m_QueuedEvents = new List<Event>();
 	public List<Event> m_CompletedEvents = new List<Event>();
-
-	private void Start()
-	{
-		QueueEvent( new Event
-		{
-			m_Behaviour = m_TestBehaviour,
-			m_StartTime = TimeManager.Instance.m_CurrentTime + m_TestDelay,
-			m_Duration = m_TestDuration,
-		} );
-	}
 
 	private void Update()
 	{

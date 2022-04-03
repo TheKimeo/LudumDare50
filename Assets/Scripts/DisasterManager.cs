@@ -27,6 +27,11 @@ public class DisasterManager : Singleton<DisasterManager>
 		disaster.TriggerDisaster( duration );
 	}
 
+	public float CalculateDisasterDuration( float difficulty )
+	{
+		return difficulty * 3.0f;
+	}
+
 	IDisaster SelectDisaster()
 	{
 		int index = Random.Range( 0, m_Disasters.Length );

@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d37761f878a05428be147e107030c7, type: 3}
   m_Name: Turret
   m_EditorClassIdentifier: 
+  m_popCapIncrease: 0
   m_ghost: {fileID: 4390758213304100118, guid: c1f741c29cd38fa4bbb3b9c809d5356b, type: 3}
   m_real: {fileID: 4390758213304100118, guid: 585b6dbbce82bb14c80a35e2b05a7db9, type: 3}
   m_UI_Icon: {fileID: 21300000, guid: ac310ab7d206edd49bacad45e25ab9fd, type: 3}
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
-    m_buildCost: 500
-    m_runCost: 0
+    m_buildCost: 120
+    m_productionPerTick: -3
+    m_capIncrease: 0
+  - m_resourceType: {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}
+    m_buildCost: 0
+    m_productionPerTick: -1
+    m_capIncrease: 0
+  m_snapLayer: 

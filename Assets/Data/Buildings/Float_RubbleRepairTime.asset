@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c74cd99c03523b74ba05f041d7f6602e, type: 3}
-  m_Name: Float_RepairTime
+  m_Name: Float_RubbleRepairTime
   m_EditorClassIdentifier: 
   m_Value: 5

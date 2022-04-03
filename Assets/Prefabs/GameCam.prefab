@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1587389253668109450}
   - component: {fileID: 1587389253668109445}
   - component: {fileID: 1587389253668109446}
+  - component: {fileID: 6413227247414377883}
+  - component: {fileID: 5404661325134446484}
   m_Layer: 0
   m_Name: GameCam
   m_TagString: MainCamera
@@ -168,3 +170,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_notifMngr: {fileID: 0}
   m_invalidPosNotif: {fileID: 11400000, guid: 8dd7ec1b3662cf3498b1b262d5e195ef, type: 2}
+  m_defaultType: {fileID: 0}
+--- !u!114 &6413227247414377883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587389253668109449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6193c01d2bae64a951033a3cc093d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sphereRad: 0.5
+--- !u!114 &5404661325134446484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587389253668109449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5595b731342a5047bc5fb6beced568d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sphereRad: 0.5

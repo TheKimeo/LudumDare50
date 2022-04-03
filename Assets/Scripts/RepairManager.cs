@@ -28,20 +28,30 @@ public class RepairManager : MonoBehaviour
     }
 
 
+    public bool CanAfford()
+    {
+        if(m_building.activeInHierarchy)
+        {
+            return true;
+        }
+        bool canAfford = true;
+        //Begin repairing rubble
+        foreach (BuildingType.Cost cost in m_buildingType.m_costData)
+        {
+            canAfford &= cost.m_resourceType.CanConsume(cost.m_buildCost);
+        }
+        return canAfford;
+    }
+
     public bool CanRepair()
     {
         if(m_building.activeInHierarchy && !m_repairInProg && m_health.HealthRatio < 1.0f)
         {
             return true;
         }
-        bool canRepair = true;
+        return CanAfford();
 
-        //Begin repairing rubble
-        foreach (BuildingType.Cost cost in m_buildingType.m_costData)
-        {
-            canRepair &= cost.m_resourceType.CanConsume(cost.m_buildCost);
-        }
-        return canRepair;
+       
     }
     
     public void StartRepair()

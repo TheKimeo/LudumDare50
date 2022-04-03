@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fc198c85075e7b4090102492f2f9254, type: 3}
-  m_Name: Environment_TempStone
+  m_Name: Environment_Resource_Iron
   m_EditorClassIdentifier: 
-  m_Prefab: {fileID: 3424395174331744544, guid: 7e4f8211c0b349640bbe69151c0fd9fc, type: 3}
+  m_Prefab: {fileID: 7453286856634003226, guid: 1b9e8ef4a37b74b459ccdda74d6a2cf7, type: 3}
   m_Weighting: 0.15
   m_MinScale: 1
   m_MaxScale: 1

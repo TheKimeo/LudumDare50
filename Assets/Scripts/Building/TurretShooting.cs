@@ -9,12 +9,17 @@ public class TurretShooting : MonoBehaviour
 	[Space]
 	[SerializeField] float m_HorizontalSpeed;
 	[SerializeField] float m_VerticalSpeed;
+	[Space]
+	[SerializeField] float m_DelayBetweenShots;
+	[SerializeField] float m_ShotDamage;
 
 	Transform m_Target;
+	float m_ShootDelay;
 
 	void Start()
 	{
 		m_Target = null;
+		m_ShootDelay = m_DelayBetweenShots;
 	}
 
 	void Update()
@@ -28,12 +33,37 @@ public class TurretShooting : MonoBehaviour
 		if ( m_Target == null )
 		{
 			TryFindTarget();
+			m_ShootDelay = m_DelayBetweenShots;
+		}
+		else
+		{
+			m_ShootDelay -= Time.deltaTime;
 		}
 
 		if ( m_Target != null )
 		{
 			AimAtTarget();
 		}
+
+		if ( m_ShootDelay <= 0.0f )
+		{
+			ShootAtTarget();
+			m_ShootDelay = m_DelayBetweenShots;
+		}
+	}
+
+	void ShootAtTarget()
+	{
+		Debug.Assert( m_Target != null );
+
+		Health health = m_Target.GetComponent<Health>();
+		if (health == null)
+		{
+			Debug.Assert( false, "[TurretShooting] Cannot shoot at target " + m_Target + " as it has no health component", m_Target );
+			return;
+		}
+
+		health.Modify( -m_ShotDamage );
 	}
 
 	void TryFindTarget()

@@ -272,6 +272,8 @@ MonoBehaviour:
   m_VerticalRotator: {fileID: 5677049584408058267}
   m_HorizontalSpeed: 360
   m_VerticalSpeed: 180
+  m_DelayBetweenShots: 1
+  m_ShotDamage: 9999
 --- !u!1 &6789711993411652543
 GameObject:
   m_ObjectHideFlags: 0

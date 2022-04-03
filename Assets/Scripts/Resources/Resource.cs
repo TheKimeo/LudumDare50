@@ -40,8 +40,6 @@ public class Resource : ScriptableObject
 
 	public void ModifyCap(float amount)
     {
-		Debug.Log(m_Value + "before " + m_Max + " " + amount);
-
 		m_Max += amount;
 		m_Value = Mathf.Clamp(m_Value, m_MinValue, m_Max);
 

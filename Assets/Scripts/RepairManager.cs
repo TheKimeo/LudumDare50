@@ -30,7 +30,7 @@ public class RepairManager : MonoBehaviour
 
     public bool CanRepair()
     {
-        if(m_building.activeInHierarchy)
+        if(m_building.activeInHierarchy && !m_repairInProg && m_health.HealthRatio < 1.0f)
         {
             return true;
         }
@@ -57,6 +57,7 @@ public class RepairManager : MonoBehaviour
                 {
                     m_repairInProg = true;
                     m_building.GetComponent<BuildingState>().AddSuppressor(this);
+                    m_building.GetComponent<HealthVisualiser>().enabled = true;
 
                 }
             }

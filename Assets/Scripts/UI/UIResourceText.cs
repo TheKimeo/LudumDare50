@@ -1,24 +1,27 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIResourceText : MonoBehaviour
 {
 	[SerializeField] Resource m_Resource;
 	[SerializeField] TMPro.TextMeshProUGUI m_Text;
+	[SerializeField] Image m_Icon;
 
     void Start()
     {
 		Debug.Assert( m_Resource != null, gameObject );
 
-		UpdateText();
+		UpdateDisplay();
 	}
 
     void LateUpdate()
     {
-		UpdateText();
+		UpdateDisplay();
 	}
 
-	void UpdateText()
+	void UpdateDisplay()
 	{
 		m_Text.text = (int)m_Resource.m_Value + "/" + m_Resource.m_MaxValue;
+		m_Icon.sprite = m_Resource.m_Icon;
 	}
 }

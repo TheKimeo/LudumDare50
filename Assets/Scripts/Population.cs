@@ -5,6 +5,7 @@ public class Population : ScriptableObject
 {
 	[SerializeField] public float m_initialValue;
 	[SerializeField] public float m_initialCap;
+	[SerializeField] public Sprite m_Icon;
 
 
 	[HideInInspector] public float m_Value;

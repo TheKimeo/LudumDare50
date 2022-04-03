@@ -544,6 +544,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1587389253668109445, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_MoveSpeedByZoomMultiplier.m_Curve.Array.data[0].value
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587389253668109445, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_MoveSpeedByZoomMultiplier.m_Curve.Array.data[0].inSlope
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587389253668109445, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_MoveSpeedByZoomMultiplier.m_Curve.Array.data[1].inSlope
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587389253668109445, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_MoveSpeedByZoomMultiplier.m_Curve.Array.data[0].outSlope
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587389253668109445, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_MoveSpeedByZoomMultiplier.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587389253668109445, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_MoveSpeedByZoomMultiplier.m_Curve.Array.data[1].outSlope
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587389253668109445, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_MoveSpeedByZoomMultiplier.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
     - target: {fileID: 1587389253668109446, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
       propertyPath: m_notifMngr
       value: 
@@ -690,6 +718,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 944000380}
     m_Modifications:
+    - target: {fileID: 1810471829612602068, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1842689238468550459, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
       propertyPath: m_Radius
       value: 2.5
@@ -742,6 +774,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radar
       objectReference: {fileID: 0}
+    - target: {fileID: 4138355435895338927, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
+      propertyPath: m_InitialHealthRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460563869104808431, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
+      propertyPath: m_repairTime
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f7a70a14221a1e489803da79299114a, type: 2}
+    - target: {fileID: 6460563869104808431, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
+      propertyPath: m_destroyEffect
+      value: 
+      objectReference: {fileID: 5911326517145702321, guid: d493d9243f4bcfd44a140b068e4db571, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
 --- !u!4 &1563743843 stripped

@@ -48,6 +48,51 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3914071e6ec7fd448be939b463e7f02e, type: 2}
   - {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
   - {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}
+--- !u!1 &2680236743062884179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5851631704901565455}
+  - component: {fileID: 8249753521114400277}
+  m_Layer: 0
+  m_Name: PopulationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5851631704901565455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680236743062884179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3219916762683224559}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8249753521114400277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680236743062884179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c41c0871d35bc6478435d35e45443d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
 --- !u!1 &3219916762022093861
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +535,7 @@ Transform:
   - {fileID: 2125288270039356536}
   - {fileID: 3219916762309062110}
   - {fileID: 7296543130241465894}
+  - {fileID: 5851631704901565455}
   - {fileID: 5059465374887996270}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -744,7 +790,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3219916762683224559}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3037085339729608951
 MonoBehaviour:
@@ -758,6 +804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5e50d2da22df84bb24993c7dd118b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
+  m_populationAdd: 50
   m_RocketPrefab: {fileID: 1879486054208905438, guid: 929693ae32bb6f64db01fb591f0737b4, type: 3}
   m_RocketStartHeight: 50
   m_LandingDuration: 10

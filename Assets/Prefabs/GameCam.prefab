@@ -128,21 +128,21 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
+      value: 0.03
+      inSlope: 0.97
+      outSlope: 0.97
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
+      inSlope: 0.97
+      outSlope: 0.97
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -154,7 +154,6 @@ MonoBehaviour:
   m_mapRadius: 70
   m_minOrthographicSize: 1
   m_maxOrthographicSize: 30
-  m_orthographicSize: 10
 --- !u!114 &1587389253668109446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +166,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4791ea6b137ad4ab29b5d6720541e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_notifMngr: {fileID: 0}
+  m_invalidPosNotif: {fileID: 11400000, guid: 8dd7ec1b3662cf3498b1b262d5e195ef, type: 2}

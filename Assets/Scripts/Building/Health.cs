@@ -33,6 +33,10 @@ public class Health : MonoBehaviour
 		m_OnDamageEvent?.Invoke( this );
 	}
 
+	public void FullHeal()
+    {
+		m_Health = m_MaxHealth;
+	}
   
 
 }

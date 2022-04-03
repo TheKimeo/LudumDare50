@@ -93,7 +93,7 @@ public class RepairManager : MonoBehaviour
                 {
                     //Rubble repair complete! 
                     GetComponent<RubbleManager>().RepairBuilding();
-
+                    m_health.FullHeal();
                     m_repairTimer = 0;
                     RepairDone();
                 }

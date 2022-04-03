@@ -8,6 +8,7 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 		public RocketLandingMarker m_Target;
 		public Transform m_Rocket;
 		public float m_StartTime;
+		public bool m_HasLanded;
 	}
 
 	[SerializeField] GameObject m_RocketPrefab;
@@ -69,6 +70,13 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 
 			if ( duration <= m_GroundedDuration )
 			{
+				if ( landing.m_HasLanded == false )
+				{
+					OnRocketLanded( landing );
+					landing.m_HasLanded = true;
+					m_ActiveLandings[ i ] = landing;
+				}
+
 				landing.m_Rocket.position = CalculateRocketPosition( landing.m_Target, 0.0f );
 				continue;
 			}
@@ -120,7 +128,8 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 		{
 			m_Target = marker,
 			m_Rocket = rocket.transform,
-			m_StartTime = timeManager.m_CurrentTime
+			m_StartTime = timeManager.m_CurrentTime,
+			m_HasLanded = false,
 		} );
 
 		return true;
@@ -160,5 +169,10 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 		}
 
 		return false;
+	}
+
+	void OnRocketLanded( Landing landing )
+	{
+		Debug.Log( "A rocket has landed! We should do something about this!" );
 	}
 }

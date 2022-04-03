@@ -10,10 +10,10 @@ public class EnvironmentDistributer : MonoBehaviour
 		[SerializeField] public float m_BlockedRadius;
 		[SerializeField] public bool m_AllowIntersectWithinLayer;
 		[SerializeField] public EnvironmentPrefab[] m_Decorations;
+		[SerializeField] public float m_InnerRadius;
+		[SerializeField] public float m_OuterRadius;
 	}
 
-	[SerializeField] float m_OuterRadius = 70.0f;
-	[SerializeField] float m_InnerRadius = 5.0f;
 	[SerializeField] Layer[] m_Layers;
 
 	struct Blocker
@@ -37,16 +37,16 @@ public class EnvironmentDistributer : MonoBehaviour
 	{
 		float totalWeighting = CalculateTotalWeighting( layer.m_Decorations );
 
-		float outterArea = Mathf.PI * m_OuterRadius * m_OuterRadius;
+		float outterArea = Mathf.PI * layer.m_OuterRadius * layer.m_OuterRadius;
 		int toSpawnCount = Mathf.RoundToInt( outterArea * layer.m_Density / 20.0f ); //Magic number to help with input scales
 
-		float innerRadiusSqr = m_InnerRadius * m_InnerRadius;
+		float innerRadiusSqr = layer.m_InnerRadius * layer.m_InnerRadius;
 
 		int initialBlockersSize = blockers.Count;
 
 		for ( int i = 0; i < toSpawnCount; ++i )
 		{
-			Vector2 xzPosition = Random.insideUnitCircle * m_OuterRadius;
+			Vector2 xzPosition = Random.insideUnitCircle * layer.m_OuterRadius;
 			if ( xzPosition.SqrMagnitude() < innerRadiusSqr )
 			{
 				//Skip points in the inner circle. We are calculating the count from density so this should still give an even covering

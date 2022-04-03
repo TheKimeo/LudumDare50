@@ -18,11 +18,11 @@ MonoBehaviour:
   m_UI_Icon: {fileID: 21300000, guid: ee1774a47fda64a4980182aa71da3c50, type: 3}
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
-    m_buildCost: 150
+    m_buildCost: 90
     m_productionPerTick: 0
     m_capIncrease: 0
   - m_resourceType: {fileID: 11400000, guid: 3914071e6ec7fd448be939b463e7f02e, type: 2}
-    m_buildCost: 150
+    m_buildCost: 90
     m_productionPerTick: 0
     m_capIncrease: 0
   m_snapLayer: 

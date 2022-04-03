@@ -47,6 +47,14 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 		{
 			Landing landing = m_ActiveLandings[ i ];
 
+			if ( landing.m_Target == null || landing.m_Target.isActiveAndEnabled == false )
+			{
+				//Veto the landing as the target vanished/is too damaged
+				Debug.Log( "Interrupting rocket landing as target is no longer a valid landing point" );
+				GameObject.Destroy( landing.m_Rocket.gameObject );
+				m_ActiveLandings.RemoveAt( i );
+			}
+
 			float duration = currentTime - landing.m_StartTime;
 			Debug.Assert( duration >= 0.0f );
 

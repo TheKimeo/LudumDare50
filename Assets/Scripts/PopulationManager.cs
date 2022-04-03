@@ -70,7 +70,7 @@ public class PopulationManager : MonoBehaviour
 		}
 
 		EventManager.Event rocketEvent = EventManager.Instance.QueueEvent( m_RocketEvent, m_RequestDelayToStart );
-		m_CheckNextRequestTime = currentTime + rocketEvent.m_StartTime + rocketEvent.m_Duration + m_DelayAfterRequest;
+		m_CheckNextRequestTime = rocketEvent.m_StartTime + rocketEvent.m_Duration + m_DelayAfterRequest;
 		m_TimeUntilRequest = m_TimeUnderCapForRequest;
 	}
 

@@ -805,6 +805,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c44530934a0f5498886d61ed49d99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildCursor: {fileID: 0}
+  repairCursor: {fileID: 0}
+  deleteCursor: {fileID: 0}
+  m_initMode: 3
+  m_repairModeKey: 114
+  m_deleteModeKey: 120
 --- !u!1 &7196380093783321622
 GameObject:
   m_ObjectHideFlags: 0

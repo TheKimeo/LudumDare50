@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5459800468849037379
 MonoBehaviour:
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_buildingType: {fileID: 11400000, guid: db178a9113942924086757a7af2fe593, type: 2}
   m_buildingState: {fileID: 1409261959612438684}
   m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
+  m_popResBoost: {fileID: 11400000, guid: 99452c294a901f14ba8fd8206fc30c55, type: 2}
 --- !u!114 &1409261959612438684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,8 +248,6 @@ MonoBehaviour:
   m_buildingRepairAmount: {fileID: 11400000, guid: 85e2748da5111e04d9ac94dd078993ff, type: 2}
   m_RubbleRepairUIPrefab: {fileID: 2788942889879406083, guid: 5e71c91b34f024148924bb5087ada999, type: 3}
   m_buildingType: {fileID: 11400000, guid: db178a9113942924086757a7af2fe593, type: 2}
-  m_noResNotif: {fileID: 11400000, guid: 472659bb7d4ac6a4f8777f01cc4132d6, type: 2}
-  m_notifManager: {fileID: 0}
 --- !u!1 &5453454326231780088
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +337,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3498202738626719001
 MonoBehaviour:

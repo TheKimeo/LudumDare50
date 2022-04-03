@@ -185,6 +185,7 @@ MonoBehaviour:
   m_buildingType: {fileID: 11400000, guid: aab45eb35b57e2549abf1e3aa3276e1c, type: 2}
   m_buildingState: {fileID: 1105224858492814887}
   m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
+  m_popResBoost: {fileID: 11400000, guid: 99452c294a901f14ba8fd8206fc30c55, type: 2}
 --- !u!114 &1105224858492814887
 MonoBehaviour:
   m_ObjectHideFlags: 0

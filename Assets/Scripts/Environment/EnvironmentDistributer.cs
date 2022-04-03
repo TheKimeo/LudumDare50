@@ -9,9 +9,9 @@ public class EnvironmentDistributer : MonoBehaviour
 		[SerializeField] public float m_Density;
 		[SerializeField] public float m_BlockedRadius;
 		[SerializeField] public bool m_AllowIntersectWithinLayer;
-		[SerializeField] public EnvironmentPrefab[] m_Decorations;
 		[SerializeField] public float m_InnerRadius;
 		[SerializeField] public float m_OuterRadius;
+		[SerializeField] public EnvironmentPrefab[] m_Decorations;
 	}
 
 	[SerializeField] Layer[] m_Layers;

@@ -13,7 +13,7 @@ public class ResourceModifier : MonoBehaviour
 
 		foreach (BuildingType.Cost cost in m_buildingType.m_costData)
 		{
-			cost.m_resourceType.m_MaxValue += cost.m_capIncrease;
+			cost.m_resourceType.m_Max += cost.m_capIncrease;
 		}
 
 		m_population.m_cap += m_buildingType.m_popCapIncrease;
@@ -23,11 +23,14 @@ public class ResourceModifier : MonoBehaviour
     private void OnDisable()
     {
 		ResourceManager resourceManager = ResourceManager.Instance;
-		resourceManager.m_OnTickEvent -= OnResourceTick;
+		if ( resourceManager != null )
+		{
+			resourceManager.m_OnTickEvent -= OnResourceTick;
+		}
 
 		foreach (BuildingType.Cost cost in m_buildingType.m_costData)
 		{
-			cost.m_resourceType.m_MaxValue -= cost.m_capIncrease;
+			cost.m_resourceType.m_Max -= cost.m_capIncrease;
 		}
 
 		m_population.m_cap -= m_buildingType.m_popCapIncrease;

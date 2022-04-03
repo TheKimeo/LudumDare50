@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent( typeof( Health ) )]
 public class RandomVertexDamage : MonoBehaviour
 {
 	static List<Vector3> s_VertexBuffer = new List<Vector3>();
@@ -9,7 +8,7 @@ public class RandomVertexDamage : MonoBehaviour
 
 	[SerializeField] int m_MaxDamagePoints = 15;
 	[SerializeField] GameObject m_DamagePrefab;
-	[SerializeField] Health m_Health;
+	Health m_Health;
 
 	List<GameObject> m_SpawnedPrefabs = new List<GameObject>();
 
@@ -22,13 +21,11 @@ public class RandomVertexDamage : MonoBehaviour
 			return;
 		}
 
-		if ( m_Health == null )
+		m_Health = GetComponent<Health>();
+		if ( m_Health != null )
 		{
-			Debug.Assert( false, "[RandomVertextDamage] Object " + gameObject + " has no Health component?", gameObject );
-			return;
-		}
-
-		m_Health.m_OnDamageEvent.AddListener( OnDamaged );
+			m_Health.m_OnDamageEvent.AddListener(OnDamaged);
+		}		
 	}
 
 	private void OnDamaged( Health health )

@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0650f1d4530ec554aa338c1219c590a8, type: 3}
   m_Name: RocketDeliveryEvent
   m_EditorClassIdentifier: 
+  m_EventIcon: {fileID: 21300000, guid: 0c5803e4074e56d47959687365151204, type: 3}

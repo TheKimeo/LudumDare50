@@ -5,7 +5,7 @@ public class UIEventDisplay : MonoBehaviour
 {
 	[SerializeField] UITimeline m_Timeline;
 	[SerializeField] RectTransform m_EventParent;
-	[SerializeField] RectTransform m_EventPrefab;
+	[SerializeField] UIEvent m_EventPrefab;
 
 	TimeManager m_TimeManager;
 	EventManager m_EventManager;
@@ -69,9 +69,13 @@ public class UIEventDisplay : MonoBehaviour
 
 	private RectTransform AddTimeEvent( EventManager.Event e )
 	{
-		RectTransform newEvent = GameObject.Instantiate( m_EventPrefab, m_EventParent );
-		m_TimeEvents.Add( e, newEvent );
-		return newEvent;
+		UIEvent newEvent = GameObject.Instantiate( m_EventPrefab, m_EventParent );
+		newEvent.Initialize( e );
+
+		RectTransform rectTransform = newEvent.GetComponent<RectTransform>();
+		m_TimeEvents.Add( e, rectTransform );
+
+		return rectTransform;
 	}
 
 	private void UpdatePosition( RectTransform transform, EventManager.Event e )

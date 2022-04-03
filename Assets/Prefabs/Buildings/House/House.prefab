@@ -4923,7 +4923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InitialHealthRatio: 1
-  m_MaxHealth: 100
+  m_MaxHealth: 200
 --- !u!114 &3053286782165959476
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NotificationManager : MonoBehaviour
 {
     public float m_displayTime = 1.0f;
     [SerializeField] TMPro.TextMeshProUGUI m_Text;
-
+    public Image m_icon;
 
     Queue<Notification> m_notifQueue;
     string m_curNotif = null;
@@ -38,14 +39,17 @@ public class NotificationManager : MonoBehaviour
         {
             if (m_notifQueue.Count != 0)
             {
-                m_curNotif= m_notifQueue.Dequeue().m_text;
+                Notification notif = m_notifQueue.Dequeue();
+                m_curNotif = notif.m_text;
                 m_Text.text = m_curNotif;
-                //TODO icon
+                m_icon.enabled = true;
+                m_icon.sprite = notif.m_UI_Icon;
             }
             else
             {
                 m_Text.text = "";
                 m_curNotif = null;
+                m_icon.enabled = false;
             }
 
             m_curNotDisTimer = 0.0f;

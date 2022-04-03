@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: InsufficientRock
   m_EditorClassIdentifier: 
   m_text: Insufficient Rock Stocks!
-  m_UI_Icon: {fileID: 0}
+  m_UI_Icon: {fileID: 21300000, guid: 2f3003ad43c4f69439008ecf929c7557, type: 3}

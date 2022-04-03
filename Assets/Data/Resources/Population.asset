@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Population
   m_EditorClassIdentifier: 
   m_foodResource: {fileID: 11400000, guid: 3914071e6ec7fd448be939b463e7f02e, type: 2}
-  m_foodConsumptionRate: 1
+  m_foodConsumptionRate: 0.01
   m_initialValue: 10
   m_initialCap: 50
   m_Icon: {fileID: 21300000, guid: afb24a4d65df6f74fb481156d37be428, type: 3}

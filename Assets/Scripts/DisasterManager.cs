@@ -7,6 +7,7 @@ public interface IDisaster
 
 public class DisasterManager : Singleton<DisasterManager>
 {
+	[SerializeField] float m_DurationDifficultyScale = 1.0f;
 	[SerializeField] MeteorManager m_MeteorManager;
 
 	IDisaster[] m_Disasters;
@@ -29,7 +30,7 @@ public class DisasterManager : Singleton<DisasterManager>
 
 	public float CalculateDisasterDuration( float difficulty )
 	{
-		return difficulty * 3.0f;
+		return difficulty * m_DurationDifficultyScale;
 	}
 
 	IDisaster SelectDisaster()

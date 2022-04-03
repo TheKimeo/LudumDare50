@@ -56,7 +56,7 @@ public class PopulationManager : MonoBehaviour
 		{
 			m_TimeUntilRequest = m_TimeUnderCapForRequest;
 		}
-		else
+		else if ( RocketLandingMarker.AllLandingMarkers.Count > 0 )
 		{
 			m_TimeUntilRequest -= Time.deltaTime;
 		}

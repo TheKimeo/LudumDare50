@@ -75,7 +75,7 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
                     {
                         repairComp.StartRepair();
                     }
-                    else
+                    else if(!repairComp.CanAfford())
                     {
                         m_notifManager.PushNotif(m_noResNotif);
                     }

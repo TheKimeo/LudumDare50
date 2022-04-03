@@ -28,6 +28,18 @@ public class RepairManager : MonoBehaviour
     }
 
 
+    private void OnDestroy()
+    {
+        if (m_health.HealthRatio > 0)
+        {
+            foreach (BuildingType.Cost cost in m_buildingType.m_costData)
+            {
+                //Give back 0.5 build cost when delete
+                cost.m_resourceType.Modify(cost.m_buildCost * 0.5f);
+            }
+        }
+    }
+
     public bool CanAfford()
     {
         if(m_building.activeInHierarchy)

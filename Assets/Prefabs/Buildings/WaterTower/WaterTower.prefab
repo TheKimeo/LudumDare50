@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1790202752638444175
 MonoBehaviour:
@@ -103,7 +103,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2935229669960445955
 MonoBehaviour:
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_buildingType: {fileID: 11400000, guid: 0ca83129a2b71224d9918bcdba966a11, type: 2}
   m_buildingState: {fileID: 6858126512277675162}
   m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
+  m_popResBoost: {fileID: 11400000, guid: 99452c294a901f14ba8fd8206fc30c55, type: 2}
 --- !u!114 &6858126512277675162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,8 +355,6 @@ MonoBehaviour:
   m_buildingRepairAmount: {fileID: 11400000, guid: 85e2748da5111e04d9ac94dd078993ff, type: 2}
   m_RubbleRepairUIPrefab: {fileID: 2788942889879406083, guid: 5e71c91b34f024148924bb5087ada999, type: 3}
   m_buildingType: {fileID: 11400000, guid: 0ca83129a2b71224d9918bcdba966a11, type: 2}
-  m_noResNotif: {fileID: 11400000, guid: 472659bb7d4ac6a4f8777f01cc4132d6, type: 2}
-  m_notifManager: {fileID: 0}
 --- !u!1 &8855421302560379850
 GameObject:
   m_ObjectHideFlags: 0

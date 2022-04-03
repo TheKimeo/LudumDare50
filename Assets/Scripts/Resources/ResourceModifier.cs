@@ -5,6 +5,8 @@ public class ResourceModifier : MonoBehaviour
 	[SerializeField] BuildingType m_buildingType;
 	[SerializeField] BuildingState m_buildingState;
 	[SerializeField] Population m_population;
+	[SerializeField] FloatReference m_popResBoost;
+
 
 	private void OnEnable()
 	{
@@ -44,6 +46,7 @@ public class ResourceModifier : MonoBehaviour
 			float modifyAmount = cost.m_productionPerTick;
 			if ( modifyAmount > 0.0f )
 			{
+				modifyAmount += cost.m_productionPerTick * m_population.m_Value * m_popResBoost.Value;
 				//Only positive generation is effected by operational shutdown
 				modifyAmount *= m_buildingState.OperationalRatio;
 			}

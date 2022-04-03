@@ -6,6 +6,7 @@ public class TurretShooting : MonoBehaviour
 	[SerializeField] Transform m_CenterPoint; //This is so the rotations are relative to the center of the barrels
 	[SerializeField] Transform m_HorizontalRotator;
 	[SerializeField] Transform m_VerticalRotator;
+	[SerializeField] BuildingState m_BuildingState;
 	[Space]
 	[SerializeField] float m_HorizontalSpeed;
 	[SerializeField] float m_VerticalSpeed;
@@ -25,6 +26,11 @@ public class TurretShooting : MonoBehaviour
 
 	void Update()
 	{
+		if ( m_BuildingState != null & m_BuildingState.OperationalRatio <= 0.0f )
+		{
+			return;
+		}
+
 		if ( m_Target != null && ValidTarget( m_Target ) == false )
 		{
 			//Clear target if current target is invalid
@@ -58,7 +64,7 @@ public class TurretShooting : MonoBehaviour
 		Debug.Assert( m_Target != null );
 
 		Health health = m_Target.GetComponent<Health>();
-		if (health == null)
+		if ( health == null )
 		{
 			Debug.Assert( false, "[TurretShooting] Cannot shoot at target " + m_Target + " as it has no health component", m_Target );
 			return;
@@ -75,7 +81,7 @@ public class TurretShooting : MonoBehaviour
 
 		Transform closestTarget = null;
 		float closestSqrDistance = float.MaxValue;
-		foreach ( TurretTargetable target in allTargets)
+		foreach ( TurretTargetable target in allTargets )
 		{
 			Transform targetTransform = target.transform;
 			if ( ValidTarget( targetTransform ) == false )
@@ -84,7 +90,7 @@ public class TurretShooting : MonoBehaviour
 			}
 
 			float sqrDistance = ( sourcePosition - targetTransform.position ).sqrMagnitude;
-			if ( sqrDistance  < closestSqrDistance )
+			if ( sqrDistance < closestSqrDistance )
 			{
 				closestTarget = targetTransform;
 				closestSqrDistance = sqrDistance;

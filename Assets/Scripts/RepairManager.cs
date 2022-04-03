@@ -33,15 +33,18 @@ public class RepairManager : MonoBehaviour
             {
                 if (m_health.HealthRatio < 1.0f)
                 {
-                    //Begin repairing building
+                    m_repairInProg = true;
+                    m_building.GetComponent<BuildingState>().AddSuppressor(this);
+
                 }
             }
             else
             {
+                m_repairInProg = true;
+
                 //Begin repairing rubble
             }
 
-            m_repairInProg = true;
         }
     }
 
@@ -82,6 +85,7 @@ public class RepairManager : MonoBehaviour
                     if(m_health.HealthRatio >= 1)
                     {
                         RepairDone();
+                        m_building.GetComponent<BuildingState>().RemoveSuppressor(this);
                     }
                 }
 

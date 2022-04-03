@@ -4,6 +4,7 @@ public class ResourceModifier : MonoBehaviour
 {
 	[SerializeField] BuildingType m_buildingType;
 	[SerializeField] BuildingState m_buildingState;
+	[SerializeField] Population m_population;
 
 	float m_tSinceProd = 0.0f;
 
@@ -14,6 +15,9 @@ public class ResourceModifier : MonoBehaviour
 		{
 			cost.m_resourceType.m_MaxValue += cost.m_capIncrease;
 		}
+
+		m_population.m_cap += m_buildingType.m_popCapIncrease;
+
 	}
 
     private void OnDisable()
@@ -21,10 +25,13 @@ public class ResourceModifier : MonoBehaviour
 		foreach (BuildingType.Cost cost in m_buildingType.m_costData)
 		{
 			cost.m_resourceType.m_MaxValue -= cost.m_capIncrease;
-		}		
+		}
+
+		m_population.m_cap -= m_buildingType.m_popCapIncrease;
+
 	}
 
-    private void Update()
+	private void Update()
 	{
 		m_tSinceProd += Time.deltaTime;
 

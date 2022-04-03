@@ -12,6 +12,9 @@ public class BuildingType : ScriptableObject
 		public float m_capIncrease;
     }
 
+
+	[SerializeField] public float m_popCapIncrease = 0;
+
 	[SerializeField] public GameObject m_ghost;
 	[SerializeField] public GameObject m_real;
 	[SerializeField] public Sprite m_UI_Icon;

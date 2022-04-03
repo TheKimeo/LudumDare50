@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a3b895a5d052f49a4aa3c9054bb5c2, type: 3}
   m_Name: DisasterEvent
   m_EditorClassIdentifier: 
+  m_EventIcon: {fileID: 21300000, guid: b58d4fa5f71156b4184dd4cdf76a3917, type: 3}

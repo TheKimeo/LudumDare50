@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Timeline: {fileID: 8506145044515019222}
   m_EventParent: {fileID: 648642725575187944}
-  m_EventPrefab: {fileID: 5817967225104546413, guid: 340601c7a60412f4a890326215457610, type: 3}
+  m_EventPrefab: {fileID: 4881204353139449780, guid: 340601c7a60412f4a890326215457610, type: 3}
 --- !u!223 &5928808101472644025
 Canvas:
   m_ObjectHideFlags: 0

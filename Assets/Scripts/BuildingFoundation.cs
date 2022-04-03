@@ -70,7 +70,6 @@ public class BuildingFoundation : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("hhhh");
         bool canAfford = CanAfford();
         if (canAfford && m_colCounter == 0)
         {

@@ -20,6 +20,7 @@ public class UIBuildingButton : MonoBehaviour
 	void OnButtonClicked()
 	{
 		BuildingPlacer buildingPlacer = BuildingPlacer.Instance;
-		buildingPlacer.Enable( m_BuildingType );
+		buildingPlacer.SetType( m_BuildingType );
+		InputModeManager.Instance.SetMode(InputModeManager.Mode.BUILD);
 	}
 }

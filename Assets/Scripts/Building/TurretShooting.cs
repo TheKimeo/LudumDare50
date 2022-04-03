@@ -10,6 +10,7 @@ public class TurretShooting : MonoBehaviour
 	[SerializeField] float m_HorizontalSpeed;
 	[SerializeField] float m_VerticalSpeed;
 	[Space]
+	[SerializeField] float m_MaxTargetRange;
 	[SerializeField] float m_DelayBetweenShots;
 	[SerializeField] float m_ShotDamage;
 
@@ -108,7 +109,19 @@ public class TurretShooting : MonoBehaviour
 
 	bool ValidTarget( Transform target )
 	{
-		//Target shouldn't be below the center of the turret
-		return target.position.y > m_CenterPoint.position.y;
+		if ( target.position.y <= m_CenterPoint.position.y )
+		{
+			//Target shouldn't be below the center of the turret
+			return false;
+		}
+
+		float distanceSqr = ( target.position - m_CenterPoint.position ).sqrMagnitude;
+		if ( distanceSqr > ( m_MaxTargetRange * m_MaxTargetRange ) )
+		{
+			//Out of range
+			return false;
+		}
+
+		return true;
 	}
 }

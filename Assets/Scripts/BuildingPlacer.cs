@@ -7,17 +7,18 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
 {
     public NotificationManager m_notifMngr;
     public Notification m_invalidPosNotif;
+    public BuildingType m_defaultType;
+
 
     private GameObject m_ghostBuilding = null;
-    private BuildingType m_typeToPlace;
+    private BuildingType m_typeToPlace = null;
     private bool m_enabled = false;
     private int m_layerMask;
 
     //---------------------------
-    public void Enable(BuildingType i_toPlace)
+    public void SetType(BuildingType i_toPlace)
     {
         m_typeToPlace = i_toPlace;
-        m_enabled = true;
 
         if(m_ghostBuilding != null)
         {
@@ -34,18 +35,32 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
         Destroy(m_ghostBuilding);
     }
 
-
+    void OnInputModeChange(InputModeManager inputModeManager)
+    {
+        if(inputModeManager.GetMode() != InputModeManager.Mode.BUILD)
+        {
+            Disable();
+        }
+        else
+        {
+            m_enabled = true;
+        }
+    }
 
     //---------------------------
     void Start()
     {
         m_layerMask = LayerMask.GetMask("PlaceableGround");
+
+        InputModeManager.Instance.m_onModeChange.AddListener(OnInputModeChange);
+
+
     }
 
     //---------------------------
     void Update()
     {
-        if(!m_enabled)
+        if(!m_enabled || InputModeManager.Instance.GetMode() != InputModeManager.Mode.BUILD || m_typeToPlace == null)
         {
             return;
         }
@@ -60,7 +75,7 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
 		bool exitMode = Input.GetMouseButtonDown( 1 ) || Input.GetKeyDown(KeyCode.Escape);
 		if ( exitMode )
 		{
-			Disable();
+            InputModeManager.Instance.SetMode(InputModeManager.Mode.NONE);
 			return;
 		}
 

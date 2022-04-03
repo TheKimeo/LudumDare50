@@ -58,9 +58,12 @@ public class ColourSetter : MonoBehaviour
 
     public void SetColour(Color i_colour)
     {
-        foreach (Material mat in m_materials)
+        if (m_materials != null)
         {
-            mat.SetColor("_Color", i_colour);
+            foreach (Material mat in m_materials)
+            {
+                mat.SetColor("_Color", i_colour);
+            }
         }
     }
 

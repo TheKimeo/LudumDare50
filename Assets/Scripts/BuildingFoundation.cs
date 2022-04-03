@@ -14,6 +14,15 @@ public class BuildingFoundation : MonoBehaviour
     bool m_snapMode = false;
 
       
+    bool CanAfford()
+    {
+        bool canAfford = true; 
+        foreach (BuildingType.Cost cost in m_type.m_costData)
+        {
+            canAfford &= cost.m_resourceType.CanConsume(cost.m_buildCost);
+        }
+        return canAfford;
+    }
     public void SetSnapped(bool i_val)
     {
         Debug.Assert(m_snapMode);
@@ -33,11 +42,11 @@ public class BuildingFoundation : MonoBehaviour
     {
         if (m_snapMode)
         {
-            return m_isSnapped;
+            return m_isSnapped && CanAfford() ;
         }
         else
         {
-            return m_safeToPlace;
+            return m_safeToPlace && CanAfford();
         }
     }
 
@@ -57,9 +66,20 @@ public class BuildingFoundation : MonoBehaviour
             m_colComp.SetColour(Color.green);
 
         }
+    }
 
-
-
+    void Update()
+    {
+        Debug.Log("hhhh");
+        bool canAfford = CanAfford();
+        if (canAfford && m_colCounter == 0)
+        {
+            m_colComp.SetColour(Color.green);
+        }
+        else if(!canAfford)
+        {
+            m_colComp.SetColour(Color.red);
+        }
     }
 
     void OnTriggerEnter(Collider other)

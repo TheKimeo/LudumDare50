@@ -10,7 +10,8 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
     private bool m_enabled = false;
     private int m_layerMask;
     GameObject m_selectedBuilding;
-
+    public Notification m_noResNotif;
+    public NotificationManager m_notifManager;
     void OnInputModeChange(InputModeManager inputModeManager)
     {
         if (inputModeManager.GetMode() != InputModeManager.Mode.REPAIR)
@@ -70,8 +71,15 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
             {
                 if (!repairInProgress)
                 {
-                    repairComp.StartRepair();
-                    selected.transform.Find("Building").gameObject.GetComponent<HealthVisualiser>().enabled = true;
+                    if (repairComp.CanRepair())
+                    {
+                        repairComp.StartRepair();
+                        selected.transform.Find("Building").gameObject.GetComponent<HealthVisualiser>().enabled = true;
+                    }
+                    else
+                    {
+                        m_notifManager.PushNotif(m_noResNotif);
+                    }
                 }
                 m_selectedBuilding.GetComponent<ColourSetter>().ResetColour();
                 m_selectedBuilding = null;

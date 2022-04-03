@@ -717,6 +717,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCam
       objectReference: {fileID: 0}
+    - target: {fileID: 5404661325134446484, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_noResNotif
+      value: 
+      objectReference: {fileID: 11400000, guid: 472659bb7d4ac6a4f8777f01cc4132d6, type: 2}
+    - target: {fileID: 5404661325134446484, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
+      propertyPath: m_notifManager
+      value: 
+      objectReference: {fileID: 2059480133}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02509f6c0e1cfed45a3d1455af7b62c4, type: 3}
 --- !u!1001 &831480305
@@ -845,7 +853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4138355435895338927, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
       propertyPath: m_InitialHealthRatio
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6460563869104808431, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
       propertyPath: m_repairTime

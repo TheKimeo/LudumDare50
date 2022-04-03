@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Axis: {x: 0, y: 0, z: 1}
   m_Speed: 15
   m_Magnitude: 0.03
+  m_BuildingState: {fileID: 240588766999819143}
 --- !u!114 &240588766999819143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +303,7 @@ MonoBehaviour:
   m_CenterPoint: {fileID: 8344252912129150051}
   m_HorizontalRotator: {fileID: 6369532971137775705}
   m_VerticalRotator: {fileID: 5677049584408058267}
+  m_BuildingState: {fileID: 240588766999819143}
   m_HorizontalSpeed: 360
   m_VerticalSpeed: 180
   m_MaxTargetRange: 30

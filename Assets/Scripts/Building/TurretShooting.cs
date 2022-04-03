@@ -26,7 +26,7 @@ public class TurretShooting : MonoBehaviour
 
 	void Update()
 	{
-		if ( m_BuildingState != null & m_BuildingState.OperationalRatio <= 0.0f )
+		if ( m_BuildingState != null && m_BuildingState.OperationalRatio <= 0.0f )
 		{
 			return;
 		}

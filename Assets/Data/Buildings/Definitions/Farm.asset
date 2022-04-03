@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ghost: {fileID: 4390758213304100118, guid: 2588c7fbd3ceaa54da5afd543303298c, type: 3}
   m_real: {fileID: 4390758213304100118, guid: 1cdd3a4ce2f742d48ae6b2272515ba28, type: 3}
-  m_UI_Icon: {fileID: 21300000, guid: 1260585d2a39e084385ad657d1367723, type: 3}
+  m_UI_Icon: {fileID: 21300000, guid: 498219543c1ae49499b12f3b44cc4c66, type: 3}
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: 3914071e6ec7fd448be939b463e7f02e, type: 2}
     m_buildCost: 0

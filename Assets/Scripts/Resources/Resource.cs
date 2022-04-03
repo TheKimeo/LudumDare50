@@ -43,6 +43,5 @@ public class Resource : ScriptableObject
 		m_Max += amount;
 		m_Value = Mathf.Clamp(m_Value, m_MinValue, m_Max);
 
-		Debug.Log(m_Value+ " " + m_Max + " " + amount);
 	}
 }

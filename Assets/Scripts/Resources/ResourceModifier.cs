@@ -47,6 +47,18 @@ public class ResourceModifier : MonoBehaviour
 				//Only positive generation is effected by operational shutdown
 				modifyAmount *= m_buildingState.OperationalRatio;
 			}
+			else
+            {
+				if (!cost.m_resourceType.CanConsume(-modifyAmount))
+                {
+					m_buildingState.AddSuppressor(this);
+				}
+				else
+                {
+					m_buildingState.RemoveSuppressor(this);
+				}
+			}
+
 
 			cost.m_resourceType.Modify( modifyAmount );
 		}

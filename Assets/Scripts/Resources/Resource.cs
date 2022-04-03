@@ -7,6 +7,7 @@ public class Resource : ScriptableObject
 	[SerializeField] public float m_MinValue;
 	[SerializeField] public float m_MaxValue;
 	[SerializeField] public Notification m_insufficientNotif;
+	[SerializeField] public Sprite m_Icon;
 
 
 	[HideInInspector] public float m_Value;

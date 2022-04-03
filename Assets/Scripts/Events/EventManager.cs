@@ -6,7 +6,7 @@ public class EventManager : Singleton<EventManager>
 	public struct Event : IEqualityComparer<Event>
 	{
 		public EventBehaviour m_Behaviour;
-		public float m_StartTime;
+		public float m_StartTime; //TimeManager time, not Time.time
 		public float m_Duration;
 
 		public bool Equals( Event x, Event y )
@@ -82,5 +82,16 @@ public class EventManager : Singleton<EventManager>
 		}
 
 		m_QueuedEvents.Add( newEvent );
+	}
+
+	public void QueueEvent( EventBehaviour behaviour, float delayToStart )
+	{
+		float difficulty = DifficultyManager.Instance.Difficulty;
+		QueueEvent( new EventManager.Event
+		{
+			m_Behaviour = behaviour,
+			m_Duration = behaviour.CalculateDuration( difficulty ),
+			m_StartTime = TimeManager.Instance.m_CurrentTime + delayToStart,
+		} );
 	}
 }

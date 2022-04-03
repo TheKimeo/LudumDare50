@@ -59,6 +59,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SphereRadius: {fileID: 11400000, guid: 21156eb4f5564f841b154bcf62478df1, type: 2}
+--- !u!1 &3534165665727723635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7193588112392768008}
+  - component: {fileID: 7014059811167464092}
+  m_Layer: 7
+  m_Name: RocketLandingMarker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7193588112392768008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534165665727723635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.411, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8877395728496363393}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7014059811167464092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534165665727723635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e4bf348aa90284ea38701e4b430720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6607814868658019883
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +182,7 @@ Transform:
   - {fileID: 764988856434568845}
   - {fileID: 385644169027668898}
   - {fileID: 3837106061153201664}
+  - {fileID: 7193588112392768008}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}

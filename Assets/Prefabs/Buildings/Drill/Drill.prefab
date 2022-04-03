@@ -5050,6 +5050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_buildingType: {fileID: 11400000, guid: f158aafa0cd411d4eb8807f7af67f0af, type: 2}
+  m_buildingState: {fileID: 240588766999819143}
 --- !u!114 &2184078697710360139
 MonoBehaviour:
   m_ObjectHideFlags: 0

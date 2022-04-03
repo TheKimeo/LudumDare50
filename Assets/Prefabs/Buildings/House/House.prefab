@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_buildingType: {fileID: 11400000, guid: db178a9113942924086757a7af2fe593, type: 2}
+  m_buildingState: {fileID: 4630781909202985326}
 --- !u!114 &1125785449803836842
 MonoBehaviour:
   m_ObjectHideFlags: 0

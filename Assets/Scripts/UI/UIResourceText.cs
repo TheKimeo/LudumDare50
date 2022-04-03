@@ -19,6 +19,6 @@ public class UIResourceText : MonoBehaviour
 
 	void UpdateText()
 	{
-		m_Text.text = m_Resource.m_Value + "/" + m_Resource.m_MaxValue;
+		m_Text.text = (int)m_Resource.m_Value + "/" + m_Resource.m_MaxValue;
 	}
 }

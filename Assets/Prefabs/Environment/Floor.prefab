@@ -91,13 +91,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786704d2976d7eb409d7b45028bc4876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OuterRadius: 70
+  m_OuterRadius: 65
   m_InnerRadius: 5
   m_Density: 0.5
   m_Decorations:
   - {fileID: 11400000, guid: 74f6ea50c3797c743ae32fec29106f5b, type: 2}
   - {fileID: 11400000, guid: 602d4d0905b35b54e93cf5969492120e, type: 2}
   - {fileID: 11400000, guid: f7efcf70ea076484f9bd5673fc753bfb, type: 2}
+  - {fileID: 11400000, guid: 82142218761a71f4cbbdb77377082399, type: 2}
+  - {fileID: 11400000, guid: 56d91afb0648f2049a2e40d33aca5825, type: 2}
 --- !u!1001 &1643686035007549166
 PrefabInstance:
   m_ObjectHideFlags: 0

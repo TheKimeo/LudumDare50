@@ -79,7 +79,6 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
 			return;
 		}
 
-        bool locationValid = false;
         if (m_typeToPlace.m_snapLayer != "")
         {
             int mask = LayerMask.GetMask(m_typeToPlace.m_snapLayer, "Building");
@@ -108,11 +107,7 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
                 m_ghostBuilding.GetComponent<BuildingFoundation>().SetSnapped(false);
             }
         }
-        else
-        {
-            locationValid = true;
-        }
-
+    
         bool mouseDown = Input.GetMouseButtonDown( 0 );
 		bool mouseOverUI = EventSystem.current.IsPointerOverGameObject();
         if ( mouseDown && mouseOverUI == false)

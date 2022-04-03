@@ -992,6 +992,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8249753521114400277, guid: 44f65104e9fe84c4a8aa781c6ee62753, type: 3}
+      propertyPath: m_notifManager
+      value: 
+      objectReference: {fileID: 2059480133}
     - target: {fileID: 9123808741424486760, guid: 44f65104e9fe84c4a8aa781c6ee62753, type: 3}
       propertyPath: buildCursor
       value: 

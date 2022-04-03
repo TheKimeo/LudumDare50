@@ -93,6 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
+  m_popFoodAlert: {fileID: 11400000, guid: 772777c4d28af8f44bd59147a6a8b256, type: 2}
+  m_alertRateLimit: 10
+  m_notifManager: {fileID: 0}
 --- !u!1 &3219916762022093861
 GameObject:
   m_ObjectHideFlags: 0

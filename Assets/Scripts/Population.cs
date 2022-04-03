@@ -3,6 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PopulationDefinition", menuName = "Population", order = 0)]
 public class Population : ScriptableObject
 {
+	[SerializeField] public Resource m_foodResource;
+
+	[SerializeField] public float m_foodConsumptionRate;
+
 	[SerializeField] public float m_initialValue;
 	[SerializeField] public float m_initialCap;
 
@@ -18,6 +22,8 @@ public class Population : ScriptableObject
 		m_Value = m_initialValue;
 		m_cap = m_initialCap;
 	}
+
+
 		
 
 	public void Modify(float amount)
@@ -32,3 +38,5 @@ public class Population : ScriptableObject
 		m_Value = Mathf.Clamp(m_Value, 0, m_cap);
 	}
 }
+
+

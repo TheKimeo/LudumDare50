@@ -7,7 +7,24 @@ public class ResourceModifier : MonoBehaviour
 
 	float m_tSinceProd = 0.0f;
 
-	private void Update()
+
+	private void OnEnable()
+	{
+		foreach (BuildingType.Cost cost in m_buildingType.m_costData)
+		{
+			cost.m_resourceType.m_MaxValue += cost.m_capIncrease;
+		}
+	}
+
+    private void OnDisable()
+    {	
+		foreach (BuildingType.Cost cost in m_buildingType.m_costData)
+		{
+			cost.m_resourceType.m_MaxValue -= cost.m_capIncrease;
+		}		
+	}
+
+    private void Update()
 	{
 		m_tSinceProd += Time.deltaTime;
 

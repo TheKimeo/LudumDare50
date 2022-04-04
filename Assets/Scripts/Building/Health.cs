@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
     {
 		if (m_fireSource != null)
 		{
-			m_fireSource.active = false;
+			m_fireSource.SetActive( false );
 		}
 	}
 
@@ -43,14 +43,14 @@ public class Health : MonoBehaviour
 		{
 			if (m_fireSource != null)
 			{
-				m_fireSource.active = true;
+				m_fireSource.SetActive( true );
 			}
 		}
 		else
         {
 			if (m_fireSource != null)
 			{
-				m_fireSource.active = false;
+				m_fireSource.SetActive( false );
 			}
 
 		}
@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
 		m_Health = m_MaxHealth;
 		if (m_fireSource != null)
 		{
-			m_fireSource.active = true;
+			m_fireSource.SetActive( true );
 		}
 	}
 

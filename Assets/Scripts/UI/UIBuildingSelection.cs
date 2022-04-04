@@ -36,9 +36,10 @@ public class UIBuildingSelection : MonoBehaviour
 	private void LateUpdate()
 	{
 		BuildingPlacer placer = BuildingPlacer.Instance;
+		BuildingRepairer repairer = BuildingRepairer.Instance;
 
 		//Prioritise hover target, then fall back to currently placing building
-		BuildingType toDisplayBuildingType = m_HoveredBuildingType ?? placer.PlacingBuildingType;
+		BuildingType toDisplayBuildingType = m_HoveredBuildingType ?? placer.PlacingBuildingType ?? repairer.HoveredBuildingType;
 
 		float targetTooltipAlpha = toDisplayBuildingType == null
 			? 0.0f

@@ -9,10 +9,12 @@ public class PopulationManager : MonoBehaviour, ResourceManager.IResourceModifie
 	[SerializeField] float m_DelayAfterRequest = 10.0f;
 	[SerializeField] EventBehaviour m_RocketEvent;
 	[SerializeField] Notification m_popFoodAlert;
+	[SerializeField] Notification m_noHouseAlert;
 	[SerializeField] NotificationManager m_notifManager;
 	[SerializeField] float m_famineRate = 1.0f;
 
 
+	float m_tSinceHousingKill = 0.1f;
 	float m_CheckNextRequestTime;
 	float m_TimeUntilRequest;
 
@@ -40,6 +42,22 @@ public class PopulationManager : MonoBehaviour, ResourceManager.IResourceModifie
 
 	void Update()
 	{
+		if(m_population.m_Value > m_population.m_cap)
+        {
+			m_tSinceHousingKill += Time.deltaTime;
+
+			if(m_tSinceHousingKill >= 1.0f)
+            {
+				m_population.Modify(-1);
+				m_notifManager.PushNotif(m_noHouseAlert);
+				m_tSinceHousingKill = 0.0f;
+			}
+        }
+		else
+        {
+			m_tSinceHousingKill = 0.0f;
+        }
+
 		UpdateRocketRequest();
 	}
 

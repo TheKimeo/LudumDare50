@@ -15,7 +15,10 @@ MonoBehaviour:
   m_popCapIncrease: 0
   m_ghost: {fileID: 4390758213304100118, guid: c1f741c29cd38fa4bbb3b9c809d5356b, type: 3}
   m_real: {fileID: 4390758213304100118, guid: 585b6dbbce82bb14c80a35e2b05a7db9, type: 3}
+  m_snapLayer: 
   m_UI_Icon: {fileID: 21300000, guid: ac310ab7d206edd49bacad45e25ab9fd, type: 3}
+  m_UI_Name: Laser Turret
+  m_UI_Placement: Anywhere
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
     m_buildCost: 80
@@ -25,4 +28,3 @@ MonoBehaviour:
     m_buildCost: 30
     m_productionPerTick: -1
     m_capIncrease: 0
-  m_snapLayer: 

@@ -15,7 +15,10 @@ MonoBehaviour:
   m_popCapIncrease: 0
   m_ghost: {fileID: 4125278299751470174, guid: 90e46ef1f2725a24494276c82ad2444c, type: 3}
   m_real: {fileID: 4125278299751470174, guid: 5ad1efa6e52035e41b10c0e60ccb4d71, type: 3}
+  m_snapLayer: 
   m_UI_Icon: {fileID: 21300000, guid: ab6c4093ba0126148acb79ab5de107e9, type: 3}
+  m_UI_Name: Radar
+  m_UI_Placement: Anywhere
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
     m_buildCost: 40
@@ -25,4 +28,3 @@ MonoBehaviour:
     m_buildCost: 20
     m_productionPerTick: -0.2
     m_capIncrease: 0
-  m_snapLayer: 

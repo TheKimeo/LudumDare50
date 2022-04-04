@@ -14,7 +14,9 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
     private BuildingType m_typeToPlace = null;
     private bool m_enabled = false;
     private int m_layerMask;
-    
+
+	public BuildingType PlacingBuildingType => m_enabled ? m_typeToPlace : null;
+
     //---------------------------
     public void SetType(BuildingType i_toPlace)
     {

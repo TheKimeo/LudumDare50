@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74cd99c03523b74ba05f041d7f6602e, type: 3}
   m_Name: Float_PopulationResourceBoost
   m_EditorClassIdentifier: 
-  m_Value: 0.05
+  m_Value: 0.005

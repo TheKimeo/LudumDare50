@@ -15,7 +15,10 @@ MonoBehaviour:
   m_popCapIncrease: 20
   m_ghost: {fileID: 4390758213304100118, guid: 2f31f7df2a9f407418ce894599dd8a18, type: 3}
   m_real: {fileID: 4390758213304100118, guid: 267170e9dd62442408047093e7098dae, type: 3}
+  m_snapLayer: 
   m_UI_Icon: {fileID: 21300000, guid: 9978d71504ee41843866d23806b7c312, type: 3}
+  m_UI_Name: Housing
+  m_UI_Placement: Anywhere
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
     m_buildCost: 40
@@ -29,4 +32,3 @@ MonoBehaviour:
     m_buildCost: 20
     m_productionPerTick: 0
     m_capIncrease: 0
-  m_snapLayer: 

@@ -18,9 +18,11 @@ public class BuildingType : ScriptableObject
 
 	[SerializeField] public GameObject m_ghost;
 	[SerializeField] public GameObject m_real;
-	[SerializeField] public Sprite m_UI_Icon;
-	[SerializeField] public Cost[] m_costData;
 	[SerializeField] public string m_snapLayer = "";
+	[SerializeField] public Sprite m_UI_Icon;
+	[SerializeField] public string m_UI_Name = "[placeholder]";
+	[SerializeField] public string m_UI_Placement = "Anywhere";
+	[SerializeField] public Cost[] m_costData;
 
 
 }

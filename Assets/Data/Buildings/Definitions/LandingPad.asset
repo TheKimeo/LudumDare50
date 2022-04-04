@@ -15,7 +15,10 @@ MonoBehaviour:
   m_popCapIncrease: 0
   m_ghost: {fileID: 8104518685104332091, guid: e4a0877a0290ae34d908bc325e1ea0d9, type: 3}
   m_real: {fileID: 8104518685104332091, guid: e2424c4a8d656474ea9b32f8d2020103, type: 3}
+  m_snapLayer: 
   m_UI_Icon: {fileID: 21300000, guid: ee1774a47fda64a4980182aa71da3c50, type: 3}
+  m_UI_Name: Rocket Pad
+  m_UI_Placement: Anywhere
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
     m_buildCost: 80
@@ -29,4 +32,3 @@ MonoBehaviour:
     m_buildCost: 0
     m_productionPerTick: -0.5
     m_capIncrease: 0
-  m_snapLayer: 

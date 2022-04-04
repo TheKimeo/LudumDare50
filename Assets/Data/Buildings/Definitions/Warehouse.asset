@@ -15,7 +15,10 @@ MonoBehaviour:
   m_popCapIncrease: 0
   m_ghost: {fileID: 4390758213304100118, guid: e12fbabd54028ac488629439328f42a5, type: 3}
   m_real: {fileID: 4390758213304100118, guid: eb5513f328ca4fb459b32865a1d18c21, type: 3}
+  m_snapLayer: 
   m_UI_Icon: {fileID: 21300000, guid: ccd83b9e0469b7d4e9b2e07d2848d00d, type: 3}
+  m_UI_Name: Warehouse
+  m_UI_Placement: Anywhere
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
     m_buildCost: 40
@@ -25,4 +28,7 @@ MonoBehaviour:
     m_buildCost: 10
     m_productionPerTick: 0
     m_capIncrease: 0
-  m_snapLayer: 
+  - m_resourceType: {fileID: 11400000, guid: 3914071e6ec7fd448be939b463e7f02e, type: 2}
+    m_buildCost: 10
+    m_productionPerTick: 0
+    m_capIncrease: 40

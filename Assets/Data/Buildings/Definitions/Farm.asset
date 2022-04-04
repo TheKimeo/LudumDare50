@@ -15,7 +15,10 @@ MonoBehaviour:
   m_popCapIncrease: 0
   m_ghost: {fileID: 4390758213304100118, guid: 2588c7fbd3ceaa54da5afd543303298c, type: 3}
   m_real: {fileID: 4390758213304100118, guid: 1cdd3a4ce2f742d48ae6b2272515ba28, type: 3}
+  m_snapLayer: 
   m_UI_Icon: {fileID: 21300000, guid: 498219543c1ae49499b12f3b44cc4c66, type: 3}
+  m_UI_Name: Farm
+  m_UI_Placement: Anywhere
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}
     m_buildCost: 30
@@ -29,4 +32,3 @@ MonoBehaviour:
     m_buildCost: 0
     m_productionPerTick: 1
     m_capIncrease: 0
-  m_snapLayer: 

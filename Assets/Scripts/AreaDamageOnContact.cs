@@ -4,9 +4,7 @@ public class AreaDamageOnContact : MonoBehaviour
 {
 	[SerializeField] ParticleSystem m_ExplosionPrefab;
 	[SerializeField] float m_Damage;
-
-
-
+	[SerializeField] DetatchThenDestroyAfterDelay m_DetatchPoint;
 
     private void OnCollisionEnter( Collision collision )
 	{
@@ -21,6 +19,7 @@ public class AreaDamageOnContact : MonoBehaviour
 		ContactPoint contact = collision.GetContact( 0 );
 		SpawnExplosion( contact.point );
 
+		m_DetatchPoint?.Detatch();
 		GameObject.Destroy( gameObject );
 	}
 

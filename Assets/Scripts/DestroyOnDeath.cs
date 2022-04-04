@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class DestroyOnDeath : MonoBehaviour
 {
+	[SerializeField] DetatchThenDestroyAfterDelay m_Detatch;
+
 	private void OnEnable()
 	{
 		Health health = GetComponent<Health>();
@@ -22,6 +24,7 @@ public class DestroyOnDeath : MonoBehaviour
 			return;
 		}
 
+		m_Detatch?.Detatch();
 		GameObject.Destroy( gameObject );
 	}
 }

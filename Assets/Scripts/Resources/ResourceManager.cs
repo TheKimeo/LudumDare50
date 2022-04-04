@@ -30,7 +30,22 @@ public class ResourceManager : Singleton<ResourceManager>
 		{
 			m_TimeToTick += m_TickDelay;
 
-			m_OnTickEvent?.Invoke();
+			DoTick();
+		}
+	}
+
+	private void DoTick()
+	{
+		foreach (Resource resource in m_Resources)
+		{
+			resource.m_BeforeTick = resource.m_Value;
+		}
+
+		m_OnTickEvent?.Invoke();
+
+		foreach ( Resource resource in m_Resources )
+		{
+			resource.m_AfterTick = resource.m_Value;
 		}
 	}
 }

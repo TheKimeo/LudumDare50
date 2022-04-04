@@ -15,6 +15,11 @@ public class Resource : ScriptableObject
 	[HideInInspector] public float m_Min;
 	[HideInInspector] public float m_Max;
 
+	[HideInInspector] public float m_BeforeTick;
+	[HideInInspector] public float m_AfterTick;
+
+	public float DifferencePerTick => m_AfterTick - m_BeforeTick;
+
 	public void Initialise()
 	{
 		Debug.Assert( m_InitialValue >= m_MinValue );
@@ -34,14 +39,11 @@ public class Resource : ScriptableObject
 	{
 		float newValue = m_Value + amount;
 		m_Value = Mathf.Clamp( newValue, m_MinValue, m_Max );
-			
-
 	}
 
 	public void ModifyCap(float amount)
     {
 		m_Max += amount;
 		m_Value = Mathf.Clamp(m_Value, m_MinValue, m_Max);
-
 	}
 }

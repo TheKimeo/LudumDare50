@@ -4,7 +4,12 @@ using UnityEngine.UI;
 public class UIResourceText : MonoBehaviour
 {
 	[SerializeField] Resource m_Resource;
-	[SerializeField] TMPro.TextMeshProUGUI m_Text;
+	[SerializeField] TMPro.TextMeshProUGUI m_ValueText;
+	[SerializeField] TMPro.TextMeshProUGUI m_DifferenceText;
+	[SerializeField] Color m_PositiveValueColour;
+	[SerializeField] Color m_NegativeValueColour;
+	[SerializeField] Color m_PositiveDifferenceColour;
+	[SerializeField] Color m_NegativeDifferenceColour;
 	[SerializeField] Image m_Icon;
 
     void Start()
@@ -21,7 +26,30 @@ public class UIResourceText : MonoBehaviour
 
 	void UpdateDisplay()
 	{
-		m_Text.text = (int)m_Resource.m_Value + "/" + m_Resource.m_Max;
+		int value = Mathf.RoundToInt( m_Resource.m_Value * 10.0f );
+		int max = Mathf.RoundToInt( m_Resource.m_Max * 10.0f );
+		m_ValueText.text = value + "/" + max;
+		if ( value > 0 )
+		{
+			m_ValueText.color = m_PositiveValueColour;
+		}
+		else
+		{
+			m_ValueText.color = m_NegativeValueColour;
+		}
+		
 		m_Icon.sprite = m_Resource.m_Icon;
+
+		int difference = Mathf.RoundToInt( m_Resource.DifferencePerTick * 10.0f );
+		if ( difference > 0 )
+		{
+			m_DifferenceText.text = "+" + Mathf.Abs(difference);
+			m_DifferenceText.color = m_PositiveDifferenceColour;
+		}
+		else
+		{
+			m_DifferenceText.text = "-" + Mathf.Abs( difference );
+			m_DifferenceText.color = m_NegativeDifferenceColour;
+		}
 	}
 }

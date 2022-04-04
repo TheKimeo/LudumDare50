@@ -19,7 +19,6 @@ public class Sound3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_camScript.GetZoomRatio());
         m_audioSource.volume = m_baseVol * Mathf.Max(m_camScript.GetZoomRatio(), m_minMult);
     }
 }

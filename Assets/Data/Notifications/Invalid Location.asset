@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824cc05af2afedb40a1bea92494bb7b0, type: 3}
   m_Name: Invalid Location
   m_EditorClassIdentifier: 
-  m_text: Ivalid Location!
+  m_text: Invalid Placement!
   m_UI_Icon: {fileID: 21300000, guid: b8edfbe96c6c8144ebeaf8d4d5597857, type: 3}

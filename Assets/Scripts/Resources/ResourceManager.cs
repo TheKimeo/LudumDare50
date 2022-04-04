@@ -1,12 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class ResourceManager : Singleton<ResourceManager>
 {
+	public interface IResourceModifier
+	{
+		void OnGainTick( Resource resource, ref float currentCumulative );
+		void OnLossTick( Resource resource, ref float currentCumulative );
+	}
+
 	[SerializeField] Resource[] m_Resources;
 	[SerializeField] float m_TickDelay = 1.0f;
 
-	public UnityAction m_OnTickEvent;
+	public List<IResourceModifier> m_OnTickEvent = new List<IResourceModifier>();
 
 	float m_TimeToTick;
 
@@ -36,16 +43,21 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	private void DoTick()
 	{
-		foreach (Resource resource in m_Resources)
-		{
-			resource.m_BeforeTick = resource.m_Value;
-		}
-
-		m_OnTickEvent?.Invoke();
-
 		foreach ( Resource resource in m_Resources )
 		{
-			resource.m_AfterTick = resource.m_Value;
+			float cumulative = 0.0f;
+			for ( int i = 0; i < m_OnTickEvent.Count; ++i )
+			{
+				m_OnTickEvent[ i ].OnGainTick( resource, ref cumulative );
+			}
+
+			for ( int i = 0; i < m_OnTickEvent.Count; ++i )
+			{
+				m_OnTickEvent[ i ].OnLossTick( resource, ref cumulative );
+			}
+
+			resource.m_DifferencePerTick = cumulative;
+			resource.Modify( cumulative );
 		}
 	}
 }

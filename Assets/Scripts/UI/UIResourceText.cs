@@ -45,7 +45,7 @@ public class UIResourceText : MonoBehaviour
 		
 		m_Icon.sprite = m_Resource.m_Icon;
 
-		int difference = Mathf.RoundToInt( m_Resource.DifferencePerTick * 10.0f );
+		int difference = Mathf.RoundToInt( m_Resource.m_DifferencePerTick * 10.0f );
 		if ( difference > 0 )
 		{
 			m_DifferenceText.text = "+" + Mathf.Abs(difference);

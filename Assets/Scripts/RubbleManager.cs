@@ -47,10 +47,12 @@ public class RubbleManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.K))
         {
             DestroyBuilding();
         }
+#endif
     }
 
     void DestroyBuilding()

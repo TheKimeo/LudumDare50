@@ -54,7 +54,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 953609861167448645}
-  m_Layer: 0
+  - component: {fileID: 5645718623327812291}
+  - component: {fileID: 3677791695928723331}
+  m_Layer: 8
   m_Name: WaterCrater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,6 +80,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5645718623327812291
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424395174331744544}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3677791695928723331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424395174331744544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f558aec45018354286733752d87fc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SphereRadius: {fileID: 11400000, guid: 21156eb4f5564f841b154bcf62478df1, type: 2}
 --- !u!1001 &770944463751083482
 PrefabInstance:
   m_ObjectHideFlags: 0

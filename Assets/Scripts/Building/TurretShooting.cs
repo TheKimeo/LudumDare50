@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TurretShooting : MonoBehaviour
 {
+	public AudioSource m_turretAudio;
+
 	[SerializeField] Transform m_CenterPoint; //This is so the rotations are relative to the center of the barrels
 	[SerializeField] Transform m_HorizontalRotator;
 	[SerializeField] Transform m_VerticalRotator;
@@ -106,6 +108,11 @@ public class TurretShooting : MonoBehaviour
 		}
 
 		m_Target = closestTarget;
+
+		if(m_Target != null && !m_turretAudio.isPlaying)
+        {
+			m_turretAudio.Play();
+        }
 	}
 
 	void AimAtTarget()

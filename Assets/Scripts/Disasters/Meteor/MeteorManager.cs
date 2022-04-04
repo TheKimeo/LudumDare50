@@ -7,15 +7,17 @@ public class MeteorManager : MonoBehaviour, IDisaster
 	[SerializeField] float m_MeteorSpawnHeight;
 	[SerializeField] float m_DelayBetweenMeteors;
 	[SerializeField] float m_MeteorFrequencyDifficultyScale = 1.0f;
+	[SerializeField] AudioClip m_stormSound ;
 
 	float m_StopMeteorTime;
 	float m_NextMeteorTime;
+	AudioSource m_audioSource;
 
 	void Start()
 	{
 		m_StopMeteorTime = -1.0f;
 		m_NextMeteorTime = -1.0f;
-
+		m_audioSource = GetComponent<AudioSource>();
 		Debug.Assert( m_DelayBetweenMeteors >= 0.01f, "[MeteorManager] Must have a delay >= 0.01 between meteors or the game will lag out and die" );
 	}
 
@@ -24,8 +26,12 @@ public class MeteorManager : MonoBehaviour, IDisaster
 		float time = Time.time;
 		if ( m_StopMeteorTime < time )
 		{
+			//Stop audio here
+			m_audioSource.Pause();
 			return;
 		}
+
+	
 
 		DifficultyManager difficultyManager = DifficultyManager.Instance;
 		float difficulty = difficultyManager.Difficulty;
@@ -54,6 +60,10 @@ public class MeteorManager : MonoBehaviour, IDisaster
 
 	void IDisaster.TriggerDisaster( float duration )
 	{
+		if (!m_audioSource.isPlaying)
+		{
+			m_audioSource.Play();
+		}
 		float time = Time.time;
 		m_StopMeteorTime = time + duration;
 		m_NextMeteorTime = time + m_DelayBetweenMeteors;

@@ -5,7 +5,10 @@ public class AreaDamageOnContact : MonoBehaviour
 	[SerializeField] ParticleSystem m_ExplosionPrefab;
 	[SerializeField] float m_Damage;
 
-	private void OnCollisionEnter( Collision collision )
+
+
+
+    private void OnCollisionEnter( Collision collision )
 	{
 		Debug.Assert( collision.contactCount > 0, gameObject );
 

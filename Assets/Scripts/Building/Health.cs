@@ -4,6 +4,8 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
 	public class OnDamageEvent : UnityEvent<Health> { }
+	public GameObject m_fireSource;
+
 
 	[SerializeField] float m_InitialHealthRatio = 1.0f;
 	[SerializeField] float m_MaxHealth = 100.0f;
@@ -17,9 +19,18 @@ public class Health : MonoBehaviour
 	private void Awake()
 	{
 		m_Health = m_MaxHealth * m_InitialHealthRatio;
+		
 	}
 
-	public void Modify( float amount )
+    private void Start()
+    {
+		if (m_fireSource != null)
+		{
+			m_fireSource.active = false;
+		}
+	}
+
+    public void Modify( float amount )
 	{
 		float newHealth = Mathf.Clamp( m_Health + amount, 0, m_MaxHealth );
 
@@ -28,6 +39,21 @@ public class Health : MonoBehaviour
 			return;
 		}
 
+		if (HealthRatio < 0.95)
+		{
+			if (m_fireSource != null)
+			{
+				m_fireSource.active = true;
+			}
+		}
+		else
+        {
+			if (m_fireSource != null)
+			{
+				m_fireSource.active = false;
+			}
+
+		}
 		m_Health = newHealth;
 
 		m_OnDamageEvent?.Invoke( this );
@@ -36,7 +62,12 @@ public class Health : MonoBehaviour
 	public void FullHeal()
     {
 		m_Health = m_MaxHealth;
+		if (m_fireSource != null)
+		{
+			m_fireSource.active = true;
+		}
 	}
-  
+
+
 
 }

@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExplosionPrefab: {fileID: 2661947949575048230, guid: d493d9243f4bcfd44a140b068e4db571, type: 3}
   m_Damage: 50
+  m_hitSound: {fileID: 8300000, guid: d71adae7a99c6e2428912f53a4456172, type: 3}
 --- !u!114 &337469985492651422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5477ba1f303de574fa0a5154f79cd4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_fireSource: {fileID: 0}
   m_InitialHealthRatio: 1
   m_MaxHealth: 1
 --- !u!114 &8952605181287942970

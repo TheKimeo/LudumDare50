@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 2da1b5fa94d60e74d85d8f9d75f6e9b3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_dmgSound: {fileID: 8300000, guid: d71adae7a99c6e2428912f53a4456172, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

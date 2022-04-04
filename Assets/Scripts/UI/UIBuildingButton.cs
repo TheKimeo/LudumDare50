@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIBuildingButton : MonoBehaviour
@@ -17,14 +18,18 @@ public class UIBuildingButton : MonoBehaviour
 		m_BuildingType = buildingType;
 		m_Icon.sprite = buildingType.m_UI_Icon;
 
-		m_Button.onClick.RemoveListener( OnButtonClicked );
-		m_Button.onClick.AddListener( OnButtonClicked );
+		EventTrigger eventTrigger = m_Button.GetComponent<EventTrigger>();
+
+		EventTrigger.Entry entry = new EventTrigger.Entry();
+		entry.eventID = EventTriggerType.PointerDown;
+		entry.callback.AddListener( OnButtonClicked );
+		eventTrigger.triggers.Add( entry );
 
 		m_OnPointerEnter = onPointerEnter;
 		m_OnPointerExit = onPointerExit;
 	}
 
-	void OnButtonClicked()
+	void OnButtonClicked( BaseEventData data )
 	{
 		BuildingPlacer buildingPlacer = BuildingPlacer.Instance;
 		buildingPlacer.SetType( m_BuildingType );

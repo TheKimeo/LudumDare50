@@ -12,7 +12,7 @@ public class RandomVertexDamage : MonoBehaviour
 
 	List<GameObject> m_SpawnedPrefabs = new List<GameObject>();
 
-	private void Start()
+	private void Awake()
 	{
 		string failedMeshes = VerifyMeshFilters();
 		if ( string.IsNullOrEmpty( failedMeshes ) == false )
@@ -22,9 +22,14 @@ public class RandomVertexDamage : MonoBehaviour
 		}
 
 		m_Health = GetComponent<Health>();
+	}
+
+	private void Start()
+	{
 		if ( m_Health != null )
 		{
-			m_Health.m_OnDamageEvent.AddListener(OnDamaged);
+			m_Health.m_OnDamageEvent.AddListener( OnDamaged );
+			SetDamage( 1.0f - m_Health.HealthRatio );
 		}
 	}
 
@@ -34,6 +39,10 @@ public class RandomVertexDamage : MonoBehaviour
 		{
 			float damageRatio = 1.0f - m_Health.HealthRatio;
 			SetDamage( damageRatio );
+		}
+		else
+		{
+			SetDamage( 1.0f );
 		}
 	}
 

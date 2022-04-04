@@ -3,7 +3,12 @@ guid: 181f6b871e8c00e46ad919eee027764d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_CenterPoint: {instanceID: 0}
+  - m_HorizontalRotator: {instanceID: 0}
+  - m_VerticalRotator: {instanceID: 0}
+  - m_BuildingState: {instanceID: 0}
+  - m_ShotVisuals: {fileID: 1782126025820220294, guid: 35db3ad6a5bca594b81e4ca370968d01, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

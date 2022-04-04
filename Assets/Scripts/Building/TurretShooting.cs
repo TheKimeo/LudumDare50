@@ -14,6 +14,8 @@ public class TurretShooting : MonoBehaviour
 	[SerializeField] float m_MaxTargetRange;
 	[SerializeField] float m_DelayBetweenShots;
 	[SerializeField] float m_ShotDamage;
+	[Space]
+	[SerializeField] GameObject m_ShotVisuals;
 
 	Transform m_Target;
 	float m_ShootDelay;
@@ -40,7 +42,6 @@ public class TurretShooting : MonoBehaviour
 		if ( m_Target == null )
 		{
 			TryFindTarget();
-			m_ShootDelay = m_DelayBetweenShots;
 		}
 		else
 		{
@@ -71,6 +72,13 @@ public class TurretShooting : MonoBehaviour
 		}
 
 		health.Modify( -m_ShotDamage );
+
+		Vector3 visualsPosition = ( m_Target.position + m_CenterPoint.position ) / 2.0f;
+		Vector3 difference = m_Target.position - m_CenterPoint.position;
+		Vector3 direction = difference.normalized;
+		Quaternion visualsRotation = Quaternion.LookRotation( direction );
+		GameObject spawned = GameObject.Instantiate( m_ShotVisuals, visualsPosition, visualsRotation );
+		spawned.transform.localScale = new Vector3( 1.0f, 1.0f, difference.magnitude );
 	}
 
 	void TryFindTarget()

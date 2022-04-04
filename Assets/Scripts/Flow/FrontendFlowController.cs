@@ -17,7 +17,14 @@ public class FrontendFlowController : MonoBehaviour
 
 	public void ToggleMute()
 	{
-		//TODO
+		if(AudioListener.volume > 0)
+        {
+			AudioListener.volume = 0;
+		}
+		else
+        {
+			AudioListener.volume = 1;
+		}
 	}
 
 	public void Exit()

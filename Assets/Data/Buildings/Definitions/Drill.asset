@@ -21,7 +21,7 @@ MonoBehaviour:
   m_UI_Placement: Over Stone
   m_costData:
   - m_resourceType: {fileID: 11400000, guid: c8dd6186e6681f34c8e64c8af0a44677, type: 2}
-    m_buildCost: 5
+    m_buildCost: 0
     m_productionPerTick: 1.2
     m_capIncrease: 0
   - m_resourceType: {fileID: 11400000, guid: 8760d21c261d8ca4dbac4e7d6df8edfd, type: 2}

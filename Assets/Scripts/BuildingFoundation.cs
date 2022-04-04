@@ -40,13 +40,14 @@ public class BuildingFoundation : MonoBehaviour
 
     public bool IsSafeToPlace()
     {
+        bool posValid = Vector3.Distance(transform.position, Vector3.zero) <= 70;
         if (m_snapMode)
         {
-            return m_isSnapped && CanAfford() ;
+            return m_isSnapped && CanAfford() && posValid;
         }
         else
         {
-            return m_safeToPlace && CanAfford();
+            return m_safeToPlace && CanAfford() && posValid;
         }
     }
 

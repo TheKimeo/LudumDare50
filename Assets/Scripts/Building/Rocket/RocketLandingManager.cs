@@ -13,8 +13,7 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 
 	[SerializeField] Population m_population;
 	[SerializeField] int m_populationAdd = 50;
-
-
+	[Space]
 	[SerializeField] GameObject m_RocketPrefab;
 	[SerializeField] float m_RocketStartHeight;
 	[Space]
@@ -28,6 +27,7 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 
 	static List<int> s_IndexBuffer = new List<int>();
 	List<Landing> m_ActiveLandings = new List<Landing>();
+	public int m_ReservedLandings = 0;
 
 	public float RocketLandingDuration => m_LandingDuration + m_GroundedDuration + m_TakeOffDuration;
 
@@ -48,10 +48,8 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 			if ( landing.m_Target == null || landing.m_Target.isActiveAndEnabled == false )
 			{
 				//Veto the landing as the target vanished/is too damaged
-				//TODO: Explode?
-				Debug.Log( "Interrupting rocket landing as target is no longer a valid landing point" );
-				GameObject.Destroy( landing.m_Rocket.gameObject );
-				m_ActiveLandings.RemoveAt( i );
+				RemoveLanding( i );
+				continue;
 			}
 
 			float duration = currentTime - landing.m_StartTime;
@@ -90,9 +88,15 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 			duration -= m_TakeOffDuration;
 
 			//Full animation complete, can delete our record of it
-			GameObject.Destroy( landing.m_Rocket.gameObject );
-			m_ActiveLandings.RemoveAt( i );
+			RemoveLanding( i );
 		}
+	}
+
+	void RemoveLanding( int index )
+	{
+		m_ReservedLandings -= 1;
+		GameObject.Destroy( m_ActiveLandings[ index ].m_Rocket.gameObject );
+		m_ActiveLandings.RemoveAt( index );
 	}
 
 	//Height ratio is 0 for grounded, 1 for at max height

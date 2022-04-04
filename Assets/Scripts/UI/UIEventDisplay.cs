@@ -27,7 +27,7 @@ public class UIEventDisplay : MonoBehaviour
 	{
 		if ( m_TimelineManager.VisibleSeconds < 0.1f )
 		{
-			if (m_CanvasGroup.alpha > 0.0f )
+			if ( m_CanvasGroup.alpha > 0.0f )
 			{
 				m_CanvasGroup.alpha = Mathf.MoveTowards( m_CanvasGroup.alpha, 0.0f, 2.0f * Time.deltaTime );
 			}
@@ -52,6 +52,12 @@ public class UIEventDisplay : MonoBehaviour
 		for ( int i = 0; i < events.Count; ++i )
 		{
 			EventManager.Event e = events[ i ];
+
+			if ( e.m_Behaviour.m_VisibleOnTimeline == false )
+			{
+				continue;
+			}
+
 			if ( m_TimeEvents.TryGetValue( e, out RectTransform eventTransform ) == false )
 			{
 				eventTransform = AddTimeEvent( e );
@@ -69,7 +75,7 @@ public class UIEventDisplay : MonoBehaviour
 		foreach ( KeyValuePair<EventManager.Event, RectTransform> eventPair in m_TimeEvents )
 		{
 			EventManager.Event e = eventPair.Key;
-			if (queuedEvents.Contains( e ) == false && completedEvents.Contains( e ) == false )
+			if ( queuedEvents.Contains( e ) == false && completedEvents.Contains( e ) == false )
 			{
 				s_RemoveBuffer.Add( e );
 			}
@@ -103,7 +109,7 @@ public class UIEventDisplay : MonoBehaviour
 		transform.SetInsetAndSizeFromParentEdge( RectTransform.Edge.Left, startX, sizeX );
 	}
 
-	float GetTimelineRelativePosition(float time)
+	float GetTimelineRelativePosition( float time )
 	{
 		float timeDifference = time - m_TimeManager.m_CurrentTime;
 		float timeDifferenceRatio = timeDifference / m_TimelineManager.VisibleSeconds;

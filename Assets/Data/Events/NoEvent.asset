@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6491837682e824db700f2e30fcc9e0, type: 3}
   m_Name: NoEvent
   m_EditorClassIdentifier: 
+  m_VisibleOnTimeline: 1
+  m_EventIcon: {fileID: 0}

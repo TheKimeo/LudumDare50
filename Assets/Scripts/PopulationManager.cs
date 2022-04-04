@@ -4,6 +4,7 @@ public class PopulationManager : MonoBehaviour
 {
 	[SerializeField] Population m_population;
 	[SerializeField] float m_TimeUnderCapForRequest = 10.0f;
+	[SerializeField] float m_DelayForRepeatRequest = 1.5f;
 	[SerializeField] float m_RequestDelayToStart = 30.0f;
 	[SerializeField] float m_DelayAfterRequest = 10.0f;
 	[SerializeField] EventBehaviour m_RocketEvent;
@@ -50,7 +51,6 @@ public class PopulationManager : MonoBehaviour
 		if ( m_CheckNextRequestTime > currentTime )
 		{
 			//Waiting until enough time has passed after our previous request
-			m_TimeUntilRequest = m_TimeUnderCapForRequest;
 			return;
 		}
 
@@ -63,6 +63,14 @@ public class PopulationManager : MonoBehaviour
 			m_TimeUntilRequest -= Time.deltaTime;
 		}
 
+		RocketLandingManager rocketManager = RocketLandingManager.Instance;
+
+		if ( rocketManager.m_ReservedLandings >= RocketLandingMarker.AllLandingMarkers.Count )
+		{
+			//No rocket pads are free. Don't add delay, just wait for one to become available
+			return;
+		}
+
 		if ( m_TimeUntilRequest > 0.0f )
 		{
 			//Not enough time has passed under the population cap
@@ -70,8 +78,13 @@ public class PopulationManager : MonoBehaviour
 		}
 
 		EventManager.Event rocketEvent = EventManager.Instance.QueueEvent( m_RocketEvent, m_RequestDelayToStart );
-		m_CheckNextRequestTime = rocketEvent.m_StartTime + rocketEvent.m_Duration + m_DelayAfterRequest;
-		m_TimeUntilRequest = m_TimeUnderCapForRequest;
+		m_TimeUntilRequest = m_DelayForRepeatRequest;
+
+		if ( rocketManager.m_ReservedLandings >= RocketLandingMarker.AllLandingMarkers.Count )
+		{
+			//Only add a big delay if the player runs out of landing pads
+			m_CheckNextRequestTime = rocketEvent.m_StartTime + rocketEvent.m_Duration + m_DelayAfterRequest;
+		}
 	}
 
 	void OnResourceTick()

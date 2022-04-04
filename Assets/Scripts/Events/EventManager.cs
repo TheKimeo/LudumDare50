@@ -59,7 +59,7 @@ public class EventManager : Singleton<EventManager>
 		}
 	}
 
-	public void StartEvent( Event e )
+	void StartEvent( Event e )
 	{
 		e.m_Behaviour.ApplyEvent( e );
 		m_CompletedEvents.Add( e );
@@ -68,6 +68,8 @@ public class EventManager : Singleton<EventManager>
 	public void QueueEvent( Event newEvent )
 	{
 		Debug.Assert( newEvent.m_StartTime >= TimeManager.Instance.m_CurrentTime );
+
+		newEvent.m_Behaviour.OnQueued( newEvent );
 
 		//Keep ordered
 		for ( int i = 0; i < m_QueuedEvents.Count; ++i )
@@ -79,6 +81,7 @@ public class EventManager : Singleton<EventManager>
 			}
 
 			m_QueuedEvents.Insert( i, newEvent );
+			return;
 		}
 
 		m_QueuedEvents.Add( newEvent );

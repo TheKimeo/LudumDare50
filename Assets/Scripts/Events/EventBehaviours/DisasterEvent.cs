@@ -14,4 +14,8 @@ public class DisasterEvent : EventBehaviour
 		DisasterManager disasterManager = DisasterManager.Instance;
 		return disasterManager.CalculateDisasterDuration( difficulty );
 	}
+
+	public override void OnQueued( EventManager.Event e )
+	{
+	}
 }

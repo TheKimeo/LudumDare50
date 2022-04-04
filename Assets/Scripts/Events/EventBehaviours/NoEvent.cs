@@ -12,4 +12,8 @@ public class NoEvent : EventBehaviour
 	{
 		return 1.0f;
 	}
+
+	public override void OnQueued( EventManager.Event e )
+	{
+	}
 }

@@ -14,4 +14,10 @@ public class RocketDeliveryEvent : EventBehaviour
 		RocketLandingManager rocketLandingManager = RocketLandingManager.Instance;
 		return rocketLandingManager.RocketLandingDuration;
 	}
+
+	public override void OnQueued( EventManager.Event e )
+	{
+		RocketLandingManager rocketLandingManager = RocketLandingManager.Instance;
+		rocketLandingManager.m_ReservedLandings += 1;
+	}
 }

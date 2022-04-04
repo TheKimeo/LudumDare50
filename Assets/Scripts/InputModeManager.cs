@@ -68,4 +68,7 @@ public class InputModeManager : Singleton<InputModeManager>
             SetMode(Mode.DELETE);
         }
     }
+
+	public void SetMode_Repair() => SetMode( Mode.REPAIR );
+	public void SetMode_Demolish() => SetMode( Mode.DELETE );
 }

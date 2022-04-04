@@ -22,6 +22,8 @@ public class CameraControl : MonoBehaviour
 	private float m_scrollInertia = 1000;
 	private float m_inertiaDir = 1.0f;
 
+	private int m_layerMask;
+
 	void ResetInertia( float i_dir )
 	{
 		m_scrollInertiaT = 1.0f;
@@ -40,6 +42,7 @@ public class CameraControl : MonoBehaviour
 	{
 		float middlingSize = ( m_minOrthographicSize + m_maxOrthographicSize ) / 2.0f;
 		SetOrthographicSize( middlingSize );
+		m_layerMask = LayerMask.GetMask( "PlaceableGround" );
 	}
 
 	void Update()
@@ -66,14 +69,14 @@ public class CameraControl : MonoBehaviour
 		Vector3 newPos = transform.position + move;
 
 		//Clamp pos
-		Vector2 pos2d = new Vector2( newPos.x, newPos.z );
-		float distance = Vector2.Distance( pos2d, Vector2.zero );
+		Vector2 focalPos2d = GetFocalPosition(newPos);
+		float distance = Vector2.Distance( focalPos2d, Vector2.zero );
 		if ( distance > m_mapRadius )
 		{
-			Vector2 dirVec = pos2d * ( m_mapRadius / distance );
-			pos2d = dirVec;
-			newPos.x = pos2d.x;
-			newPos.z = pos2d.y;
+			Vector2 inBoundsVec2 = focalPos2d * ( m_mapRadius / distance );
+			Vector2 translation = inBoundsVec2 - focalPos2d;
+			newPos.x += translation.x;
+			newPos.z += translation.y;
 		}
 
 		//Zoom cam
@@ -93,6 +96,18 @@ public class CameraControl : MonoBehaviour
 
 		float newSize = Mathf.Clamp( m_orthographicSize, m_minOrthographicSize, m_maxOrthographicSize );
 		SetOrthographicSize( newSize );
+	}
+
+	Vector2 GetFocalPosition( Vector3 camPos )
+	{
+		bool succcess = Physics.Raycast( camPos, Camera.main.transform.forward, out RaycastHit hit, Mathf.Infinity, m_layerMask );
+		if ( succcess )
+		{
+			return new Vector2( hit.point.x, hit.point.z );
+		}
+
+		Debug.Assert( false, "No ground?" );
+		return Vector2.zero;
 	}
 
 	float ToOrthographicRatio( float orthographicSize )

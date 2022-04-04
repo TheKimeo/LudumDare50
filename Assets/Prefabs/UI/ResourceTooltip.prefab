@@ -276,4 +276,4 @@ MonoBehaviour:
   m_ValueText: {fileID: 4856249116605603274}
   m_NeutralColour: {r: 1, g: 1, b: 1, a: 1}
   m_PositiveColour: {r: 0.16470589, g: 0.6313726, b: 0, a: 1}
-  m_NegativeColour: {r: 0.6509804, g: 0, b: 0, a: 1}
+  m_NegativeColour: {r: 1, g: 0, b: 0, a: 1}

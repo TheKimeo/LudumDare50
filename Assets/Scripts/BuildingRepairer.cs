@@ -17,7 +17,9 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
 
     AudioSource m_audioSource;
 
-    void OnInputModeChange(InputModeManager inputModeManager)
+	public BuildingType HoveredBuildingType => m_selectedBuilding?.GetComponent<RepairManager>().m_buildingType;
+
+	void OnInputModeChange(InputModeManager inputModeManager)
     {
         if (inputModeManager.GetMode() != InputModeManager.Mode.REPAIR)
         {
@@ -58,7 +60,8 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
         if (selected != null)
         {
             RepairManager repairComp = selected.GetComponent<RepairManager>();
-            Debug.Assert(repairComp != null);
+
+			Debug.Assert(repairComp != null);
             bool repairInProgress = repairComp.IsRepairInProgress();
             if (!repairInProgress)
             {

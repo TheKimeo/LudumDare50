@@ -1548,11 +1548,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3105070160048299138, guid: 44f65104e9fe84c4a8aa781c6ee62753, type: 3}
       propertyPath: m_EventGenerationOffset
-      value: 1
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3105070160048299138, guid: 44f65104e9fe84c4a8aa781c6ee62753, type: 3}
       propertyPath: m_InitialDelayBetweenEvents
-      value: 1
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3219916762683224556, guid: 44f65104e9fe84c4a8aa781c6ee62753, type: 3}
       propertyPath: m_Name

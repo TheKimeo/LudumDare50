@@ -8,15 +8,18 @@ public class NotificationManager : MonoBehaviour
     public float m_displayTime = 1.0f;
     [SerializeField] TMPro.TextMeshProUGUI m_Text;
     public Image m_icon;
-
+    public AudioClip m_alertSound;
     Queue<Notification> m_notifQueue;
     string m_curNotif = null;
     float m_curNotDisTimer;
+
+    AudioSource m_audioSource;
 
     public void Start()
     {
         m_curNotDisTimer = 0;
         m_notifQueue = new Queue<Notification>();
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     public void PushNotif(Notification i_notif)
@@ -44,6 +47,7 @@ public class NotificationManager : MonoBehaviour
                 m_Text.text = m_curNotif;
                 m_icon.enabled = true;
                 m_icon.sprite = notif.m_UI_Icon;
+                m_audioSource.PlayOneShot(m_alertSound);
             }
             else
             {

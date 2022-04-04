@@ -12,6 +12,11 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
     GameObject m_selectedBuilding;
     public Notification m_noResNotif;
     public NotificationManager m_notifManager;
+
+    public AudioClip m_buildSound;
+
+    AudioSource m_audioSource;
+
     void OnInputModeChange(InputModeManager inputModeManager)
     {
         if (inputModeManager.GetMode() != InputModeManager.Mode.REPAIR)
@@ -38,6 +43,7 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
         m_layerMask = LayerMask.GetMask("Building");
 
         InputModeManager.Instance.m_onModeChange.AddListener(OnInputModeChange);
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     //---------------------------
@@ -74,6 +80,7 @@ public class BuildingRepairer : Singleton<BuildingRepairer>
                     if (repairComp.CanRepair())
                     {
                         repairComp.StartRepair();
+                        m_audioSource.PlayOneShot(m_buildSound);
                     }
                     else if(!repairComp.CanAfford())
                     {

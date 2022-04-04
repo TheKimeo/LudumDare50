@@ -10,6 +10,9 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
     public BuildingType m_defaultType;
     public float m_snapRad = 2.0f;
 
+    public AudioClip m_buildSound;
+
+    AudioSource m_audioSource;
     private GameObject m_ghostBuilding = null;
     private BuildingType m_typeToPlace = null;
     private bool m_enabled = false;
@@ -55,7 +58,7 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
         m_layerMask = LayerMask.GetMask("PlaceableGround");
 
         InputModeManager.Instance.m_onModeChange.AddListener(OnInputModeChange);
-
+        m_audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -133,6 +136,7 @@ public class BuildingPlacer : Singleton<BuildingPlacer>
                         cost.m_resourceType.Modify(-cost.m_buildCost);
                     }
                     Instantiate(m_typeToPlace.m_real, placePos, Quaternion.identity);
+                    m_audioSource.PlayOneShot(m_buildSound);
                 }    
                 else
                 {

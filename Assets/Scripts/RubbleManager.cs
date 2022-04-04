@@ -8,6 +8,12 @@ public class RubbleManager : MonoBehaviour
     public class OnDestroy : UnityEvent<RubbleManager> { }
     public class OnRepair : UnityEvent<RubbleManager> { }
 
+
+    public AudioClip m_destroySound;
+    float m_destroyVolume = 0.02f;
+    AudioSource m_audioSource;
+    
+
     [SerializeField] public OnDestroy m_onDestroy = new OnDestroy();
     [SerializeField] public OnRepair m_onRepair = new OnRepair();
     [SerializeField] GameObject m_destroyEffect;
@@ -27,6 +33,8 @@ public class RubbleManager : MonoBehaviour
         m_Health.m_OnDamageEvent.AddListener(OnDamaged);
         m_rubble.GetComponent<RandomVertexDamage>().SetDamage(1);
         m_rubble.SetActive(false);
+        m_audioSource = GetComponent<AudioSource>();
+        m_audioSource.volume = m_destroyVolume;
     }
 
     private void OnDamaged(Health health)
@@ -37,12 +45,20 @@ public class RubbleManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            DestroyBuilding();
+        }
+    }
+
     void DestroyBuilding()
     {
         m_onDestroy?.Invoke(this);
 
         GameObject.Instantiate(m_destroyEffect, transform);
-
+        m_audioSource.PlayOneShot(m_destroySound);
 
         m_building.SetActive(false);
         m_rubble.SetActive(true);

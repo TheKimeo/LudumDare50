@@ -30,6 +30,12 @@ public class CameraControl : MonoBehaviour
 		m_intertiaTimeStart = Time.time;
 	}
 
+
+	public float GetZoomRatio()
+    {
+		return 1 - Mathf.Lerp(0, 1, m_orthographicSize / m_maxOrthographicSize);
+	}
+
 	private void Start()
 	{
 		float middlingSize = ( m_minOrthographicSize + m_maxOrthographicSize ) / 2.0f;

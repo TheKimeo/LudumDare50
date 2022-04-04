@@ -1063,7 +1063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -270, y: 260}
+  m_AnchoredPosition: {x: -310, y: 290}
   m_SizeDelta: {x: 230, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &7319504556785654743
@@ -1267,6 +1267,7 @@ MonoBehaviour:
   m_Fade: {fileID: 7393341747568404760}
   m_FadeDuration: 0.5
   m_InitialAlpha: 1
+  m_DisableRaycastsAtZeroAlpha: 1
 --- !u!1 &2655856276034980357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -30, y: 30}
+  m_AnchoredPosition: {x: -60, y: 60}
   m_SizeDelta: {x: 230, y: 230}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &8067326501928007522
@@ -2922,6 +2923,7 @@ MonoBehaviour:
   m_Fade: {fileID: 1283113382807890766}
   m_FadeDuration: 0.5
   m_InitialAlpha: 0
+  m_DisableRaycastsAtZeroAlpha: 1
 --- !u!222 &7923505158121449615
 CanvasRenderer:
   m_ObjectHideFlags: 0

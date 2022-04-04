@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MeteorManager : MonoBehaviour, IDisaster
 {
+	public float m_soundFadeTime = 5.0f;
 	[SerializeField] GameObject m_MeteorPrefab;
 	[SerializeField] float m_MeteorSpawnRadius;
 	[SerializeField] float m_MeteorSpawnHeight;
@@ -13,25 +14,47 @@ public class MeteorManager : MonoBehaviour, IDisaster
 	float m_NextMeteorTime;
 	AudioSource m_audioSource;
 
+	float m_tSinceAudioFade = 0;
+	bool m_audioFading = false;
+	float m_audioVolStart;
+
 	void Start()
 	{
 		m_StopMeteorTime = -1.0f;
 		m_NextMeteorTime = -1.0f;
 		m_audioSource = GetComponent<AudioSource>();
 		Debug.Assert( m_DelayBetweenMeteors >= 0.01f, "[MeteorManager] Must have a delay >= 0.01 between meteors or the game will lag out and die" );
+		m_audioVolStart = m_audioSource.volume;
 	}
 
 	void Update()
 	{
+		if(m_audioFading)
+        {
+			m_tSinceAudioFade += Time.deltaTime;
+			if(m_tSinceAudioFade >= m_soundFadeTime)
+            {
+				m_audioSource.Pause();
+				m_audioSource.volume = m_audioVolStart;
+				m_tSinceAudioFade = 0;
+				m_audioFading = false;
+			}
+			else
+            {
+				m_audioSource.volume = Mathf.Lerp(m_audioVolStart, 0.0f, m_tSinceAudioFade / m_soundFadeTime); 
+			}
+		}
+
 		float time = Time.time;
 		if ( m_StopMeteorTime < time )
 		{
 			//Stop audio here
-			m_audioSource.Pause();
+			if (m_audioSource.isPlaying)
+			{
+				m_audioFading = true;
+			}
 			return;
 		}
-
-	
 
 		DifficultyManager difficultyManager = DifficultyManager.Instance;
 		float difficulty = difficultyManager.Difficulty;

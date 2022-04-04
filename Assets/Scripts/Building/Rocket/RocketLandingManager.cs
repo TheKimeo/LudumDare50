@@ -68,8 +68,10 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 			{
 				if ( landing.m_HasLanded == false )
 				{
+					//Stop Sound
 					OnRocketLanded( landing );
 					landing.m_HasLanded = true;
+					landing.m_Rocket.gameObject.GetComponent<AudioSource>().Pause();
 					m_ActiveLandings[ i ] = landing;
 				}
 
@@ -80,6 +82,11 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 
 			if ( duration <= m_TakeOffDuration )
 			{
+				//Start sound
+				if (!landing.m_Rocket.gameObject.GetComponent<AudioSource>().isPlaying)
+				{
+					landing.m_Rocket.gameObject.GetComponent<AudioSource>().Play();
+				}
 				float ratio = Mathf.Clamp01( duration / m_LandingDuration );
 				float mappedRatio = m_TakeOffCurve.Evaluate( ratio );
 				landing.m_Rocket.position = CalculateRocketPosition( landing.m_Target, mappedRatio );
@@ -97,6 +104,10 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 		m_ReservedLandings -= 1;
 		GameObject.Destroy( m_ActiveLandings[ index ].m_Rocket.gameObject );
 		m_ActiveLandings.RemoveAt( index );
+		m_ActiveLandings[index].m_Rocket.gameObject.GetComponent<AudioSource>().Pause();
+
+
+		//turn off sound
 	}
 
 	//Height ratio is 0 for grounded, 1 for at max height
@@ -133,6 +144,9 @@ public class RocketLandingManager : Singleton<RocketLandingManager>
 			m_StartTime = timeManager.m_CurrentTime,
 			m_HasLanded = false,
 		} );
+
+		//Start sound
+		rocket.gameObject.GetComponent<AudioSource>().Play();
 
 		return true;
 	}

@@ -4,6 +4,8 @@ using UnityEngine;
 public class TurretShooting : MonoBehaviour
 {
 	public AudioSource m_turretAudio;
+	public AudioSource m_turretShootAudio;
+	public AudioClip m_turretShootClip;
 
 	[SerializeField] Transform m_CenterPoint; //This is so the rotations are relative to the center of the barrels
 	[SerializeField] Transform m_HorizontalRotator;
@@ -74,6 +76,11 @@ public class TurretShooting : MonoBehaviour
 		}
 
 		health.Modify( -m_ShotDamage );
+
+		if(!m_turretShootAudio.isPlaying)
+        {
+			m_turretShootAudio.PlayOneShot(m_turretShootClip);
+        }
 
 		Vector3 visualsPosition = ( m_Target.position + m_CenterPoint.position ) / 2.0f;
 		Vector3 difference = m_Target.position - m_CenterPoint.position;

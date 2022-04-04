@@ -120,6 +120,11 @@ public class TurretShooting : MonoBehaviour
         {
 			m_turretAudio.Play();
         }
+		if(!m_Target)
+        {
+			m_turretAudio.Pause();
+
+		}
 	}
 
 	void AimAtTarget()

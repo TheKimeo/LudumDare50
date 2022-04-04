@@ -7,12 +7,12 @@ public class FrontendFlowController : MonoBehaviour
 
 	private void Start()
 	{
-		m_FadeController.FadeOutBlack();
+		m_FadeController.FadeOut();
 	}
 
 	public void Play()
 	{
-		m_FadeController.FadeInBlack( () => SceneManager.LoadScene( "Main" ) );
+		m_FadeController.FadeIn( () => SceneManager.LoadScene( "Main" ) );
 	}
 
 	public void ToggleMute()

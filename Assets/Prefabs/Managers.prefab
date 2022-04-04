@@ -790,6 +790,7 @@ MonoBehaviour:
   m_MeteorSpawnHeight: 30
   m_DelayBetweenMeteors: 0.1
   m_MeteorFrequencyDifficultyScale: 3
+  m_stormSound: {fileID: 0}
 --- !u!1 &5749632608691614479
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +985,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90451edb254dbff448f02db6381fdc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FadeController: {fileID: 0}
+  m_Population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
+  m_Buildings: {fileID: 0}
 --- !u!1 &8115083209365775058
 GameObject:
   m_ObjectHideFlags: 0

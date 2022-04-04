@@ -6,6 +6,7 @@ public class FadeController : MonoBehaviour
 	[SerializeField] CanvasGroup m_Fade;
 	[SerializeField] float m_FadeDuration = 0.5f;
 	[SerializeField] float m_InitialAlpha = 1.0f;
+	[SerializeField] bool m_DisableRaycastsAtZeroAlpha = true;
 
 	float m_FadeStartTime;
 	float m_AlphaTarget;
@@ -19,6 +20,15 @@ public class FadeController : MonoBehaviour
 
 	private void Update()
 	{
+		if ( m_DisableRaycastsAtZeroAlpha )
+		{
+			bool blockRaycasts = m_Fade.alpha > 0.0f;
+			if ( m_Fade.blocksRaycasts != blockRaycasts )
+			{
+				m_Fade.blocksRaycasts = blockRaycasts;
+			}
+		}
+
 		if ( m_Fade.alpha == m_AlphaTarget )
 		{
 			return;
@@ -34,7 +44,7 @@ public class FadeController : MonoBehaviour
 		}
 	}
 
-	public void FadeInBlack( UnityAction onComplete = null )
+	public void FadeIn( UnityAction onComplete = null )
 	{
 		m_AlphaTarget = 1.0f;
 		m_Fade.alpha = 0.0f;
@@ -42,7 +52,7 @@ public class FadeController : MonoBehaviour
 		m_OnComplete = onComplete;
 	}
 
-	public void FadeOutBlack( UnityAction onComplete = null )
+	public void FadeOut( UnityAction onComplete = null )
 	{
 		m_AlphaTarget = 0.0f;
 		m_Fade.alpha = 1.0f;

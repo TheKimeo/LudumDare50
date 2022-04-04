@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 210735215890347601}
   - component: {fileID: 3826659770048459095}
   m_Layer: 5
-  m_Name: ExampleEvent
+  m_Name: TimelineEvent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

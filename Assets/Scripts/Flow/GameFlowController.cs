@@ -34,6 +34,11 @@ public class GameFlowController : MonoBehaviour
 		m_FadeController.FadeIn( () => SceneManager.LoadScene( "Main" ) );
 	}
 
+	public void MainMenu()
+	{
+		m_FadeController.FadeIn( () => SceneManager.LoadScene( "Frontend" ) );
+	}
+
 	private void Update()
 	{
 		if ( m_Playing == false )

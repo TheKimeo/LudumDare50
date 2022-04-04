@@ -510,7 +510,7 @@ MonoBehaviour:
   m_ToGenerate: {fileID: 11400000, guid: 0201114128ef6024ebf45fb955db6edd, type: 2}
   m_InitialDelayBetweenEvents: 60
   m_EventGenerationOffset: 30
-  m_FrequencyDifficultyScale: 0.8
+  m_FrequencyDifficultyScale: 0.6
 --- !u!1 &3219916762683224556
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +990,9 @@ MonoBehaviour:
   m_FadeController: {fileID: 0}
   m_Population: {fileID: 11400000, guid: f6ed995e1c5e8ab42bb183d65662b271, type: 2}
   m_Buildings: {fileID: 0}
+  m_NoPopulation: {fileID: 0}
+  m_DurationText: {fileID: 0}
+  m_MaxPopulationText: {fileID: 0}
 --- !u!1 &8115083209365775058
 GameObject:
   m_ObjectHideFlags: 0

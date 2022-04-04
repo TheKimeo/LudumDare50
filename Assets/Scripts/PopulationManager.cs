@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PopulationManager : MonoBehaviour
+public class PopulationManager : MonoBehaviour, ResourceManager.IResourceModifier
 {
 	[SerializeField] Population m_population;
 	[SerializeField] float m_TimeUnderCapForRequest = 10.0f;
@@ -29,13 +29,13 @@ public class PopulationManager : MonoBehaviour
 	private void OnEnable()
 	{
 		ResourceManager resourceManager = ResourceManager.Instance;
-		resourceManager.m_OnTickEvent += OnResourceTick;
+		resourceManager.m_OnTickEvent.Add( this );
 	}
 
 	private void OnDisable()
 	{
 		ResourceManager resourceManager = ResourceManager.Instance;
-		resourceManager.m_OnTickEvent -= OnResourceTick;
+		resourceManager.m_OnTickEvent.Remove( this );
 	}
 
 	void Update()
@@ -87,16 +87,24 @@ public class PopulationManager : MonoBehaviour
 		}
 	}
 
-	void OnResourceTick()
+	void ResourceManager.IResourceModifier.OnGainTick( Resource resource, ref float currentCumulative )
 	{
+	}
 
-		float toConsume = -m_population.m_Value * m_population.m_foodConsumptionRate;
-		if ( m_population.m_foodResource.CanConsume( -toConsume ) == false )
+	void ResourceManager.IResourceModifier.OnLossTick( Resource resource, ref float currentCumulative )
+	{
+		if ( resource != m_population.m_foodResource )
 		{
-			m_notifManager.PushNotif( m_popFoodAlert );
-			m_population.Modify(-m_famineRate);
+			return;
 		}
 
-		m_population.m_foodResource.Modify( toConsume );
+		float toConsume = m_population.m_Value * m_population.m_foodConsumptionRate;
+		if ( ( resource.m_Value + currentCumulative ) < toConsume )
+		{
+			m_notifManager.PushNotif( m_popFoodAlert );
+			m_population.Modify( -m_famineRate );
+		}
+
+		currentCumulative -= toConsume;
 	}
 }

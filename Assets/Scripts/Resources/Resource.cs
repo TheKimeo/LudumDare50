@@ -15,10 +15,7 @@ public class Resource : ScriptableObject
 	[HideInInspector] public float m_Min;
 	[HideInInspector] public float m_Max;
 
-	[HideInInspector] public float m_BeforeTick;
-	[HideInInspector] public float m_AfterTick;
-
-	public float DifferencePerTick => m_AfterTick - m_BeforeTick;
+	[HideInInspector] public float m_DifferencePerTick;
 
 	public void Initialise()
 	{

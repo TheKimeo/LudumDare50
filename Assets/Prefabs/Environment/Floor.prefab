@@ -92,21 +92,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Layers:
-  - m_Density: 0.15
+  - m_Density: 0.17
     m_BlockedRadius: 1
     m_AllowIntersectWithinLayer: 0
-    m_InnerRadius: 2
-    m_OuterRadius: 40
+    m_InnerRadius: 3
+    m_OuterRadius: 25
     m_Decorations:
     - {fileID: 11400000, guid: e932edf1cbc386c4db1cad4d7372f57a, type: 2}
     - {fileID: 11400000, guid: 56d91afb0648f2049a2e40d33aca5825, type: 2}
   - m_Density: 0.1
     m_BlockedRadius: 1
     m_AllowIntersectWithinLayer: 0
-    m_InnerRadius: 35
+    m_InnerRadius: 25
     m_OuterRadius: 65
     m_Decorations:
-    - {fileID: 11400000, guid: 7ab48f4936b2d78489ed445bd3ff115e, type: 2}
+    - {fileID: 11400000, guid: e932edf1cbc386c4db1cad4d7372f57a, type: 2}
+    - {fileID: 11400000, guid: 56d91afb0648f2049a2e40d33aca5825, type: 2}
   - m_Density: 0.4
     m_BlockedRadius: 1
     m_AllowIntersectWithinLayer: 1

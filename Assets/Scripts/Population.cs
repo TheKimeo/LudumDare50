@@ -30,13 +30,20 @@ public class Population : ScriptableObject
 	public void Modify(float amount)
 	{
 		float newValue = m_Value + amount;
-		m_Value = Mathf.Clamp(newValue, 0, m_cap);
+		if (amount > 0)
+		{
+			m_Value = Mathf.Clamp(newValue, 0, m_cap);
+		}
+		else
+        {
+			m_Value = Mathf.Max(newValue, 0);
+		}
 	}
 
 	public void ModifyCap(float amount)
 	{
 		m_cap = m_cap + amount;
-		m_Value = Mathf.Clamp(m_Value, 0, m_cap);
+		//m_Value = Mathf.Clamp(m_Value, 0, m_cap);
 	}
 }
 

@@ -5138,8 +5138,9 @@ Transform:
   - {fileID: 7996962843603028886}
   - {fileID: 5254059358355455620}
   - {fileID: 8109218248097360502}
-  - {fileID: 5144062062492315705}
+  - {fileID: 8646931979920194635}
   - {fileID: 7945720868898453511}
+  - {fileID: 5144062062492315705}
   m_Father: {fileID: 4009553836228149164}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
@@ -5261,7 +5262,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ce9127def3c9176478ca6ea4609b5348, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5898,7 +5899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 349467660287599505, guid: c3c52c3fd1b397f4884436e8f9a8cf81, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 349467660287599505, guid: c3c52c3fd1b397f4884436e8f9a8cf81, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6221,6 +6222,10 @@ PrefabInstance:
       propertyPath: m_health
       value: 
       objectReference: {fileID: 1450518806427171659}
+    - target: {fileID: 7757917089039104087, guid: 420bbe2ac88649241aa8e3b7f03494b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 420bbe2ac88649241aa8e3b7f03494b8, type: 3}
 --- !u!4 &7945720868898453511 stripped

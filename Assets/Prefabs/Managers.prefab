@@ -100,6 +100,7 @@ MonoBehaviour:
   m_DelayAfterRequest: 10
   m_RocketEvent: {fileID: 11400000, guid: c01411ef68b419548b1e980871b5d2e2, type: 2}
   m_popFoodAlert: {fileID: 11400000, guid: ff8e6e3ef367d1a4393ff337261f4067, type: 2}
+  m_noHouseAlert: {fileID: 11400000, guid: b7f48c086f0075140a24d831ba600ccb, type: 2}
   m_notifManager: {fileID: 0}
   m_famineRate: 1
 --- !u!1 &3219916762022093861
@@ -785,6 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ad3c85209d1dc43a44754f6a7d8465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_soundFadeTime: 5
   m_MeteorPrefab: {fileID: 7524829497299245041, guid: 20458189e8086bd4b9b9af288b7c7821, type: 3}
   m_MeteorSpawnRadius: 70
   m_MeteorSpawnHeight: 30

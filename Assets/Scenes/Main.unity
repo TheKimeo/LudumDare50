@@ -1075,19 +1075,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4535300069796784838, guid: 44f65104e9fe84c4a8aa781c6ee62753, type: 3}
   m_PrefabInstance: {fileID: 3219916762203279065}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &501196468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501196465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c401fd9723a1c7e45870733fa3e3fb04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_minMult: 0.01
 --- !u!82 &501196469
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1100,7 +1087,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: df4e7eec4cc7f6c4f96dad132f694962, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.01
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1547,6 +1534,10 @@ PrefabInstance:
     - target: {fileID: 3219916762683224559, guid: 44f65104e9fe84c4a8aa781c6ee62753, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535300069796784833, guid: 44f65104e9fe84c4a8aa781c6ee62753, type: 3}
+      propertyPath: m_soundFadeTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8030756461817553710, guid: 44f65104e9fe84c4a8aa781c6ee62753, type: 3}
       propertyPath: m_Buildings

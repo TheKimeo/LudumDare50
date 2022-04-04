@@ -64,6 +64,10 @@ public class RubbleManager : MonoBehaviour
 
         m_building.SetActive(false);
         m_rubble.SetActive(true);
+
+        m_rubble.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+
+        
     }
 
     public void RepairBuilding()

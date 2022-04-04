@@ -58,6 +58,7 @@ MonoBehaviour:
   m_DifferenceText: {fileID: 1518783752011908854}
   m_PositiveValueColour: {r: 1, g: 1, b: 1, a: 1}
   m_NegativeValueColour: {r: 0.6509434, g: 0, b: 0, a: 1}
+  m_CapValueColour: {r: 0.16470589, g: 0.6313726, b: 0, a: 1}
   m_PositiveDifferenceColour: {r: 0.16664544, g: 0.6320754, b: 0, a: 1}
   m_NegativeDifferenceColour: {r: 0.6509804, g: 0, b: 0, a: 1}
   m_Icon: {fileID: 3378073622277721636}

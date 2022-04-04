@@ -8,6 +8,7 @@ public class UIResourceText : MonoBehaviour
 	[SerializeField] TMPro.TextMeshProUGUI m_DifferenceText;
 	[SerializeField] Color m_PositiveValueColour;
 	[SerializeField] Color m_NegativeValueColour;
+	[SerializeField] Color m_CapValueColour;
 	[SerializeField] Color m_PositiveDifferenceColour;
 	[SerializeField] Color m_NegativeDifferenceColour;
 	[SerializeField] Image m_Icon;
@@ -29,7 +30,11 @@ public class UIResourceText : MonoBehaviour
 		int value = Mathf.RoundToInt( m_Resource.m_Value * 10.0f );
 		int max = Mathf.RoundToInt( m_Resource.m_Max * 10.0f );
 		m_ValueText.text = value + "/" + max;
-		if ( value > 0 )
+		if ( value == max && value != 0 )
+		{
+			m_ValueText.color = m_CapValueColour;
+		}
+		else if ( value > 0 )
 		{
 			m_ValueText.color = m_PositiveValueColour;
 		}

@@ -19,7 +19,6 @@ public class ResourceModifier : MonoBehaviour
 		}
 
 		m_population.ModifyCap(m_buildingType.m_popCapIncrease);
-
 	}
 
     private void OnDisable()
@@ -46,7 +45,8 @@ public class ResourceModifier : MonoBehaviour
 			float modifyAmount = cost.m_productionPerTick;
 			if ( modifyAmount > 0.0f )
 			{
-				modifyAmount += cost.m_productionPerTick * m_population.m_Value * m_popResBoost.Value;
+				float popModification = m_population.m_Value * m_popResBoost.Value + 1.0f;
+				modifyAmount += cost.m_productionPerTick * popModification;
 				//Only positive generation is effected by operational shutdown
 				modifyAmount *= m_buildingState.OperationalRatio;
 			}

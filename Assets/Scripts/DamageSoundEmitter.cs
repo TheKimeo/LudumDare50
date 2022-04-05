@@ -8,6 +8,7 @@ public class DamageSoundEmitter : MonoBehaviour
     public AudioClip m_dmgSound;
     AudioSource m_audioSource;
     public Health m_health;
+    float m_lastHealthVal = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,14 @@ public class DamageSoundEmitter : MonoBehaviour
     {
        if(!m_audioSource.isPlaying)
         {
-            m_audioSource.PlayOneShot(m_dmgSound);
+            if (health.HealthRatio < m_lastHealthVal)
+            {
+                m_audioSource.PlayOneShot(m_dmgSound);
+            }
+
         }
+        m_lastHealthVal = health.HealthRatio;
+
     }
 
     // Update is called once per frame

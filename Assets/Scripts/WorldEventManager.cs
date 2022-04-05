@@ -39,6 +39,7 @@ public class WorldEventManager : MonoBehaviour
 		{
 			m_Hovered?.m_OnMouseUnHover.Invoke();
 			m_Hovered = null;
+			m_Down = null;
 			return;
 		}
 
@@ -50,5 +51,6 @@ public class WorldEventManager : MonoBehaviour
 			m_Hovered = toHover;
 			m_Hovered.m_OnMouseHover.Invoke();
 		}
+	
 	}
 }

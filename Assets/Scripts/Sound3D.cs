@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sound3D : MonoBehaviour
 {
-    public float m_minMult = 0.01f;
+     float m_minMult = 0.2f;
     AudioSource m_audioSource;
     float m_baseVol;
     CameraControl m_camScript;
